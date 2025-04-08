@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InkedEssence</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body class="theme-light bg-white text-gray-800 transition-colors duration-300">
+    <nav class="fixed w-full bg-white shadow-lg z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <h1 class="font-['Pacifico'] text-2xl">InkedEssence</h1>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="hover:text-primary cursor-pointer">Home</a>
+                    <a href="#" class="hover:text-primary cursor-pointer">Shop</a>
+                    <a href="#" class="hover:text-primary cursor-pointer">Categories</a>
+                    <a href="#" class="hover:text-primary cursor-pointer">About</a>
+                    <a href="#" class="hover:text-primary cursor-pointer">Contact</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="cartBtn" class="w-8 h-8 flex items-center justify-center cursor-pointer">
+                        <i class="ri-shopping-cart-line text-xl"></i>
+                        <span id="cartCount" class="absolute top-2 right-0 bg-primary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </button>
+                    <button id="loginBtn" class="bg-primary text-white px-4 py-2 rounded hover:bg-opacity-90 transition-colors duration-300 cursor-pointer">Login/Signup</button>
+                    <button id="themeToggle" class="w-8 h-8 flex items-center justify-center cursor-pointer">
+                        <i class="ri-sun-line text-xl"></i>
+                    </button>
+                    <button class="md:hidden w-8 h-8 flex items-center justify-center cursor-pointer">
+                        <i class="ri-menu-line text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="pt-16">
+        <div class="bg-gradient-to-r from-primary/10 to-secondary/10 py-16">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-5xl font-bold text-center mb-6">New Collection 2025</h2>
+                <p class="text-xl text-center mb-8">Discover our latest collection featuring elegant designs and premium materials</p>
+                <button class="bg-primary text-white px-8 py-3 rounded-button hover:bg-opacity-90 transition-colors duration-300 cursor-pointer whitespace-nowrap">
+                    Shop Now
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 py-16">
+        <div class="flex flex-col items-center mb-12">
+            <div class="flex justify-center space-x-8 mb-8">
+                <button id="menBtn" class="text-xl font-semibold px-8 py-2 rounded-full border-2 border-primary hover:bg-primary hover:text-white transition-all duration-300">Men</button>
+                <button id="womenBtn" class="text-xl font-semibold px-8 py-2 rounded-full border-2 border-primary hover:bg-primary hover:text-white transition-all duration-300">Women</button>
+            </div>
+            <h2 class="text-3xl font-bold">Featured Products</h2>
+            <div id="productContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 transition-transform duration-500">
+                <!-- Product Cards will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="font-['Pacifico'] text-2xl mb-4">InkedEssence</h3>
+                    <p class="text-gray-400">Premium fashion for the modern individual. Quality meets style in every piece.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white cursor-pointer">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white cursor-pointer">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white cursor-pointer">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white cursor-pointer">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>123 Fashion Street</li>
+                        <li>New York, NY 10001</li>
+                        <li>Phone: (555) 123-4567</li>
+                        <li>Email: info@inkedessence.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8">
+                <div class="max-w-md mx-auto text-center">
+                    <h4 class="text-lg font-semibold mb-4">Subscribe to Our Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Stay updated with our latest collections and exclusive offers</p>
+                    <form class="flex space-x-2">
+                        <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-2 rounded-button bg-gray-800 border-none text-white" required>
+                        <button type="submit" class="bg-primary text-white px-6 py-2 rounded-button hover:bg-opacity-90 transition-colors duration-300 cursor-pointer whitespace-nowrap">Subscribe</button>
+                    </form>
+                </div>
+                <div class="text-center text-gray-400 mt-8">
+                    <p>&copy; 2025 InkedEssence. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="cartModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+        <div class="absolute right-0 top-0 h-full w-96 bg-white p-6 shadow-lg">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-bold">Shopping Cart</h3>
+                <button id="closeCart" class="w-8 h-8 flex items-center justify-center cursor-pointer">
+                    <i class="ri-close-line text-xl"></i>
+                </button>
+            </div>
+            <div id="cartItems" class="space-y-4">
+                <p class="text-gray-500 text-center">Your cart is empty</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
