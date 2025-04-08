@@ -1,14 +1,40 @@
+/* Base Theme Variables */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --subtext-color: #666666;
+    --menu-bg-color: #f7f7f7;
+    --button-bg-color: #4f46e5;
+    --button-text-color: #ffffff;
+    --button-hover-bg-color: #4338ca; /* Added for hover */
+}
+
+/* Dark Theme Variables */
+html[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --subtext-color: #cccccc;
+    --menu-bg-color: #1e1e1e;
+    --button-bg-color: #6366f1;
+    --button-text-color: #ffffff;
+    --button-hover-bg-color: #4f3efc; /* Slightly lighter/darker for contrast */
+}
+
+/* Apply Variables */
 body {
-    background-color: #ffffff;
+    background-color: var(--bg-color);
     font-family: Arial, sans-serif;
     font-size: 12px;
     margin: 0;
     padding: 0;
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .menu {
-    background-color: #f7f7f7;
+    background-color: var(--menu-bg-color);
     padding: 10px;
+    transition: background-color 0.3s ease;
 }
 
 .menu ul {
@@ -23,7 +49,8 @@ body {
 
 .menu a {
     text-decoration: none;
-    color: #333;
+    color: var(--text-color);
+    transition: color 0.3s ease;
 }
 
 header {
@@ -33,40 +60,49 @@ header {
 
 header h1 {
     font-size: 36px;
-    color: #333;
+    color: var(--text-color);
 }
 
 header p {
     font-size: 18px;
-    color: #666;
+    color: var(--subtext-color);
 }
 
+/* Button Style */
 .button {
-    background-color: #4f46e5; /* Primary color */
-    color: #fff;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: inline-block;
 }
 
-.gallery {
-    text-align: center;
-    margin: 20px 0;
+/* Hover state for buttons */
+.button:hover {
+    background-color: var(--button-hover-bg-color);
+    cursor: pointer;
 }
 
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #f7f7f7;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-
+/* Cart Modal */
 #cartModal {
     display: none; /* Hidden by default */
 }
 
 #cartModal.active {
     display: block; /* Show when active */
+}
+
+/* Cart Count Badge */
+#cartCount {
+    background-color: red;
+    color: white;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: -5px;
+    transform: translate(50%, -50%);
 }
