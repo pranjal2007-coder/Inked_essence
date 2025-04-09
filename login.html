@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login / Signup</title>
+  <link rel="stylesheet" href="login.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="toggle-theme" id="themeToggle">
+      <i class="ri-sun-line" id="themeIcon"></i>
+    </div>
+    <div class="tab-header">
+      <button class="tab-btn active" data-tab="login">Login</button>
+      <button class="tab-btn" data-tab="signup">Signup</button>
+    </div>
+
+    <div class="tab-content active" id="loginTab">
+      <input type="email" placeholder="Email" id="loginEmail" />
+      <input type="password" placeholder="Password" id="loginPassword" />
+      <button id="loginSubmit">Login</button>
+    </div>
+
+    <div class="tab-content" id="signupTab">
+      <input type="text" placeholder="Full Name" id="signupName" />
+      <input type="email" placeholder="Email" id="signupEmail" />
+      <input type="password" placeholder="Password" id="signupPassword" />
+      <button id="signupSubmit">Signup</button>
+    </div>
+  </div>
+
+  <script src="login.js"></script>
+</body>
+</html>
