@@ -3,26 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login / Signup</title>
-  <link rel="stylesheet" href="login.css">
+  <title>Login / Signup - InkedEssence</title>
+  <link rel="stylesheet" href="login.css" />
   <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
 </head>
 <body>
   <div class="container">
-    <div class="toggle-theme" id="themeToggle">
+    <!-- 🔙 Back to Site -->
+    <a href="index.html" class="back-button" title="Go back to homepage">
+      <i class="ri-arrow-left-line"></i> Back to Site
+    </a>
+
+    <!-- 🌗 Theme Toggle -->
+    <div class="toggle-theme" id="themeToggle" title="Toggle Theme">
       <i class="ri-sun-line" id="themeIcon"></i>
     </div>
+
+    <!-- 🏷️ Title -->
+    <h2 class="title">Welcome to <span class="highlight">InkedEssence</span></h2>
+
+    <!-- 🔄 Tab Headers -->
     <div class="tab-header">
       <button class="tab-btn active" data-tab="login">Login</button>
       <button class="tab-btn" data-tab="signup">Signup</button>
     </div>
 
+    <!-- 🔐 Login Form -->
     <div class="tab-content active" id="loginTab">
       <input type="email" placeholder="Email" id="loginEmail" />
       <input type="password" placeholder="Password" id="loginPassword" />
+      <div class="forgot-wrap">
+        <a href="#" class="forgot-link">Forgot Password?</a>
+      </div>
       <button id="loginSubmit">Login</button>
     </div>
 
+    <!-- 📝 Signup Form -->
     <div class="tab-content" id="signupTab">
       <input type="text" placeholder="Full Name" id="signupName" />
       <input type="email" placeholder="Email" id="signupEmail" />
@@ -31,6 +47,38 @@
     </div>
   </div>
 
+  <!-- 🌍 Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>InkedEssence</h3>
+        <p>Premium fashion for the modern individual. Quality meets style in every piece.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact Info</h4>
+        <ul>
+          <li>123 Fashion Street</li>
+          <li>New York, NY 10001</li>
+          <li>Phone: (555) 123-4567</li>
+          <li>Email: info@inkedessence.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 InkedEssence. All rights reserved.</p>
+    </div>
+  </footer>
+
   <script src="login.js"></script>
 </body>
 </html>
+
