@@ -1,0 +1,135 @@
+/* Font and Base Styles */
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: #f9fafb;
+  color: #1f2937;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Mode Styles */
+body.dark {
+  background-color: #111827;
+  color: #f3f4f6;
+}
+
+body.dark input,
+body.dark textarea {
+  background-color: #1f2937;
+  color: #f3f4f6;
+  border: 1px solid #374151;
+}
+
+body.dark input::placeholder,
+body.dark textarea::placeholder {
+  color: #9ca3af;
+}
+
+body.dark .form-box,
+body.dark .map-part {
+  background-color: #1f2937;
+  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
+}
+
+body.dark nav {
+  background-color: #111827;
+  border-color: #374151;
+}
+
+body.dark a,
+body.dark .nav-link {
+  color: #d1d5db;
+}
+
+body.dark a:hover,
+body.dark .nav-link:hover {
+  color: #ffffff;
+}
+
+body.dark .submit-btn {
+  background-color: #2563eb;
+  color: white;
+}
+
+body.dark .submit-btn:hover {
+  background-color: #1d4ed8;
+}
+
+/* Logo Font */
+.logo-text {
+  font-family: 'Pacifico', cursive;
+}
+
+/* Navigation Links */
+.nav-links a,
+.navbar-nav .nav-link {
+  font-family: 'Nunito', sans-serif;
+  color: #4b5563;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover,
+.navbar-nav .nav-link:hover {
+  color: #111827;
+}
+
+/* Contact Section */
+.contact-section {
+  padding: 40px 20px;
+}
+
+/* Form and Map Cards */
+.form-box,
+.map-part {
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Inputs */
+.input,
+.textinput,
+.form-control {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: white;
+  color: #111827;
+  font-size: 1rem;
+}
+
+/* Submit Button */
+.submit-btn,
+.btn-primary {
+  padding: 10px 20px;
+  background-color: #005eff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover,
+.btn-primary:hover {
+  background-color: #0041cc;
+}
+
+/* Section Title */
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-family: 'Nunito', sans-serif;
+}
+
+/* Map Iframe */
+.map-box iframe {
+  width: 100%;
+  height: 300px;
+  border: 0;
+  border-radius: 12px;
+}
