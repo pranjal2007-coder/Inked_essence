@@ -1,0 +1,132 @@
+:root {
+    --bg-light: #f9f9f9;
+    --bg-dark: #1e1e1e;
+    --text-light: #000;
+    --text-dark: #fff;
+    --card-bg-light: #fff;
+    --card-bg-dark: #2b2b2b;
+    --accent: #2563eb;
+  }
+  
+  [data-theme="light"] {
+    --bg: var(--bg-light);
+    --text: var(--text-light);
+    --card-bg: var(--card-bg-light);
+  }
+  
+  [data-theme="dark"] {
+    --bg: var(--bg-dark);
+    --text: var(--text-dark);
+    --card-bg: var(--card-bg-dark);
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .container {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    width: 320px;
+    position: relative;
+    transition: background-color 0.3s;
+  }
+  
+  .toggle-theme {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+  }
+  
+  .toggle-theme i {
+    font-size: 1.3rem;
+  }
+  
+  .tab-header {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #e0e0e0;
+  }
+  
+  .tab-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    padding: 0.8rem;
+    font-weight: bold;
+    font-size: 1rem;
+    color: var(--text);
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+  }
+  
+  .tab-btn.active {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+  
+  .tab-content {
+    display: none;
+    flex-direction: column;
+    gap: 0.8rem;
+    animation: fade 0.3s ease-in-out;
+  }
+  
+  .tab-content.active {
+    display: flex;
+  }
+  
+  input {
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    font-size: 0.95rem;
+    transition: border-color 0.3s;
+  }
+  
+  input:focus {
+    border-color: var(--accent);
+  }
+  
+  button {
+    padding: 0.7rem;
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #1e4ed8;
+  }
+  
+  @keyframes fade {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
