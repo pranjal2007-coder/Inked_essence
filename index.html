@@ -18,18 +18,26 @@
   <nav class="fixed w-full shadow-lg z-50" style="background-color: var(--menu-bg-color); color: var(--text-color);">
     <div class="max-w-7xl mx-auto px-4">
       <div class="flex justify-between items-center h-16">
-        <h1 class="font-['Pacifico'] text-2xl">InkedEssence</h1>
-        <ul class="hidden md:flex space-x-8">
-          <li><a href="#" class="hover:text-primary cursor-pointer">Home</a></li>
-          <li><a href="#" class="hover:text-primary cursor-pointer">Shop</a></li>
-          <li><a href="#" class="hover:text-primary cursor-pointer">Categories</a></li>
+        <!-- Brand -->
+        <div class="flex items-center space-x-1 font-['Pacifico'] text-2xl">
+          <span>Inked</span>
+          <span>Essence</span>
+        </div>
+
+        <!-- Navigation -->
+        <ul class="hidden md:flex space-x-8 menu">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">Categories</a></li>
           <li><a href="aboutus.html" class="hover:text-primary cursor-pointer">About</a></li>
-          <li><a href="contact.html" class="hover:text-primary cursor-pointer">Contact</a></li> 
+          <li><a href="contact.html" class="hover:text-primary cursor-pointer">Contact</a></li>
         </ul>
+
+        <!-- Icons -->
         <div class="flex items-center space-x-4">
           <button id="cartBtn" class="relative w-8 h-8 flex items-center justify-center cursor-pointer" aria-label="Open Cart">
             <i class="ri-shopping-cart-line text-xl"></i>
-            <span id="cartCount" class="absolute -top-2 -right-2 text-xs rounded-full h-5 w-5 flex items-center justify-center" style="background-color: red; color: white;">0</span>
+            <span id="cartCount" class="absolute -top-2 -right-2 text-xs rounded-full h-5 w-5 flex items-center justify-center bg-red-600 text-white">0</span>
           </button>
           <button id="loginBtn" class="button">Login/Signup</button>
           <button id="themeToggle" class="w-8 h-8 flex items-center justify-center cursor-pointer" title="Toggle Theme" aria-label="Toggle Theme">
@@ -62,8 +70,8 @@
         <button id="womenBtn" class="text-xl font-semibold px-8 py-2 rounded-full border-2 border-primary hover:bg-primary hover:text-white transition-all duration-300">Women</button>
       </div>
       <h2 class="text-3xl font-bold mb-6">Featured Products</h2>
-      <div id="productContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 transition-transform duration-500">
-        <!-- Product Cards will be dynamically inserted here -->
+      <div id="productContainer" class="products-wrapper">
+        <!-- Product cards dynamically inserted via JS -->
       </div>
     </div>
   </section>
@@ -80,7 +88,7 @@
           <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
           <ul class="space-y-2">
             <li><a href="aboutus.html" class="text-gray-400 hover:text-white">About Us</a></li>
-            <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact</a></li> <!-- Link to Contact page -->
+            <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
             <li><a href="#" class="text-gray-400 hover:text-white">FAQs</a></li>
             <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
           </ul>
