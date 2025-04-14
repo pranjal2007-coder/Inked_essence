@@ -1,74 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About Us | INKED ESSENCE</title>
-  <link rel="stylesheet" href="aboutus.css" />
-  <script defer src="aboutus.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Inked Essence</title>
+    <link rel="stylesheet" href="aboutus.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="container">
-      <div class="logo-group">
-        <img src="logo.png" alt="INKED ESSENCE Logo" class="logo-img" />
-        <div class="logo-text">INKED ESSENCE</div>
-      </div>
-      <div class="toggle-btn">☰</div>
-      <ul class="nav-links">
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#mission">Mission</a></li>
-        <li><a href="#team">Team</a></li>
-      </ul>
+    <!-- Theme Toggle Button -->
+    <div class="mode-toggle">
+        <button id="theme-toggle" aria-label="Toggle theme">
+            <svg class="sun" viewBox="0 0 24 24"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+            <svg class="moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        </button>
     </div>
-  </nav>
 
-  <!-- Hero -->
-  <section class="hero" id="hero">
-    <h2>Welcome to INKED ESSENCE</h2>
-    <p>Where fashion meets bold expression. We redefine streetwear with every stitch.</p>
-  </section>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="parallax-bg"></div>
+        <div class="hero-content">
+            <h1 id="logo">Inked Essence</h1>
+            <p>Click the logo 5 times for a surprise!</p>
+            <div id="click-counter">Clicks: 0/5</div>
+        </div>
+    </header>
 
-  <!-- Mission -->
-  <section class="mission" id="mission">
-    <h3>Our Mission</h3>
-    <p>At INKED ESSENCE, our mission is to empower individuality through bold, expressive fashion. We blend quality, creativity, and authenticity to craft streetwear that speaks volumes. Every piece is more than fabric—it's a statement.</p>
-  </section>
+    <!-- Our Story Section -->
+    <section class="brand-story">
+        <h2>Our Story</h2>
+        <p>Inked Essence was founded in 2018 by a group of passionate designers with a vision to revolutionize streetwear. Starting in a small studio, we’ve grown into a global brand known for our bold, red-themed collections that embody passion, creativity, and individuality. Each piece we create is a testament to our commitment to quality and self-expression.</p>
+        <p>Our journey has been fueled by a love for fashion and a desire to inspire others. From humble beginnings to becoming a household name, we’ve stayed true to our roots while pushing the boundaries of design. Today, Inked Essence is more than a brand—it’s a movement.</p>
+    </section>
 
-  <!-- Team -->
-  <section class="team" id="team">
-    <h3>Meet Our Team</h3>
-    <div class="team-grid">
-      <div class="team-member">
-        <img src="https://via.placeholder.com/120" alt="Ritvik Verma" />
-        <h4>Ritvik Verma</h4>
-        <div class="role">Founder</div>
-      </div>
-      <div class="team-member">
-        <img src="https://via.placeholder.com/120" alt="Pulkit Bajaj" />
-        <h4>Pulkit Bajaj</h4>
-        <div class="role">Creative Director</div>
-      </div>
-      <div class="team-member">
-        <img src="https://via.placeholder.com/120" alt="Siddhant Bhatia" />
-        <h4>Siddhant Bhatia</h4>
-        <div class="role">Marketing Lead</div>
-      </div>
-      <div class="team-member">
-        <img src="https://via.placeholder.com/120" alt="Pranjal" />
-        <h4>Pranjal</h4>
-        <div class="role">Product Manager</div>
-      </div>
-    </div>
-  </section>
+    <!-- Mission and Values -->
+    <section class="mission-values">
+        <h2>Our Mission & Values</h2>
+        <p>At Inked Essence, our mission is to empower individuals to express their unique style through high-quality, innovative streetwear. We believe in:</p>
+        <ul>
+            <li><strong>Creativity</strong>: Every design is a work of art.</li>
+            <li><strong>Quality</strong>: We use only the finest materials.</li>
+            <li><strong>Community</strong>: We’re here to inspire and connect.</li>
+            <li><strong>Sustainability</strong>: We’re committed to eco-friendly practices.</li>
+        </ul>
+    </section>
 
-  <!-- Back to Top -->
-  <button id="backToTop">↑</button>
+    <!-- Why Choose Us -->
+    <section class="why-choose-us">
+        <h2>Why Choose Us?</h2>
+        <ul>
+            <li>Unique, bold designs that stand out.</li>
+            <li>Premium fabrics for comfort and durability.</li>
+            <li>Global shipping to over 15 countries.</li>
+            <li>Thousands of happy customers worldwide.</li>
+        </ul>
+    </section>
 
-  <!-- Footer -->
-  <footer>
-    &copy; 2025 INKED ESSENCE. All rights reserved.
-  </footer>
+    <!-- Stats Section with Counter Animation -->
+    <section class="stats">
+        <h2>Our Impact</h2>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>Years in Business</h3>
+                <p class="counter" data-target="5">0</p>
+            </div>
+            <div class="stat-item">
+                <h3>Collections Launched</h3>
+                <p class="counter" data-target="20">0</p>
+            </div>
+            <div class="stat-item">
+                <h3>Countries Served</h3>
+                <p class="counter" data-target="15">0</p>
+            </div>
+            <div class="stat-item">
+                <h3>Happy Customers</h3>
+                <p class="counter" data-target="10000">0</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clothing Carousel -->
+    <section class="clothing-carousel">
+        <h2>Our Collections</h2>
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-item" style="background-image: url('https://source.unsplash.com/random/400x600?streetwear,red');">
+                    <h3>Red Rebel Jacket</h3>
+                    <p>For the bold and fearless. Price: $49.99</p>
+                </div>
+                <div class="carousel-item" style="background-image: url('https://source.unsplash.com/random/400x600?hoodie,red');">
+                    <h3>Fire Hoodie</h3>
+                    <p>Style meets warmth. Price: $39.99</p>
+                </div>
+                <div class="carousel-item" style="background-image: url('https://source.unsplash.com/random/400x600?tshirt,red');">
+                    <h3>Bold Tee</h3>
+                    <p>Simple yet powerful. Price: $19.99</p>
+                </div>
+            </div>
+            <button class="carousel-prev">←</button>
+            <button class="carousel-next">→</button>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+        <h2>Meet the Team</h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-img" style="background-image: url('https://source.unsplash.com/random/200x200?person');"></div>
+                <h3>Ritvik Verma</h3>
+                <p>Creative Director. The visionary behind our designs.</p>
+            </div>
+            <div class="team-card">
+                <div class="team-img" style="background-image: url('https://source.unsplash.com/random/200x201?person');"></div>
+                <h3>Pulkit Bajaj</h3>
+                <p>Lead Designer. Pours heart into every piece.</p>
+            </div>
+            <div class="team-card">
+                <div class="team-img" style="background-image: url('https://source.unsplash.com/random/200x202?person');"></div>
+                <h3>Siddhant Bhatia</h3>
+                <p>Marketing Expert. Spreads our story worldwide.</p>
+            </div>
+            <div class="team-card">
+                <div class="team-img" style="background-image: url('https://source.unsplash.com/random/200x203?person');"></div>
+                <h3>Pranjal</h3>
+                <p>Tech Genius. Keeps the site flawless.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2023 Inked Essence. All rights reserved.</p>
+    </footer>
+
+    <!-- External Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="aboutus.js"></script>
 </body>
 </html>
