@@ -1,210 +1,203 @@
-/* Global Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+    --bg-color: #000;
+    --text-color: #fff;
+    --primary-color: #ff0000;
+    --secondary-color: #333;
+    --card-bg: #1a1a1a;
+    --shadow: rgba(255, 0, 0, 0.5);
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: #f9f9fb;
-    color: #333;
-    line-height: 1.6;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: var(--bg-color);
+    color: var(--text-color);
+    transition: background 0.5s ease, color 0.5s ease;
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
+body.light {
+    --bg-color: #f5f5f5;
+    --text-color: #000;
+    --primary-color: #ff0000;
+    --secondary-color: #ccc;
+    --card-bg: #fff;
+    --shadow: rgba(0, 0, 0, 0.1);
 }
 
-/* Navbar */
-.navbar {
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    padding: 1.5rem 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+/* Theme Toggle Styling */
+.mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
 }
 
-.navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #444;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: #0077cc;
-}
-
-/* Logo Styling */
-.logo-group {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-.logo-img {
-    height: 50px;
-    width: 50px;
-}
-
-.logo-text {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #1a1a1a;
-}
-
-/* Toggle Button */
-.toggle-btn {
-    display: none;
-    font-size: 1.5rem;
+#theme-toggle {
+    background: var(--card-bg);
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
     cursor: pointer;
+    transition: transform 0.5s ease;
 }
 
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        gap: 1rem;
-    }
-    .nav-links.active {
-        display: flex;
-    }
-    .toggle-btn {
-        display: block;
-    }
+#theme-toggle:hover {
+    transform: rotate(360deg);
 }
+
+#theme-toggle svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--primary-color);
+}
+
+#theme-toggle .moon { display: none; }
+body.light #theme-toggle .sun { display: none; }
+body.light #theme-toggle .moon { display: block; }
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #0077cc, #005fa3);
-    color: white;
-    padding: 5rem 0;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://source.unsplash.com/random/1920x1080?streetwear,red') no-repeat center center;
+    background-size: cover;
+    transform: translateZ(-1px) scale(1.5);
+    z-index: -1;
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 1;
+}
+
+h1 {
+    font-size: 5rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    text-shadow: 2px 2px 4px var(--shadow);
+}
+
+p {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    text-shadow: 1px 1px 2px var(--shadow);
+}
+
+/* General Section Styling */
+.brand-story, .mission-values, .why-choose-us, .stats, .clothing-carousel, .team {
+    padding: 80px 20px;
     text-align: center;
 }
 
-.hero h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-/* Mission Section */
-.mission {
-    padding: 3rem 0;
-    text-align: center;
-}
-
-.mission h3 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-.mission p {
+.mission-values ul, .why-choose-us ul {
+    list-style: none;
+    padding: 0;
     max-width: 800px;
     margin: 0 auto;
-    font-size: 1.1rem;
-    color: #555;
+    text-align: left;
 }
 
-/* Team Section */
-.team {
-    padding: 3rem 0;
-}
-
-.team h3 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-}
-
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.team-member {
-    background-color: #ffffff;
-    padding: 1.5rem;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-}
-
-.team-member:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.team-member img {
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    margin-bottom: 1rem;
-}
-
-.team-member h4 {
-    font-size: 1.25rem;
-    margin-bottom: 0.25rem;
-}
-
-.team-member .role {
-    color: #888;
-    margin-bottom: 1rem;
-    font-size: 0.95rem;
-}
-
-.more-info {
-    display: none;
-    color: #555;
-    font-size: 0.95rem;
-}
-
-/* Back to Top */
-#backToTop {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: #0077cc;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 50%;
+.mission-values li, .why-choose-us li {
     font-size: 1.2rem;
-    cursor: pointer;
-    display: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px 0;
+    color: var(--text-color);
 }
+
+.stats-grid, .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.stat-item, .team-card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.stat-item:hover, .team-card:hover {
+    transform: scale(1.05);
+}
+
+.stat-item h3, .team-card h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.stat-item p, .team-card p {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+/* Carousel Styling */
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    min-width: 100%;
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+    text-shadow: 1px 1px 2px var(--shadow);
+}
+
+.carousel-item h3 { font-size: 2.5rem; margin-bottom: 10px; }
+.carousel-item p { font-size: 1.5rem; }
+
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 2rem;
+    border-radius: 50%;
+}
+
+.carousel-prev { left: 10px; }
+.carousel-next { right: 10px; }
 
 /* Footer */
 footer {
-    background-color: #1a1a1a;
-    color: white;
+    background: var(--secondary-color);
+    color: var(--text-color);
     text-align: center;
-    padding: 2rem 0;
-    margin-top: 3rem;
+    padding: 30px;
+    font-size: 1.2rem;
 }
