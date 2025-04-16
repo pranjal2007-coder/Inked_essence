@@ -60,3 +60,14 @@ html, body {
   .overlay {
     @apply bg-black bg-opacity-60 p-6 rounded-lg text-white max-w-xl ml-8;
   }  
+.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-in-out;
+  }
+  
+  .show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
