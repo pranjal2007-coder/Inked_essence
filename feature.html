@@ -1,89 +1,191 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>InkedEssence Collections</title>
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- External CSS -->
-  <link rel="stylesheet" href="feature.css">
-
-  <style>
-    
-  </style>
-</head>
-<body class="bg-gray-100 text-gray-900">
-
-  <!-- Navbar -->
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   InkedEssence Collections
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+ </head>
+ <body class="bg-gray-100 text-gray-900">
   <nav class="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-50">
-    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-      <div class="text-2xl font-bold text-gray-800 logo-text">InkedEssence</div>
-      <div class="space-x-6 text-gray-600 flex">
-
-        <a href="#" class="hover:text-black">Home</a>
-        <a href="#" class="hover:text-black">Categories</a>
-        <a href="#" class="hover:text-black">Shop</a>
-        <a href="#" class="hover:text-black">About</a>
-        <a href="#" class="hover:text-black">Contact</a>
-      </div>
+   <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+    <div class="text-3xl  text-gray-800 logo-text" style="font-family: 'Pacifico', cursive">
+     InkedEssence
     </div>
+    <div class="space-x-6 text-gray-800 hidden md:flex">
+     <a class="hover:text-gray-600" href="index.html">
+      Home
+     </a>
+     <a class="hover:text-gray-600" href="#">
+      Categories
+     </a>
+     <a class="hover:text-gray-600" href="#">
+      Shop
+     </a>
+     <a class="hover:text-gray-600" href="aboutus.html">
+      About
+     </a>
+     <a class="hover:text-gray-600" href="contact.html">
+      Contact
+     </a>
+    </div>
+    <div class="md:hidden">
+     <button class="text-gray-800 focus:outline-none" id="menu-toggle">
+      <i class="fas fa-bars">
+      </i>
+     </button>
+    </div>
+   </div>
+   <div class="md:hidden" id="mobile-menu" style="display: none;">
+    <a class="block px-4 py-2 text-gray-800 hover:bg-gray-200" href="#">
+     Home
+    </a>
+    <a class="block px-4 py-2 text-gray-800 hover:bg-gray-200" href="#">
+     Categories
+    </a>
+    <a class="block px-4 py-2 text-gray-800 hover:bg-gray-200" href="#">
+     Shop
+    </a>
+    <a class="block px-4 py-2 text-gray-800 hover:bg-gray-200" href="#">
+     About
+    </a>
+    <a class="block px-4 py-2 text-gray-800 hover:bg-gray-200" href="#">
+     Contact
+    </a>
+   </div>
   </nav>
-
   <!-- Fullscreen Sections -->
   <main class="space-y-0 mt-0">
-    <!-- Section 1 -->
-    <section id="fashion" class="h-screen relative">
-      <div class="absolute top-1/2 transform -translate-y-1/2 left-8 bg-black bg-opacity-60 p-6 rounded-lg w-full md:w-1/2 text-white">
-        <h1 class="text-4xl font-bold">Latest Fashion Trends</h1>
-        <p class="mt-2 text-2xl">Explore cutting-edge styles curated just for you.</p>
-      </div>
-      <img src="Mens-Fashion-Trends-2020-2.jpg" 
-           alt="Linen Collection" 
-           class="w-full h-full object-cover rounded-lg shadow-lg">
-    </section>
-
-    <!-- Section 2 -->
-    <section id="tattoo" class="h-screen relative">
-      <div class="absolute top-1/2 transform -translate-y-1/2 left-8 bg-black bg-opacity-60 p-6 rounded-lg w-full md:w-1/2 text-white">
-        <h2 class="text-4xl font-bold">Summer Essentials</h2>
-        <p class="mt-2 text-2xl">Lightweight fabrics perfect for warm days and sun-kissed vibes.</p>
-      </div>
-      <img src="g:\2nd semester\scm project\1000_F_1342936650_AlKAQunw47QC94E1Twvm4vDu9YlvdFFf.jpg" 
-           alt="Summer Essentials" 
-           class="w-full h-full object-cover rounded-lg shadow-lg">
-    </section>
-
-    <!-- Section 3 -->
-    <section id="ink" class="h-screen relative">
-      <div class="absolute top-1/2 transform -translate-y-1/2 left-8 bg-black bg-opacity-60 p-6 rounded-lg w-full md:w-1/2 text-white">
-        <h2 class="text-4xl font-bold">Colors for Every Mood</h2>
-        <p class="mt-2 text-2xl">From bold statements to soft neutrals — wear your vibe.</p>
-      </div>
-      <img src="clothes-hangers-colorful-clothes-women-shop-summer-sale-73852501.jpg" 
-           alt="Colors Mood" 
-           class="w-full h-full object-cover rounded-lg shadow-lg">
-    </section>
-
-    
-
-    <!-- Section 4 -->
-    <section id="contact" class="h-screen relative">
-      <div class="absolute top-1/2 transform -translate-y-1/2 left-8 bg-black bg-opacity-60 p-6 rounded-lg w-full md:w-1/2 text-white">
-        <h2 class="text-4xl font-bold">Uniquely You</h2>
-        <p class="mt-2 text-2xl">Express yourself with hand-crafted and rare finds.</p>
-      </div>
-      <img src="pexels-sam-lion-5710153-1-1.jpg" 
-           alt="Unique Fashion" 
-           class="w-full h-full object-cover rounded-lg shadow-lg">
-    </section>
-
+   <!-- Section 1 -->
+   <section class="h-screen relative" id="fashion">
+    <div class="absolute top-1/2 transform -translate-y-1/2 left-8 bg-black bg-opacity-60 p-6 rounded-lg w-full md:w-1/2 text-white">
+     <h1 class="text-4xl font-bold">
+      Latest Fashion Trends
+     </h1>
+     <p class="mt-2 text-2xl">
+      Explore cutting-edge styles curated just for you.
+     </p>
+    </div>
+    <img alt="Linen Collection" class="w-full h-full object-cover rounded-lg shadow-lg" src="Mens-Fashion-Trends-2020-2.jpg"/>
+   </section>
+   <!-- Section 2 -->
+   <section class="h-screen relative" id="tattoo">
+    <div class="absolute top-1/2 transform -translate-y-1/2 left-8 bg-black bg-opacity-60 p-6 rounded-lg w-full md:w-1/2 text-white">
+     <h2 class="text-4xl font-bold">
+      Summer Essentials
+     </h2>
+     <p class="mt-2 text-2xl">
+      Lightweight fabrics perfect for warm days and sun-kissed vibes.
+     </p>
+    </div>
+    <img alt="Summer Essentials" class="w-full h-full object-cover rounded-lg shadow-lg" src="1000_F_1342936650_AlKAQunw47QC94E1Twvm4vDu9YlvdFFf.jpg"/>
+   </section>
+   <!-- Section 3 -->
+   <section class="h-screen relative" id="ink">
+    <div class="absolute top-1/2 transform -translate-y-1/2 left-8 bg-black bg-opacity-60 p-6 rounded-lg w-full md:w-1/2 text-white">
+     <h2 class="text-4xl font-bold">
+      Colors for Every Mood
+     </h2>
+     <p class="mt-2 text-2xl">
+      From bold statements to soft neutrals — wear your vibe.
+     </p>
+    </div>
+    <img alt="Colors Mood" class="w-full h-full object-cover rounded-lg shadow-lg" src="clothes-hangers-colorful-clothes-women-shop-summer-sale-73852501.jpg"/>
+   </section>
+   <!-- Section 4 -->
+   <section class="h-screen relative" id="contact">
+    <div class="absolute top-1/2 transform -translate-y-1/2 left-8 bg-black bg-opacity-60 p-6 rounded-lg w-full md:w-1/2 text-white">
+     <h2 class="text-4xl font-bold">
+      Uniquely You
+     </h2>
+     <p class="mt-2 text-2xl">
+      Express yourself with hand-crafted and rare finds.
+     </p>
+    </div>
+    <img alt="Unique Fashion" class="w-full h-full object-cover rounded-lg shadow-lg" src="pexels-sam-lion-5710153-1-1.jpg"/>
+   </section>
   </main>
-
-  <!-- Optional JS -->
-  <script src="feature.js" defer></script>
-
-</body>
+  <footer class="bg-gray-800 py-10">
+   <div class="container mx-auto px-4">
+    <div class="flex flex-wrap justify-between">
+     <div class="w-full md:w-1/3 mb-6 md:mb-0">
+      <h2 class="text-3xl mb-4 text-white"  style="font-family: 'Pacifico', cursive">
+       InkedEssence
+      </h2>
+      <p class="mb-4 text-white">
+       Premium fashion for the modern individual. Quality meets style in every piece.
+      </p>
+      <div class="flex space-x-4">
+       <a class="text-white" href="#">
+        <i class="fab fa-facebook-f">
+        </i>
+       </a>
+       <a class="text-white" href="#">
+        <i class="fab fa-twitter">
+        </i>
+       </a>
+       <a class="text-white" href="#">
+        <i class="fab fa-instagram">
+        </i>
+       </a>
+      </div>
+     </div>
+     <div class="w-full md:w-1/3 mb-6 md:mb-0">
+      <h2 class="text-xl font-bold mb-4 text-white">
+       Quick Links
+      </h2>
+      <ul>
+       <li class="mb-2">
+        <a class="text-white" href="#">
+         About Us
+        </a>
+       </li>
+       <li class="mb-2">
+        <a class="text-white" href="#">
+         Contact
+        </a>
+       </li>
+       <li class="mb-2">
+        <a class="text-white" href="#">
+         FAQs
+        </a>
+       </li>
+       <li class="mb-2">
+        <a class="text-white" href="#">
+         Privacy Policy
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="w-full md:w-1/3">
+      <h2 class="text-xl font-bold mb-4 text-white">
+       Contact Info
+      </h2>
+      <p class="mb-2 text-white">
+       123 Fashion Street
+      </p>
+      <p class="mb-2 text-white">
+       New York, NY 10001
+      </p>
+      <p class="mb-2 text-white">
+       Phone: (555) 123-4567
+      </p>
+      <p class="text-white">
+       Email: info@inkedessence.com
+      </p>
+     </div>
+    </div>
+    <div class="border-t border-gray-700 mt-8 pt-8">
+     <p class="text-center mt-8 text-white">
+      © 2025 InkedEssence. All rights reserved.
+     </p>
+    </div>
+   </div>
+  </footer>
+ 
+ </body>
 </html>
