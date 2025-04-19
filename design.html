@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Styling Assistant</title>
+    <link rel="stylesheet" href="design.css">
+</head>
+<body>
+  
+    <div class="container">
+        <h1>Styling Assistant</h1>
+        
+        <label for="gender">Select Gender:</label>
+        <select id="gender">
+            <option value="">--Choose Gender--</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        <br>
+        <label for="occasion">Select an Occasion:</label>
+        <select id="occasion">
+            <option value="">--Choose an Occasion--</option>
+            <option value="date_night">Date Night</option>
+            <option value="girls_night_out">Girls' Night Out</option>
+            <option value="brunch">Brunch with Friends</option>
+            <option value="cocktail_party">Cocktail Party</option>
+            <option value="wedding_guest">Wedding Guest</option>
+            <option value="birthday_bash">Birthday Bash</option>
+            <option value="nightclub">Nightclub/Party Vibes</option>
+            <option value="office">Office/Workwear</option>
+            <option value="job_interview">Job Interview Ready</option>
+            <option value="business_casual">Business Casual</option>
+            <option value="power_dressing">Power Dressing</option>
+            <option value="work_from_home">Work from Home Comfort</option>
+            <option value="beach_vacation">Beach Vacation</option>
+            <option value="city_break">City Break</option>
+            <option value="airport_look">Airport Look</option>
+            <option value="road_trip">Road Trip</option>
+            <option value="cruise_style">Cruise Style</option>
+            <option value="mountain_escape">Mountain Escape / Cabin Cozy</option>
+            <option value="spring_refresh">Spring Refresh</option>
+            <option value="summer_heatwave">Summer Heatwave</option>
+            <option value="autumn_layers">Autumn Layers</option>
+            <option value="winter_wonderland">Winter Wonderland</option>
+            <option value="christmas_party">Christmas Party</option>
+            <option value="new_years_eve">New Year’s Eve Glam</option>
+            <option value="festivals">Festivals (e.g., Coachella)</option>
+            <option value="eid">Eid / Diwali / Lunar New Year Outfits</option>
+            <option value="gym">Gym/Fitness Look</option>
+            <option value="yoga">Yoga & Wellness</option>
+            <option value="athleisure">Athleisure / Off-Duty</option>
+            <option value="hiking">Hiking / Outdoor Adventures</option>
+            <option value="creative_studio">Creative Studio Days</option>
+            <option value="comfy_home">Comfy at Home</option>
+            <option value="errands">Running Errands</option>
+            <option value="rainy_day">Rainy Day Vibes</option>
+            <option value="minimalist">Minimalist Staples</option>
+            <option value="weekend">Weekend Casual</option>
+            <option value="movie_night">Movie Night In</option>
+            <option value="back_to_school">Back to School / Campus Fits</option>
+            <option value="graduation">Graduation Day</option>
+            <option value="first_date">First Date Impressions</option>
+            <option value="photoshoot">Photoshoot / Content Creator Ready</option>
+            <option value="family_gatherings">Family Gatherings</option>
+            <option value="baby_shower">Baby Shower / Gender Reveal</option>
+        </select>
+
+        <button id="recommendBtn">Get Style Recommendation</button>
+        <div id="result" class="result"></div>
+    </div>
+
+    <script src="design.js"></script>
+</body>
+</html>
