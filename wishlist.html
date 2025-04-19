@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wishlist | InkedEssence</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="wishlist.css" />
+
+  <!-- Fonts and Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+<body class="transition-colors duration-300">
+
+  <!-- Navbar -->
+  <nav class="fixed w-full shadow-lg z-50" style="background-color: var(--menu-bg-color); color: var(--text-color);">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex justify-between items-center h-16">
+        <!-- Brand -->
+        <div class="flex items-center space-x-1 font-['Pacifico'] text-2xl">
+          <span>Inked</span>
+          <span>Essence</span>
+        </div>
+
+        <!-- Navigation -->
+        <ul class="hidden md:flex space-x-8 menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">Categories</a></li>
+          <li><a href="wishlist.html">Wishlist</a></li>
+        </ul>
+
+        <!-- Icons -->
+        <div class="flex items-center space-x-4">
+          <a href="wishlist.html" class="relative w-8 h-8 flex items-center justify-center cursor-pointer" aria-label="Wishlist">
+            <i class="ri-heart-line text-xl text-red-500"></i>
+          </a>
+
+          <button id="cartBtn" class="relative w-8 h-8 flex items-center justify-center cursor-pointer" aria-label="Open Cart">
+            <i class="ri-shopping-cart-line text-xl"></i>
+            <span id="cartCount" class="absolute -top-2 -right-2 text-xs rounded-full h-5 w-5 flex items-center justify-center bg-red-600 text-white">0</span>
+          </button>
+
+          <button id="loginBtn" class="button">Login/Signup</button>
+
+          <button id="themeToggle" class="w-8 h-8 flex items-center justify-center cursor-pointer" title="Toggle Theme" aria-label="Toggle Theme">
+            <i id="themeIcon" class="ri-sun-line text-xl"></i>
+          </button>
+
+          <button class="md:hidden w-8 h-8 flex items-center justify-center cursor-pointer" aria-label="Menu">
+            <i class="ri-menu-line text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="pt-24 text-center px-4">
+    <h1 class="text-4xl font-bold mb-2">Your Wishlist</h1>
+    <p class="text-lg text-gray-500 dark:text-gray-400">See all your saved items here</p>
+  </header>
+
+  <!-- Wishlist Products -->
+  <section class="products-section">
+    <div class="products-wrapper" id="wishlistContainer">
+      <!-- Wishlist items will be rendered here -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white mt-16">
+    <div class="max-w-7xl mx-auto px-4 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="font-['Pacifico'] text-2xl mb-4">InkedEssence</h3>
+          <p class="text-gray-400">Premium fashion for the modern individual. Quality meets style in every piece.</p>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="aboutus.html" class="text-gray-400 hover:text-white">About Us</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white">FAQs</a></li>
+            <li><a href="privacy.html" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li>123 Fashion Street</li>
+            <li>New York, NY 10001</li>
+            <li>Phone: (555) 123-4567</li>
+            <li>Email: info@inkedessence.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+        <div class="max-w-md mx-auto">
+          <h4 class="text-lg font-semibold mb-4">Subscribe to Our Newsletter</h4>
+          <p class="text-gray-400 mb-4">Stay updated with our latest collections and exclusive offers</p>
+          <form class="flex space-x-2">
+            <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-2 rounded bg-gray-800 border-none text-white" required>
+            <button type="submit" class="button px-6 py-2">Subscribe</button>
+          </form>
+        </div>
+        <p class="text-gray-400 mt-8">&copy; 2025 InkedEssence. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="wishlist.js"></script>
+</body>
+</html>
