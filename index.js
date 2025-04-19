@@ -11,14 +11,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const html = document.documentElement;
 
   const cart = {};
-
+  // Just change these to change your actual products info
+//The price
+// images 
+// name of the products
   const products = [
     { id: 1, name: 'Oversized T-Shirts', price: 1299.99, image: 'pic1.jpg' },
     { id: 2, name: 'Oversized T-Shirts', price: 1499.99, image: 'pic2.jpg' },
-    { id: 3, name: 'Hoodie', price: 1499.99, image: 'images/hoodie.jpg' },
-    { id: 4, name: 'Denim Jacket', price: 1799.99, image: 'images/jacket.jpg' }
-  ];
-
+    { id: 3, name: 'Oversized Hoodies', price: 1499.99, image: 'pic21.jpg' },
+    { id: 4, name: 'Oversized Hoodies', price: 1799.99, image: 'pic22.jpg' }
+  ]; 
   function updateCartDisplay() {
     cartItemsContainer.innerHTML = '';
     const keys = Object.keys(cart);
