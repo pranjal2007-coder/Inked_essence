@@ -1,77 +1,152 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" id="htmlRoot" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us</title>
+  <title>Contact Us - InkedEssence</title>
+  <link rel="stylesheet" href="contact us.css" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito&display=swap">
-  <link rel="stylesheet" href="contact us.css">
-  <link rel="stylesheet" href="contact .css">
-  <script src="contact us.js"> </script>
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-
-  <!-- AOS CSS (Animations) -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
 
-<body>
-  <nav class="bg-white border-b border-gray-200">
-    <div class="container mx-auto px-4 py-2 flex justify-between items-center">
-      <div class="text-2xl font-bold logo-text">InkedEssence</div>
-      <div class="space-x-8 nav-links">
-        <a href="#">Home</a>
-        <a href="#">Shop</a>
-        <a href="#">Categories</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
+<body class="transition-colors duration-300">
+
+  <!-- Navbar -->
+  <nav class="fixed w-full shadow-lg z-50 navbar">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex justify-between items-center h-16">
+        <!-- Brand -->
+        <div class="flex items-center space-x-1 logo-text text-2xl">
+          <span>Inked</span>
+          <span>Essence</span>
+        </div>
+
+        <!-- Navigation -->
+        <ul class="hidden md:flex space-x-8 menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">Categories</a></li>
+          <li><a href="aboutus.html">About</a></li>
+          <li><a href="contact.html" class="font-semibold underline">Contact</a></li>
+        </ul>
+
+        <!-- Icons -->
+        <div class="flex items-center space-x-4">
+          <button id="cartBtn" class="relative w-8 h-8 flex items-center justify-center cursor-pointer" aria-label="Open Cart">
+            <i class="ri-shopping-cart-line text-xl"></i>
+            <span id="cartCount" class="absolute -top-2 -right-2 text-xs rounded-full h-5 w-5 flex items-center justify-center bg-red-600 text-white">0</span>
+          </button>
+          <button id="loginBtn" class="button">Login/Signup</button>
+          <button id="themeToggle" class="w-8 h-8 flex items-center justify-center cursor-pointer" title="Toggle Theme" aria-label="Toggle Theme">
+            <i id="themeIcon" class="ri-sun-line text-xl"></i>
+          </button>
+          <button class="md:hidden w-8 h-8 flex items-center justify-center cursor-pointer" aria-label="Menu">
+            <i class="ri-menu-line text-xl"></i>
+          </button>
+        </div>
       </div>
     </div>
   </nav>
 
-  <div class="contact-section">
-    <div class="container mx-auto grid md:grid-cols-2 gap-6">
-      <form class="form-box" action="https://formsubmit.co/YOUR_EMAIL@example.com" method="POST">
-        <h2 class="section-title">Get in Touch</h2>
-        <label for="name">First Name</label>
-        <input class="input" name="FirstName" placeholder="Please enter first name..." required>
-        <label for="name">Email Address</label>
-        <input class="input" name="Email" type="email" placeholder="Please enter email..." required>
-        <label for="name">What's on your mind?</label>
-        <textarea class="textinput" name="Message" placeholder="Please enter your query" required></textarea>
-        <button class="submit-btn">Submit</button>
+  <!-- Main Content -->
+  <main class="pt-20 max-w-7xl mx-auto px-4 py-16">
+    <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+      <form class="space-y-6" action="https://formsubmit.co/YOUR_EMAIL@example.com" method="POST">
+        <h2 class="text-4xl font-bold mb-8 text-center">Get in Touch</h2>
+        <div>
+          <label for="FirstName" class="block mb-2 font-semibold">First Name</label>
+          <input id="FirstName" name="FirstName" type="text" required placeholder="Please enter first name..." class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary" />
+        </div>
+        <div>
+          <label for="Email" class="block mb-2 font-semibold">Email Address</label>
+          <input id="Email" name="Email" type="email" required placeholder="Please enter email..." class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary" />
+        </div>
+        <div>
+          <label for="Message" class="block mb-2 font-semibold">What's on your mind?</label>
+          <textarea id="Message" name="Message" required placeholder="Please enter your query" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+        </div>
+        <button type="submit" class="button px-6 py-3">Submit</button>
         <p id="successMessage" style="display: none; color: green; margin-top: 10px;">Submitted Successfully!</p>
       </form>
 
-      <div class="map-part">
-        <h2 class="section-title">Reach us at</h2>
-        <p class="text-gray-700 mb-4">
+      <section>
+        <h3 class="text-2xl font-semibold mb-4">Reach us at</h3>
+        <p class="mb-6 text-gray-700">
           We'd love to hear from you! Feel free to reach out through our contact form or visit our office using the map below.
         </p>
-        <div class="social-media-links flex gap-4 mb-4">
-          <a href="https://twitter.com" target="_blank"><img src="https://workik-widget-assets.s3.amazonaws.com/Footer1-83/v1/images/Icon-twitter.png" alt="Twitter"></a>
-          <a href="https://facebook.com" target="_blank"><img src="https://workik-widget-assets.s3.amazonaws.com/Footer1-83/v1/images/Icon-facebook.png" alt="Facebook"></a>
-          <a href="https://plus.google.com" target="_blank"><img src="https://workik-widget-assets.s3.amazonaws.com/Footer1-83/v1/images/Icon-google.png" alt="Google+"></a>
-          <a href="https://instagram.com" target="_blank"><img src="https://workik-widget-assets.s3.amazonaws.com/Footer1-83/v1/images/Icon-instagram.png" alt="Instagram"></a>
+        <div class="flex space-x-4 mb-6">
+          <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="ri-twitter-line text-2xl text-gray-600 hover:text-primary"></i></a>
+          <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="ri-facebook-line text-2xl text-gray-600 hover:text-primary"></i></a>
+          <a href="https://plus.google.com" target="_blank" aria-label="Google+"><i class="ri-google-line text-2xl text-gray-600 hover:text-primary"></i></a>
+          <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="ri-instagram-line text-2xl text-gray-600 hover:text-primary"></i></a>
         </div>
         <div class="map-box">
-          <iframe src="https://www.google.com/maps?q=Chitkara%20University%20Rajpura&output=embed" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe src="https://www.google.com/maps?q=Chitkara%20University%20Rajpura&output=embed" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-72 rounded"></iframe>
         </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="font-['Pacifico'] text-2xl mb-4">InkedEssence</h3>
+          <p class="text-gray-400">Premium fashion for the modern individual. Quality meets style in every piece.</p>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="aboutus.html" class="text-gray-400 hover:text-white">About Us</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white">FAQs</a></li>
+            <li><a href="privacy.html" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li>123 Fashion Street</li>
+            <li>New York, NY 10001</li>
+            <li>Phone: (555) 123-4567</li>
+            <li>Email: info@inkedessence.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+        <div class="max-w-md mx-auto">
+          <h4 class="text-lg font-semibold mb-4">Subscribe to Our Newsletter</h4>
+          <p class="text-gray-400 mb-4">Stay updated with our latest collections and exclusive offers</p>
+          <form class="flex space-x-2">
+            <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-2 rounded-button bg-gray-900 border-none text-white" required>
+            <button type="submit" class="bg-primary px-6 py-2 rounded-button">Subscribe</button>
+          </form>
+        </div>
+        <p class="text-gray-400 mt-8">&copy; 2025 InkedEssence. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Modal -->
+  <div id="cartModal" class="fixed inset-0 bg-black bg-opacity-50 opacity-0 invisible pointer-events-none transition-opacity duration-300 z-50">
+    <div class="absolute right-0 top-0 h-full w-96 bg-white dark:bg-gray-900 text-black dark:text-white p-6 shadow-lg transform translate-x-full transition-transform duration-300">
+      <div class="flex justify-between items-center mb-6">
+        <h3 class="text-xl font-bold">Shopping Cart</h3>
+        <button id="closeCart" class="w-8 h-8 flex items-center justify-center cursor-pointer" aria-label="Close Cart">
+          <i class="ri-close-line text-xl"></i>
+        </button>
+      </div>
+      <div id="cartItems" class="space-y-4">
+        <p class="text-gray-500 dark:text-gray-400 text-center">Your cart is empty</p>
       </div>
     </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- AOS Script -->
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
+  <!-- JS -->
+  <script src="contact us.js" defer></script>
 </body>
-
 </html>
