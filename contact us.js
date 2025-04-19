@@ -1,32 +1,45 @@
-// Handle form submission
-document.getElementById("contactForm").addEventListener("submit", function (e) {
-  e.preventDefault();
+document.addEventListener('DOMContentLoaded', () => {
+  const themeToggle = document.getElementById('themeToggle');
+  const themeIcon = document.getElementById('themeIcon');
+  const html = document.documentElement;
+  const loginBtn = document.getElementById('loginBtn');
+  const form = document.querySelector('form');
+  const successMessage = document.getElementById('successMessage');
 
-  const statusMsg = document.getElementById("statusMsg");
-  statusMsg.textContent = "Message sent successfully!";
-  statusMsg.style.color = "green";
-  statusMsg.style.display = "block";
+  // 🌗 Theme Toggle Logic
+  const applyTheme = (theme) => {
+    html.setAttribute('data-theme', theme);
+    if (themeIcon) {
+      themeIcon.className = theme === 'dark' ? 'ri-moon-line text-xl' : 'ri-sun-line text-xl';
+    }
+    localStorage.setItem('theme', theme);
+  };
 
-  // Clear form fields
-  document.getElementById("firstName").value = "";
-  document.getElementById("email").value = "";
-  document.getElementById("message").value = "";
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  applyTheme(savedTheme);
 
-  // Hide success message after 5 seconds
-  setTimeout(() => {
-    statusMsg.style.display = "none";
-  }, 5000);
-});
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      applyTheme(newTheme);
+    });
+  }
 
-// Handle dark/light mode toggle
-document.getElementById("themeToggle").addEventListener("click", function () {
-  document.body.classList.toggle("dark");
+  // 🔐 Login Redirect
+  if (loginBtn) {
+    loginBtn.addEventListener('click', () => {
+      window.location.href = 'login.html';
+    });
+  }
 
-  const btn = document.getElementById("themeToggle");
-  const isDark = document.body.classList.contains("dark");
-  btn.textContent = isDark ? "Light Mode" : "Dark Mode";
-
-  // Update button style
-  btn.classList.toggle("btn-outline-dark", !isDark);
-  btn.classList.toggle("btn-light", isDark);
+  // Show success message on form submission
+  if (form && successMessage) {
+    form.addEventListener('submit', (e) => {
+      // Show success message after form submission
+      setTimeout(() => {
+        successMessage.style.display = 'block';
+      }, 100);
+    });
+  }
 });
