@@ -2,7 +2,7 @@
 :root[data-theme="light"] {
     --bg-color: #ffffff;
     --text-color: #1f2937;
-    --subtext-color: #4b5563;
+    --subtext-color: #161617;
     --menu-bg-color: #f9fafb;
     --button-bg-color: #4f46e5;
     --button-hover-bg-color: #4338ca;
@@ -16,12 +16,12 @@
   :root[data-theme="dark"] {
     --bg-color: #121212;
     --text-color: #ffffff;
-    --subtext-color: #a1a1aa;
+    --subtext-color: #171719;
     --menu-bg-color: #1f1f1f;
     --button-bg-color: #6366f1;
     --button-hover-bg-color: #4f3efc;
     --button-text-color: #fff;
-    --card-bg: #1f2937;
+    --card-bg: #080808;
     --border-radius: 1rem;
     --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.15);
   }
@@ -47,7 +47,83 @@
     top: 0;
     z-index: 100;
   }
-  
+  /* Feature Section Styles */
+.feature-section {
+  padding-top: 4rem;
+  background: linear-gradient(to right, rgba(8, 8, 8, 0.1), rgba(13, 13, 13, 0.1));
+  padding-bottom: 4rem;
+}
+
+.feature-grid {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .feature-grid {
+      grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.feature-icon {
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  font-size: 1.875rem; /* 30px */
+  color: var(--button-bg-color);
+}
+
+.feature-title {
+  font-size: 1.25rem; /* 20px */
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.feature-description {
+  font-size: 1rem;
+  color: #191a1a; /* Tailwind's text-gray-600 */
+}
+
+/* Dark Mode Overrides */
+[data-theme="dark"] .feature-section {
+  background-color: #000000 !important;
+}
+
+[data-theme="dark"] .feature-card {
+  background-color: #141415 !important;
+}
+
+[data-theme="dark"] .feature-title {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .feature-description {
+  color: #d1d5db;
+}
   /* Brand */
   .brand {
     font-size: 1.5rem;
