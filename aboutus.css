@@ -14,6 +14,7 @@ body {
     background: var(--bg-color);
     color: var(--text-color);
     transition: background 0.5s ease, color 0.5s ease;
+    line-height: 1.6;
 }
 
 body.light {
@@ -39,17 +40,23 @@ body.light {
     padding: 10px;
     border-radius: 50%;
     cursor: pointer;
-    transition: transform 0.5s ease;
+    transition: transform 0.5s ease, box-shadow 0.3s ease;
 }
 
 #theme-toggle:hover {
     transform: rotate(360deg);
+    box-shadow: 0 0 10px var(--primary-color);
 }
 
 #theme-toggle svg {
     width: 24px;
     height: 24px;
     fill: var(--primary-color);
+    transition: fill 0.3s ease;
+}
+
+#theme-toggle:hover svg {
+    fill: #ff3333; /* Slightly brighter red on hover */
 }
 
 #theme-toggle .moon { display: none; }
@@ -76,24 +83,24 @@ body.light #theme-toggle .moon { display: block; }
     background-size: cover;
     transform: translateZ(-1px) scale(1.5);
     z-index: -1;
+    filter: brightness(0.7); /* Darken background slightly for readability */
 }
 
 .hero-content {
     text-align: center;
     z-index: 1;
+    padding: 20px;
 }
 
 h1 {
     font-size: 5rem;
     color: var(--primary-color);
-    cursor: pointer;
-    text-shadow: 2px 2px 4px var(--shadow);
+    text-shadow: 2px 2px 6px var(--shadow);
+    transition: color 0.3s ease;
 }
 
-p {
-    font-size: 1.5rem;
-    color: var(--text-color);
-    text-shadow: 1px 1px 2px var(--shadow);
+h1:hover {
+    color: #ff3333; /* Brighter red on hover */
 }
 
 /* General Section Styling */
@@ -102,24 +109,48 @@ p {
     text-align: center;
 }
 
+.content-box {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px var(--shadow);
+    max-width: 900px; /* Increased for better readability */
+    margin: 30px auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px var(--shadow);
+}
+
 .mission-values ul, .why-choose-us ul {
     list-style: none;
-    padding: 0;
-    max-width: 800px;
-    margin: 0 auto;
+    padding: 0 20px;
     text-align: left;
 }
 
 .mission-values li, .why-choose-us li {
     font-size: 1.2rem;
-    margin: 10px 0;
+    margin: 15px 0;
     color: var(--text-color);
+    position: relative;
+    padding-left: 20px;
+}
+
+.mission-values li::before, .why-choose-us li::before {
+    content: "•";
+    color: var(--primary-color);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
 .stats-grid, .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
+    gap: 40px;
     max-width: 1200px;
     margin: 40px auto;
 }
@@ -128,17 +159,19 @@ p {
     background: var(--card-bg);
     padding: 30px;
     border-radius: 15px;
-    box-shadow: 0 4px 8px var(--shadow);
-    transition: transform 0.3s ease;
+    box-shadow: 0 6px 12px var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .stat-item:hover, .team-card:hover {
     transform: scale(1.05);
+    box-shadow: 0 10px 20px var(--shadow);
 }
 
 .stat-item h3, .team-card h3 {
     font-size: 1.5rem;
     color: var(--primary-color);
+    margin-bottom: 10px;
 }
 
 .stat-item p, .team-card p {
@@ -171,10 +204,24 @@ p {
     justify-content: center;
     align-items: center;
     color: var(--text-color);
-    text-shadow: 1px 1px 2px var(--shadow);
+    text-shadow: 2px 2px 4px var(--shadow);
+    transition: opacity 0.3s ease;
 }
 
-.carousel-item h3 { font-size: 2.5rem; margin-bottom: 10px; }
+.carousel-item:hover {
+    opacity: 0.9;
+}
+
+.carousel-item h3 { 
+    font-size: 2.5rem; 
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.carousel-item h3:hover {
+    color: #ff3333;
+}
+
 .carousel-item p { font-size: 1.5rem; }
 
 .carousel-prev, .carousel-next {
@@ -188,6 +235,12 @@ p {
     cursor: pointer;
     font-size: 2rem;
     border-radius: 50%;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-prev:hover, .carousel-next:hover {
+    background: #ff3333;
+    transform: translateY(-50%) scale(1.1);
 }
 
 .carousel-prev { left: 10px; }
@@ -200,4 +253,19 @@ footer {
     text-align: center;
     padding: 30px;
     font-size: 1.2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 { font-size: 3rem; }
+    .hero { height: 70vh; }
+    .parallax-bg { transform: translateZ(-1px) scale(1.2); }
+    .content-box { max-width: 100%; padding: 15px; }
+    .mission-values li, .why-choose-us li { font-size: 1rem; margin: 10px 0; }
+    .stat-item, .team-card { padding: 20px; }
+    .stat-item p, .team-card p { font-size: 1.5rem; }
+    .carousel-item h3 { font-size: 2rem; }
+    .carousel-item p { font-size: 1.2rem; }
+    .carousel-prev, .carousel-next { padding: 10px; font-size: 1.5rem; }
+    footer { padding: 20px; font-size: 1rem; }
 }
