@@ -1,0 +1,559 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Categories - InkedEssence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="categories.css" />
+</head>
+<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-300">
+    <!-- Header copied from index.html -->
+    <nav class="fixed w-full bg-[var(--bg-primary)] shadow-lg z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="font-['Pacifico'] text-2xl">InkedEssence</h1>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="hover:text-primary cursor-pointer">Home</a>
+                    <a href="#" class="hover:text-primary cursor-pointer">Shop</a>
+                    <a href="categories.html" class="hover:text-primary cursor-pointer font-semibold border-b-2 border-primary">Categories</a>
+                    <a href="aboutus.html" class="hover:text-primary cursor-pointer">About</a>
+                    <a href="contact.html" class="hover:text-primary cursor-pointer">Contact</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="wishlist.html" class="relative w-8 h-8 flex items-center justify-center cursor-pointer" aria-label="Wishlist">
+                        <i class="ri-heart-line text-xl text-red-500"></i>
+                    </a>
+                    <button id="cartBtn" class="w-8 h-8 flex items-center justify-center cursor-pointer relative">
+                        <i class="ri-shopping-cart-line text-xl"></i>
+                        <span id="cartCount" class="absolute top-2 right-0 bg-primary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </button>
+<button id="loginBtn" onclick="window.location.href='login.html'" class="px-4 py-1 rounded bg-blue-600 text-white hover:bg-blue-700 transition-colors duration-300 cursor-pointer">Login/Signup</button>
+                    <button id="themeToggle" class="w-8 h-8 flex items-center justify-center cursor-pointer">
+                        <i class="ri-sun-line text-xl"></i>
+                    </button>
+                    <button class="md:hidden w-8 h-8 flex items-center justify-center cursor-pointer">
+                        <i class="ri-menu-line text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-20 max-w-7xl mx-auto px-4 py-8 flex flex-col md:flex-row gap-8">
+        <!-- Filtering Sidebar -->
+        <aside class="w-full md:w-64 bg-[var(--card-bg)] rounded-lg p-6 shadow-md sticky top-20 h-fit">
+            <h2 class="text-xl font-semibold mb-4">Filters</h2>
+            <div class="filter-group mb-4">
+                <button class="filter-toggle w-full text-left font-semibold py-2 border-b border-gray-300 flex justify-between items-center">
+                    Category
+                    <i class="ri-arrow-down-s-line"></i>
+                </button>
+                <div class="filter-content mt-2">
+                    <label class="block mb-1"><input type="checkbox" /> Dresses</label>
+                    <label class="block mb-1"><input type="checkbox" /> Jackets</label>
+                    <label class="block mb-1"><input type="checkbox" /> Jeans</label>
+                    <label class="block mb-1"><input type="checkbox" /> Blouses</label>
+                </div>
+            </div>
+            <!-- Brand filter block removed as requested -->
+            <div class="filter-group mb-4">
+                <button class="filter-toggle w-full text-left font-semibold py-2 border-b border-gray-300 flex justify-between items-center">
+                    Price
+                    <i class="ri-arrow-down-s-line"></i>
+                </button>
+                <div class="filter-content mt-2">
+                    <input type="range" min="0" max="500" step="10" id="priceRange" />
+                    <div class="flex justify-between text-sm mt-1">
+                        <span>$0</span>
+                        <span>$500</span>
+                    </div>
+                </div>
+            </div>
+            <div class="filter-group mb-4">
+                <button class="filter-toggle w-full text-left font-semibold py-2 border-b border-gray-300 flex justify-between items-center">
+                    Color
+                    <i class="ri-arrow-down-s-line"></i>
+                </button>
+                <div class="filter-content mt-2 flex flex-wrap gap-2">
+                    <button class="color-btn bg-white border border-gray-400 rounded-full w-6 h-6" title="White"></button>
+                    <button class="color-btn bg-black rounded-full w-6 h-6" title="Black"></button>
+                    <button class="color-btn bg-blue-600 rounded-full w-6 h-6" title="Blue"></button>
+                    <button class="color-btn bg-red-600 rounded-full w-6 h-6" title="Red"></button>
+                    <button class="color-btn bg-green-600 rounded-full w-6 h-6" title="Green"></button>
+                    <button class="color-btn bg-yellow-400 rounded-full w-6 h-6" title="Yellow"></button>
+                    <button class="color-btn bg-purple-600 rounded-full w-6 h-6" title="Purple"></button>
+                    <button class="color-btn bg-orange-500 rounded-full w-6 h-6" title="Orange"></button>
+                </div>
+            </div>
+            <div class="filter-group mb-4">
+                <button class="filter-toggle w-full text-left font-semibold py-2 border-b border-gray-300 flex justify-between items-center">
+                    Discount Range
+                    <i class="ri-arrow-down-s-line"></i>
+                </button>
+                <div class="filter-content mt-2">
+                    <label class="block mb-1"><input type="checkbox" /> 10% - 20%</label>
+                    <label class="block mb-1"><input type="checkbox" /> 20% - 30%</label>
+                    <label class="block mb-1"><input type="checkbox" /> 30% - 50%</label>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <section class="flex-1">
+            <div class="flex justify-between items-center mb-6">
+                <h1 class="text-3xl font-bold">Categories</h1>
+                <div class="relative">
+                    <button id="sortDropdownBtn" class="flex items-center space-x-2 px-4 py-2 border rounded-button hover:border-primary cursor-pointer">
+                        <span>Sort By</span>
+                        <i class="ri-arrow-down-s-line"></i>
+                    </button>
+                    <div id="sortDropdownMenu" class="hidden absolute right-0 mt-2 w-48 bg-[var(--card-bg)] rounded-md shadow-lg z-20">
+                        <button class="block w-full text-left px-4 py-2 hover:bg-gray-100">Price: Low to High</button>
+                        <button class="block w-full text-left px-4 py-2 hover:bg-gray-100">Price: High to Low</button>
+                        <button class="block w-full text-left px-4 py-2 hover:bg-gray-100">Rating</button>
+                        <button class="block w-full text-left px-4 py-2 hover:bg-gray-100">Discount</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Product Card Example -->
+                <div class="product-card bg-[var(--card-bg)] rounded-lg shadow-md overflow-hidden group relative" data-color="white">
+                    <img src="pic1.jpg" alt="Product" class="w-full h-48 object-cover" />
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Elegant Dress</h3>
+                        <br>
+                        <div class="flex items-center justify-between mt-2">
+                            <span class="text-primary font-bold">$129.99</span>
+                            <span class="text-green-600 font-semibold">15% OFF</span>
+                        </div>
+                        <div class="flex items-center mt-2 space-x-1 text-yellow-400">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-half-fill"></i>
+                        </div>
+                        <button class="wishlist-btn absolute top-2 right-2 text-gray-400 hover:text-red-500 transition-colors" aria-label="Add to wishlist">
+                            <i class="ri-heart-line text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-card bg-[var(--card-bg)] rounded-lg shadow-md overflow-hidden group relative" data-color="blue black">
+                    <img src="pic21.jpg" alt="Product" class="w-full h-48 object-cover" />
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Stylish Hoodie</h3>
+                        <br>
+                        <div class="flex items-center justify-between mt-2">
+                            <span class="text-primary font-bold">$59.99</span>
+                            <span class="text-green-600 font-semibold">10% OFF</span>
+                        </div>
+                        <div class="flex items-center mt-2 space-x-1 text-yellow-400">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-half-fill"></i>
+                            <i class="ri-star-line"></i>
+                        </div>
+                        <button class="wishlist-btn absolute top-2 right-2 text-gray-400 hover:text-red-500 transition-colors" aria-label="Add to wishlist">
+                            <i class="ri-heart-line text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-card bg-[var(--card-bg)] rounded-lg shadow-md overflow-hidden group relative" data-color="black">
+                    <img src="pic2.jpg" alt="Product" class="w-full h-48 object-cover" />
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Casual Jacket</h3>
+                        <br>
+                        <div class="flex items-center justify-between mt-2">
+                            <span class="text-primary font-bold">$89.99</span>
+                            <span class="text-green-600 font-semibold">25% OFF</span>
+                        </div>
+                        <div class="flex items-center mt-2 space-x-1 text-yellow-400">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <button class="wishlist-btn absolute top-2 right-2 text-gray-400 hover:text-red-500 transition-colors" aria-label="Add to wishlist">
+                            <i class="ri-heart-line text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-card bg-[var(--card-bg)] rounded-lg shadow-md overflow-hidden group relative">
+                    <img src="pic21.jpg" alt="Product" class="w-full h-48 object-cover" />
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Stylish Hoodie</h3>
+                        <br>
+                        <div class="flex items-center justify-between mt-2">
+                            <span class="text-primary font-bold">$59.99</span>
+                            <span class="text-green-600 font-semibold">10% OFF</span>
+                        </div>
+                        <div class="flex items-center mt-2 space-x-1 text-yellow-400">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-half-fill"></i>
+                            <i class="ri-star-line"></i>
+                        </div>
+                        <button class="wishlist-btn absolute top-2 right-2 text-gray-400 hover:text-red-500 transition-colors" aria-label="Add to wishlist">
+                            <i class="ri-heart-line text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-card bg-[var(--card-bg)] rounded-lg shadow-md overflow-hidden group relative">
+                    <img src="pic22.jpg" alt="Product" class="w-full h-48 object-cover" />
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Cozy Hoodie</h3>
+                        <br>
+                        <div class="flex items-center justify-between mt-2">
+                            <span class="text-primary font-bold">$69.99</span>
+                            <span class="text-green-600 font-semibold">18% OFF</span>
+                        </div>
+                        <div class="flex items-center mt-2 space-x-1 text-yellow-400">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-line"></i>
+                        </div>
+                        <button class="wishlist-btn absolute top-2 right-2 text-gray-400 hover:text-red-500 transition-colors" aria-label="Add to wishlist">
+                            <i class="ri-heart-line text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-card bg-[var(--card-bg)] rounded-lg shadow-md overflow-hidden group relative" data-color="blue">
+                    <img src="pic3.jpg" alt="Product" class="w-full h-48 object-cover" />
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Summer Dress</h3>
+                        <br>
+                        <div class="flex items-center justify-between mt-2">
+                            <span class="text-primary font-bold">$109.99</span>
+                            <span class="text-green-600 font-semibold">20% OFF</span>
+                        </div>
+                        <div class="flex items-center mt-2 space-x-1 text-yellow-400">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-line"></i>
+                        </div>
+                        <button class="wishlist-btn absolute top-2 right-2 text-gray-400 hover:text-red-500 transition-colors" aria-label="Add to wishlist">
+                            <i class="ri-heart-line text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-card bg-[var(--card-bg)] rounded-lg shadow-md overflow-hidden group relative" data-color="red">
+                    <img src="pic4.jpg" alt="Product" class="w-full h-48 object-cover" />
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Leather Jacket</h3>
+                        <br>
+                        <div class="flex items-center justify-between mt-2">
+                            <span class="text-primary font-bold">$199.99</span>
+                            <span class="text-green-600 font-semibold">30% OFF</span>
+                        </div>
+                        <div class="flex items-center mt-2 space-x-1 text-yellow-400">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <button class="wishlist-btn absolute top-2 right-2 text-gray-400 hover:text-red-500 transition-colors" aria-label="Add to wishlist">
+                            <i class="ri-heart-line text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-card bg-[var(--card-bg)] rounded-lg shadow-md overflow-hidden group relative" data-color="white">
+                    <img src="pic5.jpg" alt="Product" class="w-full h-48 object-cover" />
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Classic Shirt</h3>
+                        <br>
+                        <div class="flex items-center justify-between mt-2">
+                            <span class="text-primary font-bold">$79.99</span>
+                            <span class="text-green-600 font-semibold">10% OFF</span>
+                        </div>
+                        <div class="flex items-center mt-2 space-x-1 text-yellow-400">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-line"></i>
+                            <i class="ri-star-line"></i>
+                        </div>
+                        <button class="wishlist-btn absolute top-2 right-2 text-gray-400 hover:text-red-500 transition-colors" aria-label="Add to wishlist">
+                            <i class="ri-heart-line text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-card bg-[var(--card-bg)] rounded-lg shadow-md overflow-hidden group relative" data-color="blue">
+                    <img src="pic6.jpg" alt="Product" class="w-full h-48 object-cover" />
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Denim Jeans</h3>
+                        <br>
+                        <div class="flex items-center justify-between mt-2">
+                            <span class="text-primary font-bold">$89.99</span>
+                            <span class="text-green-600 font-semibold">15% OFF</span>
+                        </div>
+                        <div class="flex items-center mt-2 space-x-1 text-yellow-400">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-half-fill"></i>
+                            <i class="ri-star-line"></i>
+                        </div>
+                        <button class="wishlist-btn absolute top-2 right-2 text-gray-400 hover:text-red-500 transition-colors" aria-label="Add to wishlist">
+                            <i class="ri-heart-line text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-card bg-[var(--card-bg)] rounded-lg shadow-md overflow-hidden group relative" data-color="green">
+                    <img src="pic7.jpg" alt="Product" class="w-full h-48 object-cover" />
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Floral Shirt</h3>
+                        <p class="text-sm text-gray-500">Brand D</p>
+                        <div class="flex items-center justify-between mt-2">
+                            <span class="text-primary font-bold">$59.99</span>
+                            <span class="text-green-600 font-semibold">12% OFF</span>
+                        </div>
+                        <div class="flex items-center mt-2 space-x-1 text-yellow-400">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-line"></i>
+                            <i class="ri-star-line"></i>
+                        </div>
+                        <button class="wishlist-btn absolute top-2 right-2 text-gray-400 hover:text-red-500 transition-colors" aria-label="Add to wishlist">
+                            <i class="ri-heart-line text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-card bg-[var(--card-bg)] rounded-lg shadow-md overflow-hidden group relative" data-color="yellow white">
+                    <img src="pic5.jpg" alt="Product" class="w-full h-48 object-cover" />
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">TSHIRT</h3>
+                        <br>
+                        <div class="flex items-center justify-between mt-2">
+                            <span class="text-primary font-bold">$29.99</span>
+                            <span class="text-green-600 font-semibold">5% OFF</span>
+                        </div>
+                        <div class="flex items-center mt-2 space-x-1 text-yellow-400">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-line"></i>
+                            <i class="ri-star-line"></i>
+                            <i class="ri-star-line"></i>
+                        </div>
+                        <button class="wishlist-btn absolute top-2 right-2 text-gray-400 hover:text-red-500 transition-colors" aria-label="Add to wishlist">
+                            <i class="ri-heart-line text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-card bg-[var(--card-bg)] rounded-lg shadow-md overflow-hidden group relative" data-color="purple">
+                    <img src="pic7.jpg" alt="Product" class="w-full h-48 object-cover" />
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Oversized Tshirts</h3>
+                        <br>
+                        <div class="flex items-center justify-between mt-2">
+                            <span class="text-primary font-bold">$149.99</span>
+                            <span class="text-green-600 font-semibold">22% OFF</span>
+                        </div>
+                        <div class="flex items-center mt-2 space-x-1 text-yellow-400">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-line"></i>
+                        </div>
+                        <button class="wishlist-btn absolute top-2 right-2 text-gray-400 hover:text-red-500 transition-colors" aria-label="Add to wishlist">
+                            <i class="ri-heart-line text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-card bg-[var(--card-bg)] rounded-lg shadow-md overflow-hidden group relative" data-color="orange white">
+                    <img src="pic1.jpg" alt="Product" class="w-full h-48 object-cover" />
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Tshirts</h3>
+                        <br>
+                        <div class="flex items-center justify-between mt-2">
+                            <span class="text-primary font-bold">$79.99</span>
+                            <span class="text-green-600 font-semibold">18% OFF</span>
+                        </div>
+                        <div class="flex items-center mt-2 space-x-1 text-yellow-400">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-line"></i>
+                            <i class="ri-star-line"></i>
+                        </div>
+                        <button class="wishlist-btn absolute top-2 right-2 text-gray-400 hover:text-red-500 transition-colors" aria-label="Add to wishlist">
+                            <i class="ri-heart-line text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <!-- More Photos Section -->
+            <div class="mt-12">
+                <h2 class="text-2xl font-semibold mb-6">More Products</h2>
+                <div id="moreProductsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="product-card bg-[var(--card-bg)] rounded-lg shadow-md overflow-hidden group relative">
+                        <img src="pic2.jpg" alt="Product" class="w-full h-48 object-cover" />
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg">Classic Shirt</h3>
+                            <br>
+                            <div class="flex items-center justify-between mt-2">
+                                <span class="text-primary font-bold">$79.99</span>
+                                <span class="text-green-600 font-semibold">10% OFF</span>
+                            </div>
+                            <div class="flex items-center mt-2 space-x-1 text-yellow-400">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-line"></i>
+                                <i class="ri-star-line"></i>
+                            </div>
+                            <button class="wishlist-btn absolute top-2 right-2 text-gray-400 hover:text-red-500 transition-colors" aria-label="Add to wishlist">
+                                <i class="ri-heart-line text-2xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-[var(--card-bg)] rounded-lg shadow-md overflow-hidden group relative">
+                        <img src="pic3.jpg" alt="Product" class="w-full h-48 object-cover" />
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg">Summer Dress</h3>
+                            <br>
+                            <div class="flex items-center justify-between mt-2">
+                                <span class="text-primary font-bold">$109.99</span>
+                                <span class="text-green-600 font-semibold">20% OFF</span>
+                            </div>
+                            <div class="flex items-center mt-2 space-x-1 text-yellow-400">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-line"></i>
+                            </div>
+                            <button class="wishlist-btn absolute top-2 right-2 text-gray-400 hover:text-red-500 transition-colors" aria-label="Add to wishlist">
+                                <i class="ri-heart-line text-2xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-[var(--card-bg)] rounded-lg shadow-md overflow-hidden group relative">
+                        <img src="pic4.jpg" alt="Product" class="w-full h-48 object-cover" />
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg">Leather Jacket</h3>
+                            <br>
+                            <div class="flex items-center justify-between mt-2">
+                                <span class="text-primary font-bold">$199.99</span>
+                                <span class="text-green-600 font-semibold">30% OFF</span>
+                            </div>
+                            <div class="flex items-center mt-2 space-x-1 text-yellow-400">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                            </div>
+                            <button class="wishlist-btn absolute top-2 right-2 text-gray-400 hover:text-red-500 transition-colors" aria-label="Add to wishlist">
+                                <i class="ri-heart-line text-2xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-[var(--card-bg)] rounded-lg shadow-md overflow-hidden group relative">
+                        <img src="pic21.jpg" alt="Product" class="w-full h-48 object-cover" />
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg">Denim Jeans</h3>
+                            <p class="text-sm text-gray-500"></p>
+                            <br>
+                            <div class="flex items-center justify-between mt-2">
+                                <span class="text-primary font-bold">$89.99</span>
+                                <span class="text-green-600 font-semibold">15% OFF</span>
+                            </div>
+                            <div class="flex items-center mt-2 space-x-1 text-yellow-400">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-half-fill"></i>
+                                <i class="ri-star-line"></i>
+                            </div>
+                            <button class="wishlist-btn absolute top-2 right-2 text-gray-400 hover:text-red-500 transition-colors" aria-label="Add to wishlist">
+                                <i class="ri-heart-line text-2xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    
+
+    <!-- Footer copied from index.html -->
+    <footer class="bg-gray-900 text-white mt-12">
+        <div class="max-w-7xl mx-auto px-4 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="font-['Pacifico'] text-2xl mb-4">InkedEssence</h3>
+                    <p class="text-gray-400">Premium fashion for the modern individual. Quality meets style in every piece.</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white w-8 h-8 flex items-center justify-center cursor-pointer">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white w-8 h-8 flex items-center justify-center cursor-pointer">
+                            <i class="ri-twitter-fill"></i>
+                        </a>
+                        <a href="https://www.instagram.com/inked___essence?igsh=MWs2NmFvZ2g2endvdg==" class="text-gray-400 hover:text-white w-8 h-8 flex items-center justify-center cursor-pointer">
+                            <i class="ri-instagram-fill"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="aboutus.css" class="text-gray-400 hover:text-white cursor-pointer">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white cursor-pointer">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white cursor-pointer">FAQs</a></li>
+                        <li><a href="privacy.html" class="text-gray-400 hover:text-white cursor-pointer">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>123 Fashion Street</li>
+                        <li>New York, NY 10001</li>
+                        <li>Phone: (555) 123-4567</li>
+                        <li>Email: info@inkedessence.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8">
+                <div class="max-w-md mx-auto text-center">
+                    <h4 class="text-lg font-semibold mb-4">Subscribe to Our Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Stay updated with our latest collections and exclusive offers</p>
+                    <form class="flex space-x-2">
+                        <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-2 rounded-button bg-gray-800 border-none text-white" required />
+                        <button type="submit" class="bg-primary text-white px-6 py-2 rounded-button hover:bg-opacity-90 transition-colors duration-300 cursor-pointer whitespace-nowrap">Subscribe</button>
+                    </form>
+                </div>
+                <div class="text-center text-gray-400 mt-8">
+                    <p>&copy; 2025 InkedEssence. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="categories.js"></script>
+</body>
+</html>
