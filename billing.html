@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INKED ESSENCE - Billing</title>
+    <link rel="stylesheet" href="billing.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">INKED ESSENCE</div>
+        <div class="theme-toggle">
+            <input type="checkbox" id="themeSwitch">
+            <label for="themeSwitch" class="toggle-label">
+                <span class="toggle-icon">🌙</span>
+            </label>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="billing-indicator">Billing</div>
+
+        <div class="billing-section">
+            <div class="billing-form card">
+                <h2>Billing Details</h2>
+                <form id="billingForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" required>
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" required>
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" id="address" required>
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" required>
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <input type="text" id="state" required>
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="zip">ZIP Code</label>
+                        <input type="text" id="zip" required>
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="payment-method">Payment Method</label>
+                        <select id="payment-method" required>
+                            <option value="razorpay">Credit/Debit Card (Razorpay)</option>
+                            <option value="cod">Cash on Delivery</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+
+            <div class="order-summary card sticky">
+                <h2>Order Summary</h2>
+                <div id="orderItems"></div>
+                <div class="summary-details">
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span id="subtotal">₹0</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping</span>
+                        <span id="shipping">₹100</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total</span>
+                        <span id="totalAmount">₹0</span>
+                    </div>
+                </div>
+                <button class="pay-btn" id="payButton">Proceed to Payment</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="billing.js"></script>
+</body>
+</html>
