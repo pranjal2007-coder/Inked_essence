@@ -210,6 +210,7 @@ h2, h3 {
   margin-bottom: 1rem;
 }
 
+/* Button styles */
 button.button {
   background-color: #005eff;
   color: white;
@@ -270,4 +271,19 @@ html[data-theme='dark'] .bg-primary {
 
 html[data-theme='dark'] .bg-primary:hover {
   background-color: #1d4ed8;
+}
+
+/* Dark mode fix for Reach Us section text colors */
+html[data-theme='dark'] main section h3,
+html[data-theme='dark'] main section p,
+html[data-theme='dark'] main section a i {
+  color: var(--text-color) !important;
+}
+
+html[data-theme='dark'] .text-gray-700 {
+  color: var(--text-color) !important;
+}
+
+html[data-theme='dark'] .text-gray-600 {
+  color: var(--text-color) !important;
 }
