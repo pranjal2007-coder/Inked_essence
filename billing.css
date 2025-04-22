@@ -1,308 +1,141 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-:root {
-    /* Dark Mode */
-    --bg-color: #0a0a0a;
-    --text-color: #fff;
-    --accent-color: #ff0000;
-    --secondary-bg: #1c1c1c;
-    --input-bg: #2a2a2a;
-    --border-color: #444;
-    --hover-bg: #3a3a3a;
-    --gradient: linear-gradient(45deg, #ff0000, #b30000);
-}
-
-[data-theme="light"] {
-    /* Light Mode */
-    --bg-color: #f5f5f5;
-    --text-color: #1a1a1a;
-    --accent-color: #ff0000;
-    --secondary-bg: #fff;
-    --input-bg: #e8e8e8;
-    --border-color: #ccc;
-    --hover-bg: #ddd;
-    --gradient: linear-gradient(45deg, #ff3333, #cc0000);
-}
+/* Import Dancing Script font */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Inter:wght@400;600&display=swap');
 
 body {
-    background: var(--bg-color);
-    color: var(--text-color);
-    overflow-x: hidden;
+    font-family: "Inter", sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.font-cursive {
+    font-family: 'Dancing Script', cursive;
+}
+
+/* Define custom properties for better maintainability */
+:root {
+    --light-bg: #ecf2f3;
+    --light-text: #1a263a;
+    --accent-color: #4a90e2;
+    --card-bg: #ffffff;
+    --input-bg: #e6f0ff;
+    --summary-bg: #f7fafc;
+    --dark-bg: #1a263a;
+    --dark-text: #e0e0e0;
+    --dark-card-bg: #2a3b4c;
+    --dark-input-bg: #3a4d62;
+    --dark-summary-bg: #2a3b4c;
+    --dark-gray-600: #b0b7c3;
+    --dark-gray-700: #d3d8e0;
+    --hover-color: #357abd;
+}
+
+.dark-mode {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .bg-white {
+    background-color: var(--dark-card-bg);
+}
+
+.dark-mode .bg-[#e6f0ff] {
+    background-color: var(--dark-input-bg);
+}
+
+.dark-mode .bg-[#f7fafc] {
+    background-color: var(--dark-summary-bg);
+}
+
+.dark-mode .bg-[#ecf2f3] {
+    background-color: var(--dark-bg);
+}
+
+.dark-mode .text-gray-800 {
+    color: var(--dark-text);
+}
+
+.dark-mode .text-gray-600 {
+    color: var(--dark-gray-600);
+}
+
+.dark-mode .text-gray-700 {
+    color: var(--dark-gray-700);
+}
+
+.dark-mode .hover:underline {
+    color: var(--accent-color);
+}
+
+.dark-mode input,
+.dark-mode select {
+    background-color: var(--dark-input-bg);
+    color: var(--dark-text);
+    border-color: var(--dark-gray-600);
+}
+
+.dark-mode input::placeholder,
+.dark-mode select::placeholder {
+    color: var(--dark-gray-600);
+}
+
+.dark-mode button {
+    background-color: var(--accent-color);
+    color: var(--dark-text);
+}
+
+.dark-mode button:hover {
+    background-color: var(--hover-color);
 }
 
 header {
-    background: var(--gradient);
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    background-color: var(--card-bg);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
 }
 
-.logo {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 32px;
-    font-weight: 700;
-    color: var(--text-color);
-    letter-spacing: 3px;
+footer {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
 }
 
-.theme-toggle {
-    position: relative;
-    width: 60px;
-    height: 30px;
+footer a:hover {
+    color: var(--dark-text);
 }
 
-#themeSwitch {
-    display: none;
+.bg-[#e6f0ff] {
+    background-color: var(--input-bg);
 }
 
-.toggle-label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--input-bg);
-    border-radius: 15px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    padding: 0 5px;
-    transition: background 0.3s ease;
+.bg-[#f7fafc] {
+    background-color: var(--summary-bg);
 }
 
-.toggle-icon {
-    width: 24px;
-    height: 24px;
-    background: var(--accent-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s ease;
+/* Additional default styles */
+input, select {
+    padding: 0.5rem;
+    border: 1px solid #d3d8e0;
+    border-radius: 0.375rem;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
-#themeSwitch:checked + .toggle-label .toggle-icon {
-    transform: translateX(30px);
-}
-
-#themeSwitch:checked + .toggle-label {
-    background: var(--hover-bg);
-}
-
-.container {
-    max-width: 1300px;
-    margin: 60px auto;
-    padding: 20px;
-}
-
-.billing-indicator {
-    text-align: center;
-    padding: 10px 20px;
-    background: var(--accent-color);
-    color: var(--text-color);
-    border-radius: 20px;
-    margin-bottom: 50px;
-    font-size: 18px;
-    font-weight: 600;
-    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
-    transition: transform 0.3s ease;
-}
-
-.billing-indicator:hover {
-    transform: scale(1.05);
-}
-
-.billing-section {
-    display: flex;
-    gap: 40px;
-    flex-wrap: wrap;
-}
-
-.card {
-    background: var(--secondary-bg);
-    padding: 40px;
-    border-radius: 16px;
-    position: relative;
-    transform: perspective(1000px) rotateY(0deg);
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.card:hover {
-    transform: perspective(1000px) rotateY(5deg);
-    box-shadow: 0 15px 40px rgba(255, 0, 0, 0.3);
-}
-
-.billing-form h2, .order-summary h2 {
-    margin-bottom: 25px;
-    color: var(--accent-color);
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 700;
-    font-size: 28px;
-}
-
-.form-group {
-    margin-bottom: 25px;
-    position: relative;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 15px;
-    color: var(--text-color);
-    font-weight: 500;
-}
-
-.form-group input, .form-group select {
-    width: 100%;
-    padding: 14px;
-    border: none;
-    border-radius: 10px;
-    background: var(--input-bg);
-    color: var(--text-color);
-    font-size: 16px;
-    transition: all 0.3s ease;
-}
-
-.form-group input:focus, .form-group select:focus {
+input:focus, select:focus {
     outline: none;
-    box-shadow: 0 0 0 3px var(--accent-color);
-    background: var(--hover-bg);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
 }
 
-.error-message {
-    color: #ff5555;
-    font-size: 13px;
-    position: absolute;
-    bottom: -20px;
-    left: 0;
-    transition: opacity 0.3s ease;
-}
-
-.order-item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    padding: 12px;
-    background: var(--input-bg);
-    border-radius: 10px;
-    transition: all 0.3s ease;
-}
-
-.order-item:hover {
-    background: var(--hover-bg);
-    transform: translateX(5px);
-}
-
-.summary-details {
-    margin-top: 25px;
-    border-top: 2px solid var(--border-color);
-    padding-top: 25px;
-}
-
-.summary-row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-    font-size: 16px;
-}
-
-.summary-row.total {
-    font-weight: 700;
-    font-size: 20px;
-    color: var(--accent-color);
-}
-
-.pay-btn {
-    background: var(--gradient);
-    color: var(--text-color);
-    padding: 18px;
+button {
+    padding: 0.5rem 1rem;
     border: none;
-    border-radius: 12px;
-    width: 100%;
-    font-size: 20px;
-    font-weight: 600;
+    border-radius: 0.375rem;
     cursor: pointer;
-    transition: all 0.4s ease;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+    transition: background-color 0.3s ease;
 }
 
-.pay-btn:hover {
-    background: linear-gradient(45deg, #cc0000, #ff3333);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(255, 0, 0, 0.6);
+a {
+    text-decoration: none;
 }
 
-.pay-btn::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.5s ease, height 0.5s ease;
-}
-
-.pay-btn:hover::after {
-    width: 400px;
-    height: 400px;
-}
-
-.sticky {
-    position: sticky;
-    top: 100px;
-}
-
-@media (max-width: 768px) {
-    .container {
-        margin: 40px auto;
-        padding: 15px;
-    }
-
-    .billing-indicator {
-        font-size: 16px;
-        padding: 8px 15px;
-    }
-
-    .billing-section {
-        flex-direction: column;
-    }
-
-    .card {
-        padding: 25px;
-    }
-
-    .card:hover {
-        transform: perspective(1000px) rotateY(0deg);
-    }
-
-    .logo {
-        font-size: 24px;
-    }
-
-    .theme-toggle {
-        width: 50px;
-        height: 25px;
-    }
-
-    .toggle-icon {
-        width: 20px;
-        height: 20px;
-    }
-
-    #themeSwitch:checked + .toggle-label .toggle-icon {
-        transform: translateX(25px);
-    }
+a:hover {
+    text-decoration: underline;
 }
