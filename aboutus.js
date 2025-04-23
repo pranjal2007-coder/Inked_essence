@@ -3,26 +3,20 @@ const toggleButton = document.getElementById('theme-toggle');
 const body = document.body;
 
 toggleButton.addEventListener('click', () => {
-    body.classList.toggle('light');
-    const newTheme = body.classList.contains('light') ? 'light' : 'dark';
-    localStorage.setItem('theme', newTheme);
-    // Optional reset to dark theme with double-click
-    let clickCount = 0;
-    toggleButton.addEventListener('dblclick', () => {
-        clickCount++;
-        if (clickCount === 1) {
-            setTimeout(() => { clickCount = 0; }, 300);
-        } else if (clickCount === 2) {
-            body.classList.remove('light');
-            localStorage.setItem('theme', 'dark');
-            clickCount = 0;
-        }
-    });
+    if (body.classList.contains('dark-mode')) {
+        body.classList.remove('dark-mode');
+        localStorage.setItem('theme', 'light');
+    } else {
+        body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark');
+    }
 });
 
 // Load Saved Theme
-const savedTheme = localStorage.getItem('theme') || 'dark';
-if (savedTheme === 'light') body.classList.add('light');
+const savedTheme = localStorage.getItem('theme') || 'light';
+if (savedTheme === 'dark') {
+    body.classList.add('dark-mode');
+}
 
 // Clothing Carousel
 let currentIndex = 0;
@@ -45,6 +39,7 @@ document.querySelector('.carousel-next').addEventListener('click', () => {
     showNext();
     resetAutoSlide();
 });
+
 document.querySelector('.carousel-prev').addEventListener('click', () => {
     showPrev();
     resetAutoSlide();
@@ -53,6 +48,7 @@ document.querySelector('.carousel-prev').addEventListener('click', () => {
 function startAutoSlide() {
     autoSlide = setInterval(showNext, 5000);
 }
+
 function resetAutoSlide() {
     clearInterval(autoSlide);
     startAutoSlide();
@@ -69,7 +65,7 @@ carouselContainer.addEventListener('mouseleave', startAutoSlide);
 const counters = document.querySelectorAll('.counter');
 counters.forEach(counter => {
     const target = parseInt(counter.getAttribute('data-target'));
-    const increment = target / 200; // Slower increment for smoother animation
+    const increment = target / 200;
     let current = 0;
 
     const updateCounter = () => {
@@ -100,7 +96,7 @@ gsap.utils.toArray('section').forEach(section => {
         scrollTrigger: {
             trigger: section,
             start: 'top 80%',
-            toggleActions: 'play none none reverse' // Added 'reverse' for better performance
+            toggleActions: 'play none none reverse'
         }
     });
 });
