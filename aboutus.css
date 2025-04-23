@@ -1,67 +1,157 @@
 :root {
-    --bg-color: #000;
-    --text-color: #fff;
-    --primary-color: #ff0000;
-    --secondary-color: #1a1a1a;
-    --card-bg: #1a1a1a;
-    --shadow: rgba(255, 0, 0, 0.5);
+    --light-bg: #ecf2f3;
+    --light-text: #1a263a;
+    --accent-color: #4a90e2;
+    --card-bg: #ffffff;
+    --input-bg: #e6f0ff;
+    --summary-bg: #f7fafc;
+    --dark-bg: #1a263a;
+    --dark-text: #e0e0e0;
+    --dark-card-bg: #2a3b4c;
+    --dark-input-bg: #3a4d62;
+    --dark-summary-bg: #2a3b4c;
+    --dark-gray-600: #b0b7c3;
+    --dark-gray-700: #d3d8e0;
+    --hover-color: #357abd;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-dark: rgba(255, 255, 255, 0.1);
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    background: var(--bg-color);
-    color: var(--text-color);
-    transition: background 0.5s ease, color 0.5s ease;
+    background: var(--light-bg);
+    color: var(--light-text);
+    transition: background0.5s ease, color 0.5s ease;
     line-height: 1.6;
 }
 
-body.light {
-    --bg-color: #f5f5f5;
-    --text-color: #000;
-    --primary-color: #ff0000;
-    --secondary-color: #ccc;
-    --card-bg: #fff;
-    --shadow: rgba(0, 0, 0, 0.1);
+.font-cursive {
+    font-family: 'Dancing Script', cursive;
+}
+
+.dark-mode {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+.dark-mode .bg-white {
+    background-color: var(--dark-card-bg);
+}
+
+.dark-mode .bg-#e6f0ff {
+    background-color: var(--dark-input-bg);
+}
+
+.dark-mode .bg-#f7fafc {
+    background-color: var(--dark-summary-bg);
+}
+
+.dark-mode .bg-#ecf2f3 {
+    background-color: var(--dark-bg);
+}
+
+.dark-mode .text-gray-800 {
+    color: var(--dark-text);
+}
+
+.dark-mode .text-gray-600 {
+    color: var(--dark-gray-600);
+}
+
+.dark-mode .text-gray-700 {
+    color: var(--dark-gray-700);
+}
+
+.dark-mode .hover:underline {
+    color: var(--accent-color);
+}
+
+.dark-mode input,
+.dark-mode select {
+    background-color: var(--dark-input-bg);
+    color: var(--dark-text);
+    border-color: var(--dark-gray-600);
+}
+
+.dark-mode input::placeholder,
+.dark-mode select::placeholder {
+    color: var(--dark-gray-600);
+}
+
+.dark-mode button {
+    background-color: var(--accent-color);
+    color: var(--dark-text);
+}
+
+.dark-mode button:hover {
+    background-color: var(--hover-color);
+}
+
+/* Shadow adaptation for dark mode */
+.content-box, .stat-item, .team-card {
+    box-shadow: 0 6px 12px var(--shadow-light);
+}
+
+.dark-mode .content-box, .dark-mode .stat-item, .dark-mode .team-card {
+    box-shadow: 0 6px 12px var(--shadow-dark);
+}
+
+.content-box:hover, .stat-item:hover, .team-card:hover {
+    box-shadow: 0 10px 20px var(--shadow-light);
+}
+
+.dark-mode .content-box:hover, .dark-mode .stat-item:hover, .dark-mode .team-card:hover {
+    box-shadow: 0 10px 20px var(--shadow-dark);
+}
+
+header {
+    background-color: var(--card-bg);
+    box-shadow: 0 2px 5px var(--shadow-light);
+    transition: background-color 0.3s ease;
+}
+
+.dark-mode header {
+    box-shadow: 0 2px 5px var(--shadow-dark);
+}
+
+/* Default Link Styles */
+a {
+    color: var(--light-text);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.dark-mode a {
+    color: var(--dark-text);
+}
+
+.dark-mode a:hover {
+    color: var(--accent-color);
 }
 
 /* Theme Toggle Styling */
-.mode-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 100;
-}
-
 #theme-toggle {
-    background: var(--card-bg);
+    background: none;
     border: none;
-    padding: 10px;
-    border-radius: 50%;
     cursor: pointer;
-    transition: transform 0.5s ease, box-shadow 0.3s ease;
+    transition: color 0.3s ease;
 }
 
-#theme-toggle:hover {
-    transform: rotate(360deg);
-    box-shadow: 0 0 10px var(--primary-color);
+#theme-toggle i {
+    color: var(--accent-color);
+    transition: color 0.3s ease;
 }
 
-#theme-toggle svg {
-    width: 24px;
-    height: 24px;
-    fill: var(--primary-color);
-    transition: fill 0.3s ease;
+#theme-toggle:hover i {
+    color: var(--hover-color);
 }
-
-#theme-toggle:hover svg {
-    fill: #ff3333;
-}
-
-#theme-toggle .moon { display: none; }
-body.light #theme-toggle .sun { display: none; }
-body.light #theme-toggle .moon { display: block; }
 
 /* Hero Section */
 .hero {
@@ -79,9 +169,9 @@ body.light #theme-toggle .moon { display: block; }
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('https://source.unsplash.com/random/1920x1080?streetwear,red') no-repeat center center;
+    background: url('https://source.unsplash.com/random/1920x1080?fashion,blue') no-repeat center center;
     background-size: cover;
-    transform: translateZ(-1px) scale(1.5);
+    background-attachment: fixed;
     z-index: -1;
     filter: brightness(0.7);
 }
@@ -94,13 +184,17 @@ body.light #theme-toggle .moon { display: block; }
 
 h1 {
     font-size: 5rem;
-    color: var(--primary-color);
-    text-shadow: 2px 2px 6px var(--shadow);
+    color: var(--accent-color);
+    text-shadow: 2px 2px 6px var(--shadow-light);
     transition: color 0.3s ease;
 }
 
+.dark-mode h1 {
+    text-shadow: 2px 2px 6px var(--shadow-dark);
+}
+
 h1:hover {
-    color: #ff3333;
+    color: var(--hover-color);
 }
 
 /* General Section Styling */
@@ -109,19 +203,31 @@ h1:hover {
     text-align: center;
 }
 
+h2 {
+    font-size: 2.5rem;
+    color: var(--light-text);
+    margin-bottom: 20px;
+}
+
+.dark-mode h2 {
+    color: var(--dark-text);
+}
+
 .content-box {
     background: var(--card-bg);
     padding: 25px;
     border-radius: 15px;
-    box-shadow: 0 6px 12px var(--shadow);
     max-width: 900px;
     margin: 30px auto;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.dark-mode .content-box {
+    background: var(--dark-card-bg);
+}
+
 .content-box:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px var(--shadow);
 }
 
 .mission-values ul, .why-choose-us ul {
@@ -133,14 +239,18 @@ h1:hover {
 .mission-values li, .why-choose-us li {
     font-size: 1.2rem;
     margin: 15px 0;
-    color: var(--text-color);
+    color: var(--light-text);
     position: relative;
     padding-left: 20px;
 }
 
+.dark-mode .mission-values li, .dark-mode .why-choose-us li {
+    color: var(--dark-text);
+}
+
 .mission-values li::before, .why-choose-us li::before {
     content: "•";
-    color: var(--primary-color);
+    color: var(--accent-color);
     font-weight: bold;
     position: absolute;
     left: 0;
@@ -159,25 +269,42 @@ h1:hover {
     background: var(--card-bg);
     padding: 30px;
     border-radius: 15px;
-    box-shadow: 0 6px 12px var(--shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dark-mode .stat-item, .dark-mode .team-card {
+    background: var(--dark-card-bg);
 }
 
 .stat-item:hover, .team-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 10px 20px var(--shadow);
 }
 
 .stat-item h3, .team-card h3 {
     font-size: 1.5rem;
-    color: var(--primary-color);
+    color: var(--accent-color);
     margin-bottom: 10px;
 }
 
 .stat-item p, .team-card p {
     font-size: 2rem;
     font-weight: bold;
-    color: var(--text-color);
+    color: var(--light-text);
+}
+
+.dark-mode .stat-item p, .dark-mode .team-card p {
+    color: var(--dark-text);
+}
+
+/* Team Section Images */
+.team-img {
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    border: 3px solid var(--accent-color);
 }
 
 /* Carousel Styling */
@@ -203,9 +330,13 @@ h1:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: var(--text-color);
-    text-shadow: 2px 2px 4px var(--shadow);
+    color: #ffffff;
+    text-shadow: 2px 2px 4px var(--shadow-light);
     transition: opacity 0.3s ease;
+}
+
+.dark-mode .carousel-item {
+    text-shadow: 2px 2px 4px var(--shadow-dark);
 }
 
 .carousel-item:hover {
@@ -219,27 +350,30 @@ h1:hover {
 }
 
 .carousel-item h3:hover {
-    color: #ff3333;
+    color: var(--hover-color);
 }
 
-.carousel-item p { font-size: 1.5rem; }
+.carousel-item p { 
+    font-size: 1.5rem; 
+}
 
+/* Carousel Buttons */
 .carousel-prev, .carousel-next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: var(--primary-color);
-    color: var(--text-color);
+    background: var(--accent-color);
+    color: var(--dark-text);
     border: none;
     padding: 15px;
     cursor: pointer;
     font-size: 2rem;
     border-radius: 50%;
-    transition: background 0.3s ease, transform 0.3s ease;
+    transition: background0.3s ease, transform 0.3s ease;
 }
 
 .carousel-prev:hover, .carousel-next:hover {
-    background: #ff3333;
+    background: var(--hover-color);
     transform: translateY(-50%) scale(1.1);
 }
 
@@ -247,121 +381,29 @@ h1:hover {
 .carousel-next { right: 10px; }
 
 /* Footer Styling */
-.footer {
-    background: var(--secondary-color);
-    color: var(--text-color);
+footer {
+    background: var(--dark-bg);
+    color: var(--dark-text);
     padding: 40px 20px;
     font-size: 1rem;
 }
 
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--primary-color);
-}
-
-.footer-section h3 {
-    font-size: 1.5rem;
-    color: var(--primary-color);
-    margin-bottom: 15px;
-}
-
-.footer-section p {
-    margin: 5px 0;
-    font-size: 0.9rem;
-}
-
-.footer-section ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-section ul li {
-    margin: 10px 0;
-}
-
-.footer-section ul li a {
-    color: var(--text-color);
-    text-decoration: none;
+footer a {
+    color: var(--dark-text);
     transition: color 0.3s ease;
 }
 
-.footer-section ul li a:hover {
-    color: #ff3333;
-}
-
-.social-icons a {
-    margin-right: 10px;
-    color: var(--text-color);
-    font-size: 1.2rem;
-    transition: color 0.3s ease;
-}
-
-.social-icons a:hover {
-    color: #ff3333;
-}
-
-.newsletter {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.newsletter h3 {
-    font-size: 1.5rem;
-    color: var(--primary-color);
-    margin-bottom: 10px;
-}
-
-.newsletter p {
-    font-size: 0.9rem;
-    margin-bottom: 15px;
-}
-
-.newsletter-form {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-}
-
-.newsletter-form input {
-    padding: 8px;
-    border: none;
-    border-radius: 5px;
-    background: #2a2a2a;
-    color: var(--text-color);
-    width: 200px;
-}
-
-.newsletter-form button {
-    padding: 8px 15px;
-    border: none;
-    border-radius: 5px;
-    background: var(--primary-color);
-    color: var(--text-color);
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.newsletter-form button:hover {
-    background: #ff3333;
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 20px;
-    font-size: 0.9rem;
-    color: var(--text-color);
+footer a:hover {
+    color: #ffffff;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     h1 { font-size: 3rem; }
     .hero { height: 70vh; }
-    .parallax-bg { transform: translateZ(-1px) scale(1.2); }
+    .parallax-bg { 
+        background-attachment: scroll;
+    }
     .content-box { max-width: 100%; padding: 15px; }
     .mission-values li, .why-choose-us li { font-size: 1rem; margin: 10px 0; }
     .stat-item, .team-card { padding: 20px; }
@@ -369,8 +411,21 @@ h1:hover {
     .carousel-item h3 { font-size: 2rem; }
     .carousel-item p { font-size: 1.2rem; }
     .carousel-prev, .carousel-next { padding: 10px; font-size: 1.5rem; }
-    .footer-content { grid-template-columns: 1fr; text-align: center; }
-    .newsletter-form { flex-direction: column; }
-    .newsletter-form input { width: 100%; }
-    .footer, .footer-bottom { padding: 20px; }
+    header {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+    header nav {
+        order: 1;
+        flex: 1 1 100%;
+        justify-content: center;
+        gap: 1rem;
+    }
+    header div:last-child {
+        order: 2;
+    }
+    .footer-section {
+        margin-bottom: 1.5rem;
+    }
 }
