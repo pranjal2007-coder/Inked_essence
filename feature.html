@@ -5,68 +5,81 @@
   <title>
    InkedEssence Collections
   </title>
-  <script src="https://cdn.tailwindcss.com">
-  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"/>
+  <link href="feature.css">
+ 
  </head>
- <body class="bg-gray-100 text-gray-900">
-  <nav class="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-50">
-   <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-    <div class="text-3xl  text-gray-800 logo-text" style="font-family: 'Pacifico', cursive">
-     InkedEssence
+ <body class="bg-gray-900 text-gray-900">
+  <nav class="fixed top-0 left-0 w-full z-50 bg-gray-900 bg-opacity-90 backdrop-blur-sm shadow">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+      <div class="font-pacifico text-3xl text-white select-none" style="font-family: Pacifico, cursive;">
+        Inked Essence
+      </div>
+      <div class="sm:hidden">
+        <button id="menu-btn" aria-label="Toggle menu" class="text-white text-3xl focus:outline-none">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+      <ul id="desktop-menu" class="hidden sm:flex space-x-6 md:space-x-12 text-white text-base md:text-lg font-normal">
+        <li><a href="index.html" class="hover:underline">Home</a></li>
+        <li><a href="#" class="hover:underline">Features</a></li>
+        <li><a href="#" class="hover:underline">Categories</a></li>
+        <li><a href="#" class="hover:underline">About</a></li>
+        <li><a href="#" class="hover:underline">Contact</a></li>
+      </ul>
+      <div id="desktop-actions" class="hidden sm:flex items-center space-x-6 sm:space-x-8">
+        <button aria-label="Favorite" class="text-white hover:text-red-600 text-2xl sm:text-3xl">
+          <i class="far fa-heart"></i>
+        </button>
+        <div class="relative">
+          <button aria-label="Cart" class="text-white text-2xl sm:text-3xl">
+            <i class="fas fa-shopping-cart"></i>
+          </button>
+          <span class="absolute -top-1 -right-2 bg-red-600 text-white text-sm sm:text-base font-semibold rounded-full w-6 h-6 sm:w-7 sm:h-7 flex items-center justify-center select-none">0</span>
+        </div>
+        <button class="bg-[#4b4bff] text-white text-sm sm:text-base font-semibold px-6 sm:px-8 py-3 sm:py-3.5 rounded-full hover:bg-[#3a3adf] focus:outline-none focus:ring-2 focus:ring-[#3a3adf]">
+          Login/Signup
+        </button>
+      </div>
     </div>
-    <div class="space-x-6 text-gray-800 hidden md:flex">
-     <a class="hover:text-gray-600" href="index.html">
-      Home
-     </a>
-     <a class="hover:text-gray-600" href="#">
-      Categories
-     </a>
-     <a class="hover:text-gray-600" href="#">
-      Shop
-     </a>
-     <a class="hover:text-gray-600" href="aboutus.html">
-      About
-     </a>
-     <a class="hover:text-gray-600" href="contact.html">
-      Contact
-     </a>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="sm:hidden fixed top-full left-0 w-full max-h-[calc(100vh-64px)] overflow-y-auto bg-gray-900 bg-opacity-95 backdrop-blur-md shadow-lg transform scale-y-0 origin-top transition-transform duration-300">
+      <ul class="flex flex-col px-6 py-4 space-y-4 text-white text-lg font-normal">
+        <li><a href="index.html" class="block hover:underline" onclick="closeMenu()">Home</a></li>
+        <li><a href="#" class="block hover:underline" onclick="closeMenu()">Features</a></li>
+        <li><a href="#" class="block hover:underline" onclick="closeMenu()">Categories</a></li>
+        <li><a href="#" class="block hover:underline" onclick="closeMenu()">About</a></li>
+        <li><a href="#" class="block hover:underline" onclick="closeMenu()">Contact</a></li>
+      </ul>
+      <div class="flex items-center justify-center space-x-8 px-6 pb-6">
+        <button aria-label="Favorite" class="text-white hover:text-red-600 text-3xl">
+          <i class="far fa-heart"></i>
+        </button>
+        <div class="relative">
+          <button aria-label="Cart" class="text-white text-3xl">
+            <i class="fas fa-shopping-cart"></i>
+          </button>
+          <span class="absolute -top-1 -right-2 bg-red-600 text-white text-base font-semibold rounded-full w-7 h-7 flex items-center justify-center select-none">0</span>
+        </div>
+        <button class="bg-[#4b4bff] text-white text-base font-semibold px-8 py-3 rounded-full hover:bg-[#3a3adf] focus:outline-none focus:ring-2 focus:ring-[#3a3adf]">
+          Login/Signup
+        </button>
+      </div>
     </div>
-    <div class="md:hidden">
-     <button class="text-gray-800 focus:outline-none" id="menu-toggle">
-      <i class="fas fa-bars">
-      </i>
-     </button>
-    </div>
-   </div>
-   <div class="md:hidden" id="mobile-menu" style="display: none;">
-    <a class="block px-4 py-2 text-gray-800 hover:bg-gray-200" href="#">
-     Home
-    </a>
-    <a class="block px-4 py-2 text-gray-800 hover:bg-gray-200" href="#">
-     Categories
-    </a>
-    <a class="block px-4 py-2 text-gray-800 hover:bg-gray-200" href="#">
-     Shop
-    </a>
-    <a class="block px-4 py-2 text-gray-800 hover:bg-gray-200" href="#">
-     About
-    </a>
-    <a class="block px-4 py-2 text-gray-800 hover:bg-gray-200" href="#">
-     Contact
-    </a>
-   </div>
   </nav>
+
   <!-- Fullscreen Sections -->
-  <main class="space-y-0 mt-0">
+  <main class="space-y-0 mt-24">
    <!-- Section 1 -->
    <section class="h-screen relative" id="fashion">
-    <div class="absolute top-1/2 transform -translate-y-1/2 left-8 bg-black bg-opacity-60 p-6 rounded-lg w-full md:w-1/2 text-white">
-     <h1 class="text-4xl font-bold">
+    <div class="absolute top-1/2 transform -translate-y-1/2 left-4 sm:left-8 bg-black bg-opacity-60 p-3 sm:p-6 rounded-lg w-[90%] sm:w-3/4 md:w-1/2 text-white">
+     <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold">
       Latest Fashion Trends
      </h1>
-     <p class="mt-2 text-2xl">
+     <p class="mt-1 sm:mt-2 text-base sm:text-lg md:text-2xl">
       Explore cutting-edge styles curated just for you.
      </p>
     </div>
@@ -74,11 +87,11 @@
    </section>
    <!-- Section 2 -->
    <section class="h-screen relative" id="tattoo">
-    <div class="absolute top-1/2 transform -translate-y-1/2 left-8 bg-black bg-opacity-60 p-6 rounded-lg w-full md:w-1/2 text-white">
-     <h2 class="text-4xl font-bold">
+    <div class="absolute top-1/2 transform -translate-y-1/2 left-4 sm:left-8 bg-black bg-opacity-60 p-3 sm:p-6 rounded-lg w-[90%] sm:w-3/4 md:w-1/2 text-white">
+     <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold">
       Summer Essentials
      </h2>
-     <p class="mt-2 text-2xl">
+     <p class="mt-1 sm:mt-2 text-base sm:text-lg md:text-2xl">
       Lightweight fabrics perfect for warm days and sun-kissed vibes.
      </p>
     </div>
@@ -86,11 +99,11 @@
    </section>
    <!-- Section 3 -->
    <section class="h-screen relative" id="ink">
-    <div class="absolute top-1/2 transform -translate-y-1/2 left-8 bg-black bg-opacity-60 p-6 rounded-lg w-full md:w-1/2 text-white">
-     <h2 class="text-4xl font-bold">
+    <div class="absolute top-1/2 transform -translate-y-1/2 left-4 sm:left-8 bg-black bg-opacity-60 p-3 sm:p-6 rounded-lg w-[90%] sm:w-3/4 md:w-1/2 text-white">
+     <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold">
       Colors for Every Mood
      </h2>
-     <p class="mt-2 text-2xl">
+     <p class="mt-1 sm:mt-2 text-base sm:text-lg md:text-2xl">
       From bold statements to soft neutrals — wear your vibe.
      </p>
     </div>
@@ -98,64 +111,63 @@
    </section>
    <!-- Section 4 -->
    <section class="h-screen relative" id="contact">
-    <div class="absolute top-1/2 transform -translate-y-1/2 left-8 bg-black bg-opacity-60 p-6 rounded-lg w-full md:w-1/2 text-white">
-     <h2 class="text-4xl font-bold">
+    <div class="absolute top-1/2 transform -translate-y-1/2 left-4 sm:left-8 bg-black bg-opacity-60 p-3 sm:p-6 rounded-lg w-[90%] sm:w-3/4 md:w-1/2 text-white">
+     <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold">
       Uniquely You
      </h2>
-     <p class="mt-2 text-2xl">
+     <p class="mt-1 sm:mt-2 text-base sm:text-lg md:text-2xl">
       Express yourself with hand-crafted and rare finds.
      </p>
     </div>
     <img alt="Unique Fashion" class="w-full h-full object-cover rounded-lg shadow-lg" src="pexels-sam-lion-5710153-1-1.jpg"/>
    </section>
   </main>
+
   <footer class="bg-gray-800 py-10">
    <div class="container mx-auto px-4">
     <div class="flex flex-wrap justify-between">
-     <div class="w-full md:w-1/3 mb-6 md:mb-0">
+     <div class="w-full sm:w-1/2 md:w-1/3 mb-6 md:mb-0">
       <h2 class="text-3xl mb-4 text-white"  style="font-family: 'Pacifico', cursive">
        InkedEssence
       </h2>
-      <p class="mb-4 text-white">
-       Premium fashion for the modern individual. Quality meets style in every piece.
+      <p class="mb-4 text-white text-sm sm:text-base">
+       Premium fashion for the modern individual. <br/>
+       Quality meets style in every piece.
       </p>
-      <div class="flex space-x-4">
+      <div class="flex space-x-4 text-lg sm:text-xl">
        <a class="text-white" href="#">
-        <i class="fab fa-facebook-f">
-        </i>
+        <i class="fab fa-facebook-f"></i>
        </a>
        <a class="text-white" href="#">
-        <i class="fab fa-twitter">
-        </i>
+        <i class="fab fa-twitter"></i>
        </a>
        <a class="text-white" href="#">
-        <i class="fab fa-instagram">
-        </i>
+        <i class="fab fa-instagram"></i>
        </a>
       </div>
      </div>
-     <div class="w-full md:w-1/3 mb-6 md:mb-0">
+     <div class="w-full sm:w-1/2 md:w-1/3 mb-6 md:mb-0">
       <h2 class="text-xl font-bold mb-4 text-white">
        Quick Links
       </h2>
-      <ul>
+      <ul class="text-sm sm:text-base">
        <li class="mb-2">
-        <a class="text-white" href="#">
+        <a class="text-white hover:underline" href="#">
          About Us
         </a>
        </li>
        <li class="mb-2">
-        <a class="text-white" href="#">
+        <a class="text-white hover:underline" href="#">
          Contact
         </a>
        </li>
        <li class="mb-2">
-        <a class="text-white" href="#">
+        <a class="text-white hover:underline" href="#">
          FAQs
         </a>
        </li>
        <li class="mb-2">
-        <a class="text-white" href="#">
+        <a class="text-white hover:underline" href="#">
          Privacy Policy
         </a>
        </li>
@@ -165,27 +177,49 @@
       <h2 class="text-xl font-bold mb-4 text-white">
        Contact Info
       </h2>
-      <p class="mb-2 text-white">
+      <p class="mb-2 text-white text-sm sm:text-base">
        123 Fashion Street
       </p>
-      <p class="mb-2 text-white">
+      <p class="mb-2 text-white text-sm sm:text-base">
        New York, NY 10001
       </p>
-      <p class="mb-2 text-white">
+      <p class="mb-2 text-white text-sm sm:text-base">
        Phone: (555) 123-4567
       </p>
-      <p class="text-white">
+      <p class="text-white text-sm sm:text-base">
        Email: info@inkedessence.com
       </p>
      </div>
     </div>
     <div class="border-t border-gray-700 mt-8 pt-8">
-     <p class="text-center mt-8 text-white">
+     <p class="text-center mt-8 text-white text-sm sm:text-base">
       © 2025 InkedEssence. All rights reserved.
      </p>
     </div>
    </div>
   </footer>
- 
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+      if (mobileMenu.classList.contains('scale-y-0')) {
+        mobileMenu.classList.remove('scale-y-0');
+        mobileMenu.classList.add('scale-y-100');
+        menuBtn.innerHTML = '<i class="fas fa-times"></i>';
+      } else {
+        mobileMenu.classList.add('scale-y-0');
+        mobileMenu.classList.remove('scale-y-100');
+        menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      }
+    });
+
+    function closeMenu() {
+      mobileMenu.classList.add('scale-y-0');
+      mobileMenu.classList.remove('scale-y-100');
+      menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+    }
+  </script>
  </body>
 </html>
