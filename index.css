@@ -150,3 +150,155 @@
   .nav-center li a {
     position: relative;
     text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-center li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 2px;
+    width: 0%;
+    background-color: var(--button-bg-color);
+    transition: width 0.3s ease;
+  }
+  
+  .nav-center li a:hover {
+    color: var(--button-bg-color);
+  }
+  
+  .nav-center li a:hover::after {
+    width: 100%;
+  }
+  
+  /* Navbar Right Section */
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+  }
+  
+  .cart-icon {
+    position: relative;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
+  #cartCount {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    font-size: 10px;
+    background: red;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 999px;
+  }
+  
+  .login-btn {
+    padding: 0.5rem 1rem;
+    background: var(--button-bg-color);
+    color: var(--button-text-color);
+    border: none;
+    border-radius: 999px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .login-btn:hover {
+    background-color: var(--button-hover-bg-color);
+  }
+  
+  #themeToggle {
+    font-size: 1rem;
+    background: none;
+    color: var(--text-color);
+    border: none;
+    cursor: pointer;
+  }
+  /* Button Styles */
+  .button {
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    padding: 0.6rem 1.2rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: var(--button-hover-bg-color);
+  }
+  
+  .button.outline {
+    background-color: transparent;
+    border: 2px solid var(--button-text-color);
+    color: var(--button-text-color);
+  }
+  
+  /* Gender Filter Buttons */
+  .gender-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  /* Product Section */
+  .products-section {
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+  
+  .products-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .products-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+  
+  .product-card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-soft);
+    width: 220px;
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .product-name {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+  
+  .product-price {
+    font-size: 0.95rem;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+  }
