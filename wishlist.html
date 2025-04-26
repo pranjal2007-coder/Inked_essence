@@ -81,3 +81,86 @@
           </button>
         </div>
       </div>
+</div>
+  </nav>
+
+  <!-- ------------------- PAGE HEADER ------------------- -->
+  <!-- Header section with page title and description -->
+  <header class="pt-24 text-center px-4 hero-banner">
+    <h1 class="text-4xl font-bold mb-2">Your Wishlist</h1>
+    <p class="text-lg text-gray-500 dark:text-gray-400">See all your saved items here</p>
+
+    <!-- Button to clear all wishlist items at once -->
+    <button id="clearWishlistBtn" class="mt-4 px-6 py-2 bg-red-600 text-white rounded-full hover:bg-red-700 transition-colors duration-300">
+      Clear Wishlist
+    </button>
+  </header>
+
+  <!-- ------------------- WISHLIST SECTION ------------------- -->
+  <section class="products-section">
+    <div class="products-wrapper" id="wishlistContainer">
+      <!-- Dynamic wishlist items will be injected here using JavaScript -->
+    </div>
+  </section>
+
+  <!-- ------------------- FOOTER SECTION ------------------- -->
+  <footer class="bg-gray-900 text-white mt-16">
+    <div class="max-w-7xl mx-auto px-4 py-16">
+      <!-- Footer container with grid layout for organized sections -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <!-- Brand info section -->
+        <div>
+          <h3 class="font-['Pacifico'] text-2xl mb-4">InkedEssence</h3>
+          <p class="text-gray-400">Premium fashion for the modern individual. Quality meets style in every piece.</p>
+        </div>
+
+        <!-- Useful navigation links -->
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="aboutus.html" class="text-gray-400 hover:text-white">About Us</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white">FAQs</a></li>
+            <li><a href="privacy.html" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact details -->
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li>123 Fashion Street</li>
+            <li>New York, NY 10001</li>
+            <li>Phone: (555) 123-4567</li>
+            <li>Email: info@inkedessence.com</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Newsletter subscription form and copyright -->
+      <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+        <div class="max-w-md mx-auto">
+          <!-- Newsletter section -->
+          <h4 class="text-lg font-semibold mb-4">Subscribe to Our Newsletter</h4>
+          <p class="text-gray-400 mb-4">Stay updated with our latest collections and exclusive offers</p>
+          
+          <!-- Email input form -->
+  <!-- ------------------- input form ------------------- -->
+          <form class="flex space-x-2">
+            <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-2 rounded bg-gray-800 border-none text-white" required>
+            <button type="submit" class="button px-6 py-2">Subscribe</button>
+          </form>
+        </div>
+
+        <!-- Legal notice -->
+        <p class="text-gray-400 mt-8">&copy; 2025 InkedEssence. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ------------------- JAVASCRIPT ------------------- -->
+  <!-- Linking external JavaScript file to control wishlist behavior -->
+  <script src="wishlist.js"></script>
+</body>
+</html>
