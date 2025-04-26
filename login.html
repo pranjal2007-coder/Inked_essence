@@ -4,56 +4,92 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login / Signup - InkedEssence</title>
+  
+  <!-- 🎨 Link to external CSS -->
   <link rel="stylesheet" href="login.css" />
+  
+  <!-- 🎨 RemixIcon library for icons -->
   <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
 </head>
 <body>
   <div class="container">
-    <!-- 🔙 Back to Site -->
+    <!-- 🔙 Back to Site button -->
     <a href="index.html" class="back-button" title="Go back to homepage">
       <i class="ri-arrow-left-line"></i> Back to Site
     </a>
 
-    <!-- 🌗 Theme Toggle -->
+    <!-- 🌗 Theme Toggle Button -->
     <div class="toggle-theme" id="themeToggle" title="Toggle Theme">
       <i class="ri-sun-line" id="themeIcon"></i>
     </div>
 
-    <!-- 🏷️ Title -->
+    <!-- 🏷️ Welcome Title -->
     <h2 class="title">Welcome to <span class="highlight">InkedEssence</span></h2>
 
-    <!-- 🔄 Tab Headers -->
+    <!-- 🔄 Tabs to switch between Login and Signup -->
     <div class="tab-header">
       <button class="tab-btn active" data-tab="login">Login</button>
       <button class="tab-btn" data-tab="signup">Signup</button>
     </div>
 
-    <!-- 🔐 Login Form -->
+    <!-- 🔐 Login Form Section -->
     <div class="tab-content active" id="loginTab">
       <input type="email" placeholder="Email" id="loginEmail" />
-      <input type="password" placeholder="Password" id="loginPassword" />
+      
+      <!-- Password field with visibility toggle -->
+      <div class="password-wrapper">
+        <input type="password" placeholder="Password" id="loginPassword" />
+        <span class="toggle-password" id="toggleLoginPassword" title="Show/Hide Password">&#128065;</span>
+      </div>
+
+      <!-- Link to Forgot Password page -->
       <div class="forgot-wrap">
         <a href="forgot_password.html" class="forgot-link">Forgot Password?</a>
       </div>
-      <button id="loginSubmit">Login</button>
+
+      <!-- Remember Me checkbox -->
+      <div class="remember-me">
+        <input type="checkbox" id="rememberMe" />
+        <label for="rememberMe">Remember Me</label>
+      </div>
+
+      <!-- Login Submit Button -->
+      <button id="loginSubmit">
+        <span id="loginBtnText">Login</span>
+        <span id="loginBtnSpinner" class="spinner" style="display:none;"></span>
+      </button>
     </div>
 
-    <!-- 📝 Signup Form -->
+    <!-- 📝 Signup Form Section -->
     <div class="tab-content" id="signupTab">
       <input type="text" placeholder="Full Name" id="signupName" />
       <input type="email" placeholder="Email" id="signupEmail" />
-      <input type="password" placeholder="Password" id="signupPassword" />
-      <button id="signupSubmit">Signup</button>
+      
+      <!-- Password field with visibility toggle -->
+      <div class="password-wrapper">
+        <input type="password" placeholder="Password" id="signupPassword" />
+        <span class="toggle-password" id="toggleSignupPassword" title="Show/Hide Password">&#128065;</span>
+      </div>
+
+      <!-- Signup Submit Button -->
+      <button id="signupSubmit">
+        <span id="signupBtnText">Signup</span>
+        <span id="signupBtnSpinner" class="spinner" style="display:none;"></span>
+      </button>
     </div>
   </div>
 
-  <!-- 🌍 Footer -->
+  <!-- 🌍 Footer Section -->
   <footer class="footer">
     <div class="footer-content">
+      
+      <!-- Footer Brand Info -->
       <div class="footer-brand">
         <h3>InkedEssence</h3>
         <p>Premium fashion for the modern individual. Quality meets style in every piece.</p>
       </div>
+
+      <!-- Footer Quick Links -->
       <div class="footer-links">
         <h4>Quick Links</h4>
         <ul>
@@ -63,6 +99,8 @@
           <li><a href="#">Privacy Policy</a></li>
         </ul>
       </div>
+
+      <!-- Footer Contact Info -->
       <div class="footer-contact">
         <h4>Contact Info</h4>
         <ul>
@@ -73,11 +111,14 @@
         </ul>
       </div>
     </div>
+
+    <!-- Footer Bottom Text -->
     <div class="footer-bottom">
       <p>&copy; 2025 InkedEssence. All rights reserved.</p>
     </div>
   </footer>
 
+  <!-- 🧠 JavaScript for login/signup/theme functionality -->
   <script src="login.js"></script>
 </body>
 </html>
