@@ -9,8 +9,8 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
+
 <body class="transition-colors duration-300">
 
   <!-- Navbar -->
@@ -19,14 +19,12 @@
       <div class="flex justify-between items-center h-16">
         <!-- Brand -->
         <div class="flex items-center space-x-1 font-['Pacifico'] text-2xl">
-          <span>Inked</span>
-          <span>Essence</span>
+          <span>Inked</span><span>Essence</span>
         </div>
 
         <!-- Navigation -->
         <ul class="hidden md:flex space-x-8 menu">
           <li><a href="index.html">Home</a></li>
-          <li><a href="#">Shop</a></li>
           <li><a href="categories.html">Categories</a></li>
           <li><a href="aboutus.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
@@ -34,26 +32,21 @@
 
         <!-- Icons -->
         <div class="flex items-center space-x-4">
-          <!-- Heart Button (acts as a link to Wishlist page) -->
           <a href="wishlist.html" class="relative w-8 h-8 flex items-center justify-center cursor-pointer" aria-label="Wishlist">
             <i class="ri-heart-line text-xl text-red-500"></i>
           </a>
 
-          <!-- Cart -->
           <button id="cartBtn" class="relative w-8 h-8 flex items-center justify-center cursor-pointer" aria-label="Open Cart">
             <i class="ri-shopping-cart-line text-xl"></i>
             <span id="cartCount" class="absolute -top-2 -right-2 text-xs rounded-full h-5 w-5 flex items-center justify-center bg-red-600 text-white">0</span>
           </button>
 
-          <!-- Login -->
           <button id="loginBtn" class="button">Login/Signup</button>
 
-          <!-- Theme Toggle -->
           <button id="themeToggle" class="w-8 h-8 flex items-center justify-center cursor-pointer" title="Toggle Theme" aria-label="Toggle Theme">
             <i id="themeIcon" class="ri-sun-line text-xl"></i>
           </button>
 
-          <!-- Mobile menu (placeholder) -->
           <button class="md:hidden w-8 h-8 flex items-center justify-center cursor-pointer" aria-label="Menu">
             <i class="ri-menu-line text-xl"></i>
           </button>
@@ -61,7 +54,10 @@
       </div>
     </div>
   </nav>
+
   <div class="pt-16">
+
+    <!-- Feature Section -->
     <section class="feature-section">
       <div class="feature-grid">
         <div class="feature-card">
@@ -87,32 +83,105 @@
         </div>
       </div>
     </section>
-  </div>
-  <div class="relative h-screen">
-    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('pic0.jpg')"></div>
-    <div class="absolute inset-0 bg-black opacity-50"></div>
-    <div class="relative h-full flex items-center justify-center text-center text-white">
-        <div class="max-w-3xl px-4">
-            <h2 class="text-5xl font-bold mb-6">New Collection 2025</h2>
-            <p class="text-xl mb-8">Discover our latest collection featuring elegant designs and premium materials</p>
-            <button class="bg-primary text-white px-8 py-3 rounded-button hover:bg-opacity-90 transition-colors duration-300 cursor-pointer whitespace-nowrap">
-                Shop Now
-            </button>
-        </div>
-    </div>
-</div>
- 
 
-  <!-- Products Section -->
-  <section class="max-w-7xl mx-auto px-4 py-16">
-    <div class="flex flex-col items-center mb-12">
-      
-      <h2 class="text-3xl font-bold mb-6">Featured Products</h2>
-      <div id="productContainer" class="products-wrapper">
-        <!-- Product cards dynamically inserted via JS -->
+    <!-- Hero Section -->
+    <div class="relative h-screen">
+      <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('pic0.jpg')"></div>
+      <div class="absolute inset-0 bg-black opacity-50"></div>
+      <div class="relative h-full flex items-center justify-center text-center text-white">
+        <div class="max-w-3xl px-4">
+          <h2 class="text-5xl font-bold mb-6">New Collection 2025</h2>
+          <p class="text-xl mb-8">Discover our latest collection featuring elegant designs and premium materials</p>
+          <button class="bg-primary text-white px-8 py-3 rounded-button hover:bg-opacity-90 transition-colors duration-300 cursor-pointer whitespace-nowrap">
+            Shop Now
+          </button>
+        </div>
       </div>
     </div>
-  </section>
+
+    <!-- Products Section -->
+    <section class="max-w-7xl mx-auto px-4 py-16">
+      <div class="flex flex-col items-center mb-12">
+        <h2 class="text-3xl font-bold mb-6">Featured Products</h2>
+        <div id="productContainer" class="products-wrapper">
+          <!-- Product cards dynamically inserted via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- App Download Section -->
+    <!-- Download Our App Section -->
+<!-- Download Our App Section -->
+<section class="bg-[#f5f6fc] dark:bg-[#1a1a2e] py-16">
+  <div class="max-w-7xl mx-auto px-4">
+    
+    <!-- Top Heading -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Download Our App</h2>
+      <p class="text-gray-600 dark:text-gray-400">Shop on the go with our mobile app</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex flex-col md:flex-row items-center justify-center gap-12">
+
+      <!-- Left Text Part -->
+      <div class="flex-1 max-w-md">
+        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Shop Smarter with Our Mobile App</h3>
+        <ul class="space-y-5 mb-8">
+          <li class="flex items-start">
+            <i class="ri-check-line text-purple-700 dark:text-purple-400 text-2xl mr-3"></i>
+
+            <span class="text-gray-700 dark:text-gray-300">Exclusive app-only deals and discounts</span>
+          </li>
+          <li class="flex items-start">
+            <i class="ri-check-line text-purple-700 dark:text-purple-400 text-2xl mr-3"></i>
+
+            <span class="text-gray-700 dark:text-gray-300">Real-time order tracking</span>
+          </li>
+          <li class="flex items-start">
+            <i class="ri-check-line text-purple-700 dark:text-purple-400 text-2xl mr-3"></i>
+
+            <span class="text-gray-700 dark:text-gray-300">Virtual try-on feature</span>
+          </li>
+          <li class="flex items-start">
+            <i class="ri-check-line text-purple-700 dark:text-purple-400 text-2xl mr-3"></i>
+
+            <span class="text-gray-700 dark:text-gray-300">Personalized style recommendations</span>
+          </li>
+        </ul>
+
+        <!-- App Buttons -->
+        <div class="flex gap-4">
+          <a href="#" class="flex items-center bg-black text-white px-5 py-3 rounded-lg hover:bg-opacity-80 transition">
+            <i class="ri-apple-fill text-2xl mr-2"></i>
+            <div class="text-left">
+              <div class="text-xs">Download on the</div>
+              <div class="text-sm font-semibold">App Store</div>
+            </div>
+          </a>
+
+          <a href="#" class="flex items-center bg-black text-white px-5 py-3 rounded-lg hover:bg-opacity-80 transition">
+            <i class="ri-google-play-fill text-2xl mr-2"></i>
+            <div class="text-left">
+              <div class="text-xs">Get it on</div>
+              <div class="text-sm font-semibold">Google Play</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Image Part -->
+      <div class="flex-1 max-w-md">
+        <img src="app1.jpg" alt="App Screenshot" class="w-full rounded-2xl shadow-2xl">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  
+      <!-- End of App Download Section -->
+  
 
   <!-- Footer -->
   <footer class="bg-gray-900 text-white">
@@ -121,6 +190,17 @@
         <div>
           <h3 class="font-['Pacifico'] text-2xl mb-4">InkedEssence</h3>
           <p class="text-gray-400">Premium fashion for the modern individual. Quality meets style in every piece.</p>
+          <div class="flex space-x-4 mt-4">
+            <a href="#" class="text-gray-400 hover:text-white w-8 h-8 flex items-center justify-center cursor-pointer">
+              <i class="ri-facebook-fill"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white w-8 h-8 flex items-center justify-center cursor-pointer">
+              <i class="ri-twitter-fill"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white w-8 h-8 flex items-center justify-center cursor-pointer">
+              <i class="ri-instagram-fill"></i>
+            </a>
+          </div>
         </div>
         <div>
           <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
@@ -141,6 +221,7 @@
           </ul>
         </div>
       </div>
+
       <div class="border-t border-gray-800 mt-12 pt-8 text-center">
         <div class="max-w-md mx-auto">
           <h4 class="text-lg font-semibold mb-4">Subscribe to Our Newsletter</h4>
