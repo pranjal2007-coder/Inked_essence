@@ -113,3 +113,118 @@ header p {
 .product-name {
   font-size: 1.1rem;
   font-weight: 700;
+margin: 0.5rem 0 0.25rem;
+  color: var(--text-color);
+  letter-spacing: 0.03em;
+}
+
+.product-price {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--text-color);
+}
+
+.remove-from-wishlist {
+  background-color: transparent;
+  color: var(--text-color);
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.remove-from-wishlist:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transform: scale(1.05);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#clearWishlistBtn:hover {
+  background-color: #c53030;
+  box-shadow: 0 4px 8px rgba(197, 48, 48, 0.7);
+}
+
+.products-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  padding-bottom: 3rem;
+}
+
+.product-card {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-soft);
+  width: 220px;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  animation: fadeInUp 0.5s forwards;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 15px rgba(0,0,0,0.15);
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.product-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0.5rem 0 0.25rem;
+  color: #222;
+}
+
+.product-price {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #e53e3e;
+}
+
+.remove-from-wishlist {
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.remove-from-wishlist:hover {
+  background-color: var(--button-hover-bg-color);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
