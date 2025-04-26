@@ -213,3 +213,13 @@ document.addEventListener('DOMContentLoaded', () => {
   renderProducts();
   updateCartDisplay();
 });
+
+
+// download-app.js
+
+// Example: Log when someone clicks the App Store or Play Store button
+document.querySelectorAll('.btn-appstore, .btn-googleplay').forEach(button => {
+  button.addEventListener('click', function() {
+    console.log(`Button Clicked: ${this.innerText.trim()}`);
+  });
+});
