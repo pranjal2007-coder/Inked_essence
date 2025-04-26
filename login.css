@@ -1,3 +1,4 @@
+/* ===== Root Variables for Themes ===== */
 :root {
   --bg-light: #f4f4f5;
   --bg-dark: #1a1a1a;
@@ -11,6 +12,7 @@
   --shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
+/* ===== Theme Color Assignments ===== */
 [data-theme="light"] {
   --bg: var(--bg-light);
   --text: var(--text-light);
@@ -25,7 +27,7 @@
   --subtext: var(--subtext-dark);
 }
 
-/* Global */
+/* ===== Global Styles ===== */
 body {
   margin: 0;
   padding: 0;
@@ -38,7 +40,7 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Centering Container */
+/* ===== Container for Login/Signup Card ===== */
 .container {
   background-color: var(--card-bg);
   padding: 3rem 2.5rem;
@@ -51,7 +53,7 @@ body {
   transition: background-color 0.3s ease;
 }
 
-/* Back Button */
+/* ===== Back to Site Button ===== */
 .back-button {
   position: absolute;
   top: 20px;
@@ -66,12 +68,13 @@ body {
   transition: opacity 0.3s ease;
 }
 
+/* Hover effect for back button */
 .back-button:hover {
   text-decoration: underline;
   opacity: 0.8;
 }
 
-/* Theme toggle */
+/* ===== Theme Toggle Button ===== */
 .toggle-theme {
   position: absolute;
   top: 20px;
@@ -80,11 +83,12 @@ body {
   color: var(--accent);
 }
 
+/* Icon inside theme toggle */
 .toggle-theme i {
   font-size: 1.5rem;
 }
 
-/* Title */
+/* ===== Title Styling ===== */
 .title {
   text-align: center;
   font-size: 1.8rem;
@@ -92,11 +96,12 @@ body {
   margin-bottom: 1.5rem;
 }
 
+/* Accent Color Highlight */
 .highlight {
   color: var(--accent);
 }
 
-/* Tab Buttons */
+/* ===== Tab Header (Login/Signup Switch) ===== */
 .tab-header {
   display: flex;
   justify-content: space-between;
@@ -104,6 +109,7 @@ body {
   border-bottom: 1px solid #ddd;
 }
 
+/* Tab Buttons */
 .tab-btn {
   flex: 1;
   background: none;
@@ -117,12 +123,13 @@ body {
   transition: all 0.3s ease;
 }
 
+/* Active Tab Button */
 .tab-btn.active {
   color: var(--accent);
   border-color: var(--accent);
 }
 
-/* Tab Content */
+/* ===== Tab Content (Forms) ===== */
 .tab-content {
   display: none;
   flex-direction: column;
@@ -130,11 +137,12 @@ body {
   animation: fade 0.3s ease-in-out;
 }
 
+/* Active Tab Content */
 .tab-content.active {
   display: flex;
 }
 
-/* Input Fields */
+/* ===== Input Fields ===== */
 input {
   padding: 0.9rem;
   border: 1px solid #ccc;
@@ -144,11 +152,12 @@ input {
   transition: border-color 0.3s;
 }
 
+/* Focused Input Field */
 input:focus {
   border-color: var(--accent);
 }
 
-/* Buttons */
+/* ===== General Button Styles ===== */
 button {
   padding: 0.9rem;
   background-color: var(--accent);
@@ -161,17 +170,19 @@ button {
   transition: background-color 0.3s;
 }
 
+/* Hover effect for buttons */
 button:hover {
   background-color: #4f46e5;
 }
 
-/* Forgot Password */
+/* ===== Forgot Password Link ===== */
 .forgot-wrap {
   text-align: right;
   margin-top: -0.5rem;
   margin-bottom: 1rem;
 }
 
+/* Forgot Password Link Style */
 .forgot-link {
   font-size: 0.9rem;
   color: var(--accent);
@@ -179,12 +190,13 @@ button:hover {
   transition: opacity 0.3s ease;
 }
 
+/* Hover effect for forgot link */
 .forgot-link:hover {
   text-decoration: underline;
   opacity: 0.8;
 }
 
-/* Fade animation */
+/* ===== Fade Animation for Tabs ===== */
 @keyframes fade {
   from {
     opacity: 0;
@@ -196,7 +208,7 @@ button:hover {
   }
 }
 
-/* ===== Footer Styles ===== */
+/* ===== Footer Section ===== */
 .footer {
   background-color: var(--card-bg);
   color: var(--text);
@@ -206,6 +218,7 @@ button:hover {
   margin-top: auto;
 }
 
+/* Footer Content Layout */
 .footer-content {
   display: flex;
   flex-wrap: wrap;
@@ -215,44 +228,139 @@ button:hover {
   margin: 0 auto;
 }
 
+/* Footer Brand Title */
 .footer-content h3 {
   font-family: 'Pacifico', cursive;
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
 }
 
+/* Footer Subtitles */
 .footer-content h4 {
   margin-bottom: 0.75rem;
   font-size: 1.1rem;
 }
 
+/* Footer Paragraph Text */
 .footer-content p {
   color: var(--subtext);
   max-width: 300px;
 }
 
+/* Footer Lists */
 .footer-content ul {
   list-style: none;
   padding: 0;
 }
 
+/* Footer List Items */
 .footer-content ul li {
   margin-bottom: 0.5rem;
 }
 
+/* Footer Links */
 .footer-content ul li a {
   color: var(--text);
   text-decoration: none;
   transition: color 0.3s;
 }
 
+/* Hover effect for Footer Links */
 .footer-content ul li a:hover {
   color: var(--accent);
   text-decoration: underline;
 }
 
+/* Footer Bottom Text */
 .footer-bottom {
   text-align: center;
   margin-top: 2rem;
   color: var(--subtext);
+}
+
+/* ===== Password Wrapper (for show/hide eye) ===== */
+.password-wrapper {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Password Input Fields */
+.password-wrapper input[type="password"],
+.password-wrapper input[type="text"] {
+  width: 100%;
+  padding-right: 2.5rem;
+  box-sizing: border-box;
+}
+
+/* Toggle Password Visibility Icon */
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  user-select: none;
+  font-size: 1.2rem;
+  color: #888;
+  transition: color 0.3s ease;
+}
+
+/* Hover effect for Password Toggle */
+.toggle-password:hover {
+  color: var(--accent);
+}
+
+/* ===== Remember Me Checkbox Section ===== */
+.remember-me {
+  margin: 0.5rem 0 1rem 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Remember Me Checkbox */
+.remember-me input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+/* ===== Login and Signup Submit Buttons ===== */
+button#loginSubmit,
+button#signupSubmit {
+  padding: 0.9rem;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hover effect for Submit Buttons */
+button#loginSubmit:hover,
+button#signupSubmit:hover {
+  background-color: #4f46e5;
+}
+
+/* ===== Loading Spinner for Submit Buttons ===== */
+.spinner {
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-left-color: var(--accent);
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 8px;
+}
+
+/* Keyframes for Spinner Animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
