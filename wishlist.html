@@ -1,166 +1,158 @@
 <!DOCTYPE html>
-<!-- This is the root declaration defining this document as an HTML5 document -->
 <html lang="en" data-theme="light">
 <head>
-  <!-- Setting the character encoding to UTF-8 to support a wide range of characters -->
+  <!-- Basic Meta Tags for Character Encoding and Responsive Design -->
   <meta charset="UTF-8" />
-
-  <!-- Ensures responsive behavior across all device widths -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Sets the title of the browser tab for this HTML page -->
+  
+  <!-- Title of the Page -->
   <title>Wishlist | InkedEssence</title>
 
-  <!-- Linking to external CSS stylesheet for general styling -->
+  <!-- Stylesheets Links -->
+  <!-- index.css contains main styles like general layout, navbar, etc. -->
   <link rel="stylesheet" href="index.css" />
-
-  <!-- Linking to a separate CSS file specifically for wishlist page styles -->
+  <!-- wishlist.css contains page-specific styles for the wishlist page -->
   <link rel="stylesheet" href="wishlist.css" />
 
-  <!-- Including TailwindCSS CDN for utility-first CSS classes -->
+  <!-- TailwindCSS CDN for Utility-First CSS Framework -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Adding a custom Google font 'Pacifico' for branding and headings -->
+  <!-- Google Font: Pacifico (used for logo and headers) -->
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
-
-  <!-- Including Remixicon for scalable icons used throughout the interface -->
+  
+  <!-- Remix Icon Library for beautiful ready-to-use icons -->
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
-<body class="transition-colors duration-300">
-  <!-- Main body of the page with a smooth color transition class -->
 
-  <!-- ------------------- NAVBAR SECTION ------------------- -->
-  <!-- Fixed top navigation bar with shadow for elevation and z-index for stacking -->
+<body class="transition-colors duration-300">
+  <!-- Body starts here, transition classes added for smooth theme toggle -->
+
+  <!-- Navbar (Fixed at the top) -->
   <nav class="fixed w-full shadow-lg z-50" style="background-color: var(--menu-bg-color); color: var(--text-color);">
     <div class="max-w-7xl mx-auto px-4">
-      <!-- Container for navbar contents centered with max width -->
-
       <div class="flex justify-between items-center h-16">
-        <!-- Flex layout to align logo on the left and links on the right -->
-
-        <!-- Brand name using custom Pacifico font for unique style -->
+        
+        <!-- Brand Logo Area -->
         <div class="flex items-center space-x-1 font-['Pacifico'] text-2xl">
-          <span>Inked</span>
-          <span>Essence</span>
+          <span>Inked</span> <!-- First part of brand name -->
+          <span>Essence</span> <!-- Second part of brand name -->
         </div>
 
-        <!-- Primary navigation links visible on medium and larger screens -->
+        <!-- Desktop Navigation Links -->
         <ul class="hidden md:flex space-x-8 menu">
           <li><a href="index.html">Home</a></li>
-          <li><a href="#">Shop</a></li>
           <li><a href="categories.html">Categories</a></li>
-          <li><a href="wishlist.html">Wishlist</a></li>
+          <li><a href="aboutus.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
 
-        <!-- Action icons and buttons aligned to the right -->
+        <!-- Right Side Icons Section -->
         <div class="flex items-center space-x-4">
-
-          <!-- Wishlist icon button linking to wishlist page -->
+          
+          <!-- Wishlist Heart Icon -->
           <a href="wishlist.html" class="relative w-8 h-8 flex items-center justify-center cursor-pointer" aria-label="Wishlist">
             <i class="ri-heart-line text-xl text-red-500"></i>
           </a>
 
-          <!-- Shopping cart icon with badge showing number of items -->
+          <!-- Cart Button with Item Count Badge -->
           <button id="cartBtn" class="relative w-8 h-8 flex items-center justify-center cursor-pointer" aria-label="Open Cart">
             <i class="ri-shopping-cart-line text-xl"></i>
-            <!-- Cart count badge positioned absolutely at the corner -->
             <span id="cartCount" class="absolute -top-2 -right-2 text-xs rounded-full h-5 w-5 flex items-center justify-center bg-red-600 text-white">0</span>
           </button>
 
-          <!-- Button to open login/signup modal or page -->
+          <!-- Login/Signup Button -->
           <button id="loginBtn" class="button">Login/Signup</button>
 
-          <!-- Theme toggle icon, used to switch between light and dark mode -->
+          <!-- Theme Toggle Button (Light/Dark Mode) -->
           <button id="themeToggle" class="w-8 h-8 flex items-center justify-center cursor-pointer" title="Toggle Theme" aria-label="Toggle Theme">
             <i id="themeIcon" class="ri-sun-line text-xl"></i>
           </button>
 
-          <!-- Hamburger menu icon shown only on small screens -->
+          <!-- Hamburger Menu Button (Visible only on Mobile Screens) -->
           <button class="md:hidden w-8 h-8 flex items-center justify-center cursor-pointer" aria-label="Menu">
             <i class="ri-menu-line text-xl"></i>
           </button>
-        </div>
+
+        </div> <!-- End of Right Side Icons -->
       </div>
-</div>
+    </div>
   </nav>
 
-  <!-- ------------------- PAGE HEADER ------------------- -->
-  <!-- Header section with page title and description -->
+  <!-- Page Header Section -->
   <header class="pt-24 text-center px-4 hero-banner">
-    <h1 class="text-4xl font-bold mb-2">Your Wishlist</h1>
-    <p class="text-lg text-gray-500 dark:text-gray-400">See all your saved items here</p>
-
-    <!-- Button to clear all wishlist items at once -->
+    <h1 class="text-4xl font-bold mb-2">Your Wishlist</h1> <!-- Main Heading -->
+    <p class="text-lg text-gray-500 dark:text-gray-400">See all your saved items here</p> <!-- Subheading -->
+    
+    <!-- Button to Clear Entire Wishlist -->
     <button id="clearWishlistBtn" class="mt-4 px-6 py-2 bg-red-600 text-white rounded-full hover:bg-red-700 transition-colors duration-300">
       Clear Wishlist
     </button>
   </header>
 
-  <!-- ------------------- WISHLIST SECTION ------------------- -->
+  <!-- Wishlist Products Display Section -->
   <section class="products-section">
     <div class="products-wrapper" id="wishlistContainer">
-      <!-- Dynamic wishlist items will be injected here using JavaScript -->
+      <!-- Wishlist items dynamically inserted here by wishlist.js -->
     </div>
   </section>
 
-  <!-- ------------------- FOOTER SECTION ------------------- -->
+  <!-- Footer Section -->
   <footer class="bg-gray-900 text-white mt-16">
     <div class="max-w-7xl mx-auto px-4 py-16">
-      <!-- Footer container with grid layout for organized sections -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-        <!-- Brand info section -->
+        
+        <!-- Brand and Description -->
         <div>
           <h3 class="font-['Pacifico'] text-2xl mb-4">InkedEssence</h3>
           <p class="text-gray-400">Premium fashion for the modern individual. Quality meets style in every piece.</p>
         </div>
 
-        <!-- Useful navigation links -->
+        <!-- Quick Links -->
         <div>
           <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
           <ul class="space-y-2">
             <li><a href="aboutus.html" class="text-gray-400 hover:text-white">About Us</a></li>
             <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-white">FAQs</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white">FAQs</a></li> <!-- FAQs page link (currently placeholder) -->
             <li><a href="privacy.html" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
           </ul>
         </div>
 
-        <!-- Contact details -->
+        <!-- Contact Information -->
         <div>
           <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
           <ul class="space-y-2 text-gray-400">
-            <li>123 Fashion Street</li>
+            <li>123 Fashion Street</li> <!-- Example Address -->
             <li>New York, NY 10001</li>
-            <li>Phone: (555) 123-4567</li>
-            <li>Email: info@inkedessence.com</li>
+            <li>Phone: (555) 123-4567</li> <!-- Example Phone -->
+            <li>Email: info@inkedessence.com</li> <!-- Example Email -->
           </ul>
         </div>
-      </div>
 
-      <!-- Newsletter subscription form and copyright -->
+      </div> <!-- End of Grid -->
+
+      <!-- Newsletter Subscription Section -->
       <div class="border-t border-gray-800 mt-12 pt-8 text-center">
         <div class="max-w-md mx-auto">
-          <!-- Newsletter section -->
           <h4 class="text-lg font-semibold mb-4">Subscribe to Our Newsletter</h4>
           <p class="text-gray-400 mb-4">Stay updated with our latest collections and exclusive offers</p>
           
-          <!-- Email input form -->
-  <!-- ------------------- input form ------------------- -->
+          <!-- Subscription Form -->
           <form class="flex space-x-2">
             <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-2 rounded bg-gray-800 border-none text-white" required>
             <button type="submit" class="button px-6 py-2">Subscribe</button>
           </form>
         </div>
 
-        <!-- Legal notice -->
+        <!-- Footer Bottom Text -->
         <p class="text-gray-400 mt-8">&copy; 2025 InkedEssence. All rights reserved.</p>
       </div>
-    </div>
+
+    </div> <!-- End of Footer Container -->
   </footer>
 
-  <!-- ------------------- JAVASCRIPT ------------------- -->
-  <!-- Linking external JavaScript file to control wishlist behavior -->
+  <!-- JavaScript File -->
+  <!-- Handles all Wishlist functionality like adding, removing items, clearing wishlist etc. -->
   <script src="wishlist.js"></script>
 </body>
 </html>
