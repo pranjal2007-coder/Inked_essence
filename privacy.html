@@ -1,30 +1,73 @@
 <!DOCTYPE html>
+<!-- This document type declaration defines the HTML version (HTML5) -->
 <html lang="en">
+<!-- Root HTML element with language attribute set to English -->
+
 <head>
+    <!-- The head section contains metadata, styles, fonts, and external links -->
     <meta charset="UTF-8" />
+    <!-- Defines the character encoding for the document as UTF-8 -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Makes the site responsive and optimizes it for different device widths -->
+
     <title>Privacy Policy - InkedEssence</title>
+    <!-- Page title shown on the browser tab -->
+
+    <link rel="stylesheet" href="index.css" />
+    <!-- Linking custom global CSS -->
+
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS via CDN for utility-first styling -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <!-- Preconnecting to Google Fonts to speed up font loading -->
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Cross-origin preconnection to improve font delivery performance -->
+
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+    <!-- Linking 'Pacifico' font from Google Fonts used for branding -->
+
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <!-- Importing Remixicon for vector icons used in navigation and UI -->
+
     <link rel="stylesheet" href="privacy.css" />
+    <!-- Linking specific CSS file for styling the privacy page -->
 </head>
+
 <body class="bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-300">
+<!-- Main body with dynamic theming support using CSS variables -->
+
+    <!-- Navigation bar starts here -->
     <nav class="fixed w-full bg-[var(--bg-primary)] shadow-lg z-50">
+        <!-- Fixed top navbar with shadow and z-index for layering -->
+
         <div class="max-w-7xl mx-auto px-4">
+            <!-- Wrapper with max width and horizontal padding -->
+
             <div class="flex justify-between items-center h-16">
+                <!-- Flex container for logo and nav items -->
+
                 <div class="flex-shrink-0">
+                    <!-- Branding area with custom font -->
                     <h1 class="font-['Pacifico'] text-2xl">InkedEssence</h1>
                 </div>
+
                 <div class="hidden md:flex space-x-8">
+                    <!-- Placeholder for navigation links on larger screens -->
                 </div>
+
                 <div class="flex items-center space-x-4">
+                    <!-- Theme toggle and menu buttons -->
                     <a href="index.html" class="hover:text-primary cursor-pointer whitespace-nowrap">Home</a>
-                    <button id="themeToggle" class="w-8 h-8 flex items-center justify-center cursor-pointer">
-                        <i class="ri-sun-line text-xl"></i>
+                    
+                    <!-- Theme switch button -->
+                    <button id="themeToggle" class="w-8 h-8 flex items-center justify-center cursor-pointer" title="Toggle Theme" aria-label="Toggle Theme">
+                        <i id="themeIcon" class="ri-sun-line text-xl"></i>
                     </button>
+
+                    <!-- Hamburger menu for mobile view -->
                     <button class="md:hidden w-8 h-8 flex items-center justify-center cursor-pointer">
                         <i class="ri-menu-line text-xl"></i>
                     </button>
@@ -32,9 +75,19 @@
             </div>
         </div>
     </nav>
-    <main class="pt-20 max-w-7xl mx-auto px-4 py-16">
-        <h1 class="text-4xl font-bold mb-8">Privacy Policy</h1>
-        <section class="mb-6">
+
+    <!-- Main content container -->
+    <main class="pt-20 max-w-7xl mx-auto px-4 py-16 space-y-8 rounded-lg shadow-lg">
+        <!-- Top bar with page title and print button -->
+        <div class="flex items-center justify-between mb-8">
+            <h1 class="text-4xl font-bold text-gray-900">Privacy Policy</h1>
+            <button id="printPolicyBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded transition-colors duration-300">
+                Print Policy
+            </button>
+        </div>
+
+        <!-- Overview section -->
+        <section class="mb-6 text-gray-700 leading-relaxed">
             <p>
                 This Privacy Policy describes how InkedEssence ("we", "us", or "our") collects, uses, and protects your personal information when you use our platform.
             </p>
@@ -54,7 +107,9 @@
                 For full details, please read the complete privacy policy below.
             </p>
         </section>
-        <section class="mb-6">
+
+        <!-- Detailed policy sections -->
+        <section class="mb-6 text-gray-700 leading-relaxed">
             <h2 class="text-2xl font-semibold mb-4">Information We Collect</h2>
             <p>
                 We collect various types of information including personal identification information, payment details, browsing data, and communication records.
@@ -66,122 +121,11 @@
                 We use this data to provide a safe, efficient, and customized shopping experience.
             </p>
         </section>
-        <section class="mb-6">
+
+        <!-- Use of data -->
+        <section class="mb-6 text-gray-700 leading-relaxed">
             <h2 class="text-2xl font-semibold mb-4">Use of Information</h2>
             <p>
                 Your personal data is used to provide requested services, assist sellers, enhance customer experience, resolve disputes, conduct marketing research, and more.
             </p>
             <p>
-                We may contact you for commercial communications and surveys with your consent.
-            </p>
-        </section>
-        <section class="mb-6">
-            <h2 class="text-2xl font-semibold mb-4">Cookies</h2>
-            <p>
-                We use cookies to analyze web traffic, measure promotional effectiveness, and provide targeted information. Cookies do not contain personal data.
-            </p>
-            <p>
-                You can decline or delete cookies but some features may be affected.
-            </p>
-        </section>
-        <section class="mb-6">
-            <h2 class="text-2xl font-semibold mb-4">Sharing of Information</h2>
-            <p>
-                We may share your data with affiliates, business partners, government agencies, and others as required by law or to provide services.
-            </p>
-        </section>
-        <section class="mb-6">
-            <h2 class="text-2xl font-semibold mb-4">Security Precautions</h2>
-            <p>
-                We adopt reasonable security practices to protect your data but transmission over the internet is not completely secure.
-            </p>
-        </section>
-        <section class="mb-6">
-            <h2 class="text-2xl font-semibold mb-4">Your Rights</h2>
-            <p>
-                You have rights to access, rectify, update, and delete your personal data. You may withdraw consent but this may affect service provision.
-            </p>
-        </section>
-        <section class="mb-6">
-            <h2 class="text-2xl font-semibold mb-4">Consent</h2>
-            <p>
-                By using our platform, you consent to the collection and use of your data as described in this policy.
-            </p>
-        </section>
-        <section class="mb-6">
-            <h2 class="text-2xl font-semibold mb-4">Changes to this Privacy Policy</h2>
-            <p>
-                We may update this policy periodically. We will notify you of significant changes.
-            </p>
-        </section>
-        <section class="mb-6">
-            <h2 class="text-2xl font-semibold mb-4">Contact Information</h2>
-            <p>
-                For any queries or concerns, please contact:
-            </p>
-            <address>
-                Mr. JOHN DOE <br />
-                Manager - CC - Social Media<br />
-                InkedEssence Pvt Ltd<br />
-                Chandigarh , India<br />
-                Email: customergrievance@inkedessence.com<br />
-                Phone: +91-9999966666<br />
-                Hours: Monday - Friday (9:00 - 18:00)
-            </address>
-        </section>
-    </main>
-    <footer class="bg-gray-900 text-white">
-        <div class="max-w-7xl mx-auto px-4 py-16">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div>
-                    <h3 class="font-['Pacifico'] text-2xl mb-4">InkedEssence</h3>
-                    <p class="text-gray-400">Premium fashion for the modern individual. Quality meets style in every piece.</p>
-                    <div class="flex space-x-4 mt-4">
-                        <a href="#" class="text-gray-400 hover:text-white w-8 h-8 flex items-center justify-center cursor-pointer">
-                            <i class="ri-facebook-fill"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white w-8 h-8 flex items-center justify-center cursor-pointer">
-                            <i class="ri-twitter-fill"></i>
-                        </a>
-                        <a href="https://www.instagram.com/inked___essence?igsh=MWs2NmFvZ2g2endvdg==" class="text-gray-400 hover:text-white w-8 h-8 flex items-center justify-center cursor-pointer">
-                            <i class="ri-instagram-fill"></i>
-                        </a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="aboutus.css" class="text-gray-400 hover:text-white cursor-pointer">About Us</a></li>
-                        <li><a href="contact.html" class="text-gray-400 hover:text-white cursor-pointer">Contact</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white cursor-pointer">FAQs</a></li>
-                        <li><a href="privacy.html" class="text-gray-400 hover:text-white cursor-pointer">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li>23 Fashion Street</li>
-                        <li>New York, NY 10001</li>
-                        <li>Phone: (555) 123-4567</li>
-                        <li>Email: info@inkedessence.com</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 mt-12 pt-8">
-                <div class="max-w-md mx-auto text-center">
-                    <h4 class="text-lg font-semibold mb-4">Subscribe to Our Newsletter</h4>
-                    <p class="text-gray-400 mb-4">Stay updated with our latest collections and exclusive offers</p>
-                    <form class="flex space-x-2">
-                        <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-2 rounded-button bg-gray-800 border-none text-white" required />
-                        <button type="submit" class="bg-primary text-white px-6 py-2 rounded-button hover:bg-opacity-90 transition-colors duration-300 cursor-pointer whitespace-nowrap">Subscribe</button>
-                    </form>
-                </div>
-                <div class="text-center text-gray-400 mt-8">
-                    <p>&copy; 2025 InkedEssence. All rights reserved.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <script src="privacy.js"></script>
-</body>
-</html>
