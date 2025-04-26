@@ -302,3 +302,102 @@
     font-weight: bold;
     margin-bottom: 0.75rem;
   }
+
+
+  /* download-app.css */
+
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section-title {
+  font-size: 1.875rem; /* 3xl */
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  color: #6b7280; /* gray-600 */
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+@media (min-width: 768px) {
+  .main-content {
+    flex-direction: row;
+  }
+}
+
+.left-content {
+  flex: 1;
+  max-width: 28rem; /* max-w-md */
+}
+
+.left-heading {
+  font-size: 1.5rem; /* 2xl */
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: start;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  color: #374151; /* gray-700 */
+}
+
+.icon {
+  color: #6d28d9; /* Customize icon color if needed */
+  font-size: 1.5rem;
+}
+
+.app-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-appstore,
+.btn-googleplay {
+  display: flex;
+  align-items: center;
+  background-color: #000;
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn-appstore:hover,
+.btn-googleplay:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.right-content {
+  flex: 1;
+  max-width: 28rem;
+}
+
+.app-image {
+  width: 100%;
+  border-radius: 1rem;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+}
+.icon {
+  color: #6d28d9; /* violet-700 (dark purple) */
+  font-size: 1.5rem;
+}
