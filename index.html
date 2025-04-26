@@ -91,3 +91,96 @@
   <div class="relative h-screen">
     <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('pic0.jpg')"></div>
     <div class="absolute inset-0 bg-black opacity-50"></div>
+    <div class="relative h-full flex items-center justify-center text-center text-white">
+        <div class="max-w-3xl px-4">
+            <h2 class="text-5xl font-bold mb-6">New Collection 2025</h2>
+            <p class="text-xl mb-8">Discover our latest collection featuring elegant designs and premium materials</p>
+            <button class="bg-primary text-white px-8 py-3 rounded-button hover:bg-opacity-90 transition-colors duration-300 cursor-pointer whitespace-nowrap">
+                Shop Now
+            </button>
+        </div>
+    </div>
+</div>
+ 
+
+  <!-- Products Section -->
+  <section class="max-w-7xl mx-auto px-4 py-16">
+    <div class="flex flex-col items-center mb-12">
+      
+      <h2 class="text-3xl font-bold mb-6">Featured Products</h2>
+      <div id="productContainer" class="products-wrapper">
+        <!-- Product cards dynamically inserted via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="font-['Pacifico'] text-2xl mb-4">InkedEssence</h3>
+          <p class="text-gray-400">Premium fashion for the modern individual. Quality meets style in every piece.</p>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="aboutus.html" class="text-gray-400 hover:text-white">About Us</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white">FAQs</a></li>
+            <li><a href="privacy.html" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li>123 Fashion Street</li>
+            <li>New York, NY 10001</li>
+            <li>Phone: (555) 123-4567</li>
+            <li>Email: info@inkedessence.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+        <div class="max-w-md mx-auto">
+          <h4 class="text-lg font-semibold mb-4">Subscribe to Our Newsletter</h4>
+          <p class="text-gray-400 mb-4">Stay updated with our latest collections and exclusive offers</p>
+          <form class="flex space-x-2">
+            <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-2 rounded bg-gray-800 border-none text-white" required>
+            <button type="submit" class="button px-6 py-2">Subscribe</button>
+          </form>
+        </div>
+        <p class="text-gray-400 mt-8">&copy; 2025 InkedEssence. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Modal -->
+  <div id="cartModal" class="fixed inset-0 bg-black bg-opacity-50 opacity-0 invisible pointer-events-none transition-opacity duration-300 z-50">
+    <div class="absolute right-0 top-0 h-full w-96 bg-white dark:bg-gray-900 text-black dark:text-white p-6 shadow-lg transform translate-x-full transition-transform duration-300 flex flex-col">
+      <div class="flex justify-between items-center mb-6">
+        <h3 class="text-xl font-bold">Shopping Cart</h3>
+        <button id="closeCart" class="w-8 h-8 flex items-center justify-center cursor-pointer" aria-label="Close Cart">
+          <i class="ri-close-line text-xl"></i>
+        </button>
+      </div>
+      <div id="cartItems" class="space-y-4 flex-grow overflow-y-auto">
+        <p class="text-gray-500 dark:text-gray-400 text-center">Your cart is empty</p>
+      </div>
+      <div class="mt-4 border-t border-gray-300 dark:border-gray-700 pt-4">
+        <div class="flex justify-between items-center mb-4">
+          <span class="font-semibold text-lg">Total:</span>
+          <span id="cartTotal" class="font-bold text-lg">₹0.00</span>
+        </div>
+        <div class="flex justify-between space-x-4">
+          <button id="clearCart" class="button outline flex-1">Clear Cart</button>
+          <button id="checkoutBtn" class="button flex-1">Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="index.js"></script>
+</body>
+</html>
