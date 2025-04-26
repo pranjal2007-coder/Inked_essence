@@ -1,239 +1,172 @@
-:root {
-  --bg-light: #ffffff;
-  --text-light: #1f2937;
-  --bg-dark: #121212;
-  --text-dark: #ffffff;
-  --primary-color: #4f46e5;
-  --primary-hover: #4338ca;
-  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  --menu-bg-color-light: #f9fafb;
-  --menu-bg-color-dark: #1f1f1f;
-  --button-bg-color-light: #4f46e5;
-  --button-bg-color-dark: #6366f1;
-  --button-hover-bg-color-light: #4338ca;
-  --button-hover-bg-color-dark: #4f3efc;
-  --button-text-color-light: #ffffff;
-  --button-text-color-dark: #fff;
-}
-
-[data-theme="light"] {
-  --bg-primary: var(--bg-light);
-  --text-primary: var(--text-light);
-  --menu-bg-color: var(--menu-bg-color-light);
-  --button-bg-color: var(--button-bg-color-light);
-  --button-hover-bg-color: var(--button-hover-bg-color-light);
-  --button-text-color: var(--button-text-color-light);
-}
-
-[data-theme="dark"] {
-  --bg-primary: var(--bg-dark);
-  --text-primary: var(--text-dark);
-  --menu-bg-color: var(--menu-bg-color-dark);
-  --button-bg-color: var(--button-bg-color-dark);
-  --button-hover-bg-color: var(--button-hover-bg-color-dark);
-  --button-text-color: var(--button-text-color-dark);
-}
-
-body {
-  margin: 0;
-  font-family: var(--font-family);
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  transition: background-color 0.3s ease, color 0.3s ease;
-  min-height: 100vh;
-}
-
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: var(--menu-bg-color);
-  color: var(--text-primary);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  z-index: 50;
-}
-
-.navbar > div {
-  max-width: 112rem;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-.navbar .flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 4rem;
-}
-
-.font-pacifico {
-  font-family: 'Pacifico', cursive;
-}
-
-.text-2xl {
-  font-size: 1.5rem;
-}
-
-.menu {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-  margin: 0;
-  padding: 0;
-}
-
-.menu li a {
-  color: var(--text-primary);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.menu li a:hover,
-.menu li a.font-semibold,
-.menu li a.underline {
-  color: var(--button-bg-color);
-  font-weight: 600;
-  text-decoration: underline;
-}
-
-.flex.items-center.space-x-4 > button {
-  background: none;
-  border: none;
-  color: var(--text-primary);
-  font-size: 1.25rem;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.flex.items-center.space-x-4 > button:hover {
-  color: var(--button-bg-color);
-}
-
-.main-content {
-  max-width: 112rem;
-  margin: 5rem auto 0 auto;
-  padding: 2rem 1rem;
-}
-
-h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 2rem;
-}
-
-h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-}
-
-p {
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-/* Footer styles */
-footer.bg-gray-900 {
-  background-color: #1a202c;
-  color: #e2e8f0;
-  padding: 4rem 1rem;
-}
-
-footer .max-w-7xl {
-  max-width: 112rem;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-footer .grid {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 2rem;
-}
-
-@media (min-width: 768px) {
-  footer .grid {
-    grid-template-columns: repeat(3, 1fr);
+/* =============================
+   Root Variables - Theme Colors, Fonts
+   ============================= */
+   :root {
+    /* Light theme background and text */
+    --bg-light: #ffffff;
+    --text-light: #1f2937;
+  
+    /* Dark theme background and text */
+    --bg-dark: #121212;
+    --text-dark: #ffffff;
+  
+    /* Primary color palette */
+    --primary-color: #4f46e5; /* Indigo base */
+    --primary-hover: #4338ca; /* Darker shade for hover */
+  
+    /* Global font family for consistency */
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+    /* Menu background colors for both themes */
+    --menu-bg-color-light: #f9fafb;
+    --menu-bg-color-dark: #1f1f1f;
+  
+    /* Button background and text colors */
+    --button-bg-color-light: #4f46e5;
+    --button-bg-color-dark: #6366f1;
+  
+    /* Button hover states */
+    --button-hover-bg-color-light: #4338ca;
+    --button-hover-bg-color-dark: #4f3efc;
+  
+    /* Button text colors */
+    --button-text-color-light: #ffffff;
+    --button-text-color-dark: #fff;
   }
-}
-
-footer h3,
-footer h4 {
-  font-family: 'Pacifico', cursive;
-  margin-bottom: 1rem;
-}
-
-footer p,
-footer ul,
-footer li {
-  color: #a0aec0;
-  margin: 0.25rem 0;
-}
-
-footer ul {
-  list-style: none;
-  padding: 0;
-}
-
-footer ul li a {
-  color: #a0aec0;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-footer ul li a:hover {
-  color: #fff;
-}
-
-footer .flex.space-x-4 a {
-  color: #a0aec0;
-  transition: color 0.3s ease;
-}
-
-footer .flex.space-x-4 a:hover {
-  color: #fff;
-}
-
-footer .border-t {
-  border-top: 1px solid #2d3748;
-  margin-top: 3rem;
-  padding-top: 2rem;
-  font-size: 0.875rem;
-  color: #a0aec0;
-}
-
-footer .text-center {
-  text-align: center;
-}
-
-footer .rounded-button {
-  border-radius: 0.375rem;
-}
-
-footer .bg-primary {
-  background-color: #4f46e5;
-}
-
-footer .bg-primary:hover {
-  background-color: #4338ca;
-}
-
-footer input[type="email"] {
-  width: 100%;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 0.375rem;
-  background-color: #2d3748;
-  color: #fff;
-}
-
-footer button {
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-footer button:hover {
-  background-color: #4338ca;
-}
+  
+  /* =============================
+     Light Theme Rules
+     ============================= */
+  [data-theme="light"] {
+    /* Background and text color mapping for light theme */
+    --bg-primary: var(--bg-light);
+    --text-primary: var(--text-light);
+  
+    /* Menu and container background for light mode */
+    --menu-bg-color: var(--menu-bg-color-light);
+    --container-bg: #ffffff;
+  
+    /* Button colors for light theme */
+    --button-bg-color: var(--button-bg-color-light);
+    --button-hover-bg-color: var(--button-hover-bg-color-light);
+    --button-text-color: var(--button-text-color-light);
+  }
+  
+  /* =============================
+     Dark Theme Rules
+     ============================= */
+  [data-theme="dark"] {
+    /* Background and text color mapping for dark theme */
+    --bg-primary: var(--bg-dark);
+    --text-primary: #ffffff;
+  
+    /* Dark menu and container backgrounds */
+    --menu-bg-color: var(--menu-bg-color-dark);
+    --container-bg: #1a1a1a;
+  
+    /* Button colors for dark mode */
+    --button-bg-color: var(--button-bg-color-dark);
+    --button-hover-bg-color: var(--button-hover-bg-color-dark);
+    --button-text-color: var(--button-text-color-dark);
+  }
+  
+  /* Override text color for gray classes in dark theme */
+  [data-theme="dark"] .text-gray-700,
+  [data-theme="dark"] .text-gray-400 {
+    color: #ffffff !important;
+  }
+  
+  /* Specific override for heading color in dark mode */
+  [data-theme="dark"] h1.text-gray-900 {
+    color: #ffffff !important;
+  }
+  
+  /* Main content color overrides for dark theme */
+  [data-theme="dark"] .main-content,
+  [data-theme="dark"] .main-content p,
+  [data-theme="dark"] .main-content section {
+    color: #ffffff;
+  }
+  
+  /* =============================
+     Base Body Styles
+     ============================= */
+  body {
+    margin: 0;
+    font-family: var(--font-family);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    min-height: 100vh;
+  }
+  
+  /* =============================
+     Navbar Styling
+     ============================= */
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: var(--menu-bg-color);
+    color: var(--text-primary);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    z-index: 50; /* Ensures navbar is above all content */
+  }
+  
+  /* Container inside navbar for centering */
+  .navbar > div {
+    max-width: 112rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  /* Flexbox layout for navbar */
+  .navbar .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4rem;
+  }
+  
+  /* =============================
+     Font Utility Classes
+     ============================= */
+  .font-pacifico {
+    font-family: 'Pacifico', cursive;
+  }
+  
+  .text-2xl {
+    font-size: 1.5rem;
+  }
+  
+  /* =============================
+     Navigation Menu Styling
+     ============================= */
+  .menu {
+    list-style: none;
+    display: flex;
+    gap: 2rem; /* Horizontal spacing between links */
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Navigation link styles */
+  .menu li a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  /* Link hover and active states */
+  .menu li a:hover,
+  .menu li a.font-semibold,
+  .menu li a.underline {
+    color: var(--button-bg-color);
+    font-weight: 600;
+    text-decoration: underline;
+  }
+  
+  /* =============================
+     Button Styling (Top Right Icons)
+     ============================= */
