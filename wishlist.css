@@ -1,80 +1,115 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  header {
-    text-align: center;
-    padding: 3rem 1rem;
-  }
-  
-  header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  header p {
-    font-size: 1.2rem;
-    color: var(--subtext-color);
-    margin-bottom: 1.5rem;
-  }
-  
-  .products-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
-  }
-  
-  .product-card {
-    background-color: var(--card-bg);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-soft);
-    width: 220px;
-    padding: 1rem;
-    text-align: center;
-    transition: transform 0.3s ease;
-  }
-  
-  .product-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .product-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 0.5rem;
-  }
-  
-  .product-name {
-    font-size: 1rem;
-    font-weight: 600;
-    margin: 0.5rem 0 0.25rem;
-  }
-  
-  .product-price {
-    font-size: 0.95rem;
-    font-weight: bold;
-    margin-bottom: 0.75rem;
-  }
-  
-  .remove-from-wishlist {
-    background-color: var(--button-bg-color);
-    color: var(--button-text-color);
-    padding: 0.5rem 1rem;
-    border-radius: 9999px;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .remove-from-wishlist:hover {
-    background-color: var(--button-hover-bg-color);
-  }
-  
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header {
+  text-align: center;
+  padding: 4rem 1rem 3rem;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  color: #333;
+  border-radius: 0 0 1rem 1rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  font-size: 2.75rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+header p {
+  font-size: 1.25rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+#clearWishlistBtn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  background-color: #e53e3e;
+  color: white;
+}
+
+#clearWishlistBtn:hover {
+  background-color: #c53030;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  transform: scale(1.05);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header {
+  text-align: center;
+  padding: 4rem 1rem 3rem;
+  border-radius: 0 0 1rem 1rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  font-size: 2.75rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+header p {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+  color: var(--subtext-color);
+}
+
+.products-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  padding-bottom: 3rem;
+}
+
+.product-card {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-soft);
+  width: 220px;
+  padding: 1.25rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  animation: fadeInUp 0.5s forwards;
+  border: 1px solid var(--border-color);
+}
+
+.product-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+}
+
+.product-name {
+  font-size: 1.1rem;
+  font-weight: 700;
