@@ -170,3 +170,175 @@
   /* =============================
      Button Styling (Top Right Icons)
      ============================= */
+ .flex.items-center.space-x-4 > button {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  /* Hover state for buttons in nav */
+  .flex.items-center.space-x-4 > button:hover {
+    color: var(--button-bg-color);
+  }
+  
+  /* =============================
+     Main Content Container
+     ============================= */
+  .main-content {
+    max-width: 112rem;
+    margin: 5rem auto 0 auto; /* Top spacing to offset fixed navbar */
+    padding: 2rem 1rem;
+    background-color: var(--container-bg);
+    transition: background-color 0.3s ease;
+  }
+  
+  /* =============================
+     Typography Styling
+     ============================= */
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  
+  /* =============================
+     Footer Styling
+     ============================= */
+  footer.bg-gray-900 {
+    background-color: #1a202c; /* Dark slate background */
+    color: #e2e8f0;
+    padding: 4rem 1rem;
+  }
+  
+  /* Center and space footer content */
+  footer .max-w-7xl {
+    max-width: 112rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  /* Responsive footer layout */
+  footer .grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    footer .grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  /* Footer Headings */
+  footer h3,
+  footer h4 {
+    font-family: var(--font-family);
+    margin-bottom: 1rem;
+  }
+  
+  /* Text and links inside footer */
+  footer p,
+  footer ul,
+  footer li {
+    color: #a0aec0;
+    margin: 0.25rem 0;
+  }
+  
+  /* Remove list style from footer */
+  footer ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  /* Footer links with hover transitions */
+  footer ul li a {
+    color: #a0aec0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-family: inherit;
+  }
+  
+  footer ul li a:hover {
+    color: #fff;
+  }
+  
+  /* Reuse font across elements */
+  footer ul,
+  footer li,
+  footer p {
+    font-family: inherit;
+  }
+  
+  /* Social media links */
+  footer .flex.space-x-4 a {
+    color: #a0aec0;
+    transition: color 0.3s ease;
+  }
+  
+  footer .flex.space-x-4 a:hover {
+    color: #fff;
+  }
+  
+  /* Footer bottom border and copyright */
+  footer .border-t {
+    border-top: 1px solid #2d3748;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    font-size: 0.875rem;
+    color: #a0aec0;
+  }
+  
+  /* Center text inside footer */
+  footer .text-center {
+    text-align: center;
+  }
+  
+  /* Rounded corners for button */
+  footer .rounded-button {
+    border-radius: 0.375rem;
+  }
+  
+  /* Primary background button in footer */
+  footer .bg-primary {
+    background-color: #4f46e5;
+  }
+  
+  footer .bg-primary:hover {
+    background-color: #4338ca;
+  }
+  
+  /* Email input for newsletter */
+  footer input[type="email"] {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.375rem;
+    background-color: #2d3748;
+    color: #fff;
+  }
+  
+  /* Footer buttons */
+  footer button {
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  footer button:hover {
+    background-color: #4338ca;
+  }
