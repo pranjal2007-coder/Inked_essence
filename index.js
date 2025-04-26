@@ -106,3 +106,110 @@ document.addEventListener('DOMContentLoaded', () => {
         input.addEventListener('change', e => {
           const id = e.target.dataset.id;
           let value = parseInt(e.target.value);
+        if (isNaN(value) || value < 1) {
+          value = 1;
+          e.target.value = value;
+        }
+        if (cart[id]) {
+          cart[id].quantity = value;
+          updateCartCount();
+          updateCartDisplay();
+        }
+      });
+    });
+  }
+
+  function updateCartCount() {
+    const total = Object.values(cart).reduce((acc, item) => acc + item.quantity, 0);
+    cartCount.textContent = total;
+  }
+
+  function updateCartTotal() {
+    const totalPrice = Object.values(cart).reduce((acc, item) => acc + item.price * item.quantity, 0);
+    cartTotalDisplay.textContent = `₹${totalPrice.toFixed(2)}`;
+  }
+
+  function renderProducts() {
+    productContainer.innerHTML = '';
+    products.forEach(product => {
+      const card = document.createElement('div');
+      card.className = 'product-card visible';
+      card.innerHTML = `
+        <img src="${product.image}" alt="${product.name}" class="product-image" />
+        <h3 class="product-name">${product.name}</h3>
+        <p class="product-price">₹${product.price.toFixed(2)}</p>
+        <button class="button add-to-cart" data-id="${product.id}">Add to Cart</button>
+      `;
+      productContainer.appendChild(card);
+    });
+
+    document.querySelectorAll('.add-to-cart').forEach(btn => {
+      btn.addEventListener('click', e => {
+        const id = parseInt(e.target.dataset.id);
+        const product = products.find(p => p.id === id);
+        if (cart[id]) {
+          cart[id].quantity += 1;
+        } else {
+          cart[id] = { ...product, quantity: 1 };
+        }
+        updateCartCount();
+        updateCartDisplay();
+      });
+    });
+  }
+
+  // 🛒 Cart Modal Open/Close
+  if (cartBtn && cartModal && closeCart) {
+    cartBtn.addEventListener('click', () => {
+      cartModal.classList.remove('opacity-0', 'invisible', 'pointer-events-none');
+      cartModal.querySelector('div').classList.remove('translate-x-full');
+    });
+
+    closeCart.addEventListener('click', () => {
+      cartModal.classList.add('opacity-0', 'invisible', 'pointer-events-none');
+      cartModal.querySelector('div').classList.add('translate-x-full');
+    });
+  }
+
+  // Clear Cart Button
+  if (clearCartBtn) {
+    clearCartBtn.addEventListener('click', () => {
+      for (const id in cart) {
+        delete cart[id];
+      }
+      updateCartCount();
+      updateCartDisplay();
+    });
+  }
+
+  // 🌗 Theme Toggle Logic
+  const applyTheme = (theme) => {
+    html.setAttribute('data-theme', theme);
+    if (themeIcon) {
+      themeIcon.className = theme === 'dark' ? 'ri-moon-line text-xl' : 'ri-sun-line text-xl';
+    }
+    localStorage.setItem('theme', theme);
+  };
+
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  applyTheme(savedTheme);
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      applyTheme(newTheme);
+    });
+  }
+
+  // 🔐 Login Redirect
+  if (loginBtn) {
+    loginBtn.addEventListener('click', () => {
+      window.location.href = 'login.html';
+    });
+  }
+
+  // 🚀 Initialize
+  renderProducts();
+  updateCartDisplay();
+});
