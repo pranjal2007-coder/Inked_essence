@@ -109,21 +109,17 @@
         </aside>
 
         <!-- Main Content -->
+
         <section class="flex-1">
             <div class="flex justify-between items-center mb-6">
                 <h1 class="text-3xl font-bold">Categories</h1>
-                <div class="relative">
-                    <button id="sortDropdownBtn" class="flex items-center space-x-2 px-4 py-2 border rounded-button hover:border-primary cursor-pointer">
-                        <span>Sort By</span>
-                        <i class="ri-arrow-down-s-line"></i>
-                    </button>
-                    <div id="sortDropdownMenu" class="hidden absolute right-0 mt-2 w-48 bg-[var(--card-bg)] rounded-md shadow-lg z-20">
-                        <button class="block w-full text-left px-4 py-2 hover:bg-gray-100">Price: Low to High</button>
-                        <button class="block w-full text-left px-4 py-2 hover:bg-gray-100">Price: High to Low</button>
-                        <button class="block w-full text-left px-4 py-2 hover:bg-gray-100">Rating</button>
-                        <button class="block w-full text-left px-4 py-2 hover:bg-gray-100">Discount</button>
-                    </div>
-                </div>
+                
+                
+                <!-- Outfit Helper Button -->
+                <button onclick="window.location.href='design.html'" class="flex items-center space-x-2 px-4 py-2 border rounded-button hover:border-primary cursor-pointer bg-primary text-white hover:bg-primary-dark transition-colors duration-300">
+                    <i class="ri-magic-line"></i>
+                    <span>Outfit Helper</span>
+                </button>
             </div>
 
             <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
