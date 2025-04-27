@@ -1,117 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FAQs - Inked Essence</title>
-  <link rel="stylesheet" href="testing.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Inked Essence</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="faq.css">
+
+    <script src="https://unpkg.com/heroicons@2.1.3/24/outline/magnifying-glass.js"></script>
+    <script src="https://unpkg.com/heroicons@2.1.3/24/outline/heart.js"></script>
+    <script src="https://unpkg.com/heroicons@2.1.3/24/outline/shopping-bag.js"></script>
+    <script src="https://unpkg.com/heroicons@2.1.3/24/outline/sun.js"></script>
+    <script src="https://unpkg.com/heroicons@2.1.3/24/solid/moon.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+
+
 </head>
-<body>
+<body class="body-bg body-text flex flex-col min-h-screen"> <header class="header-bg shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <div class="flex items-center justify-between flex-wrap">
+                <a href="#" class="font-logo text-2xl logo-text">Inked Essence</a>
 
-<!-- Navbar -->
-<nav class="navbar">
-  <div class="nav-logo">InkedEssence</div>
-  <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="shop.html">Shop</a>
-    <a href="categories.html">Categories</a>
-    <a href="aboutus.html">About</a>
-    <a href="contact.html">Contact</a>
-  </div>
-  <div class="nav-icons">
-    <span>❤️</span>
-    <span>🛒 0</span>
-    <button class="login-btn">Login/Signup</button>
-    <button class="theme-toggle">⚙️</button>
-  </div>
-</nav>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#" class="nav-link">Home</a>
+                    <a href="#" class="nav-link">Shop</a>
+                    <a href="#" class="nav-link">Categories</a>
+                    <a href="#" class="nav-link">About</a>
+                    <a href="#" class="nav-link">Contact</a>
+                </div>
 
-<!-- Main Content -->
-<main>
-  <h1>Frequently Asked Questions</h1>
+                <div class="flex items-center space-x-4">
+                     <button class="icon-button" aria-label="Search">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 icon-color">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                        </svg>
+                    </button>
+                    <button class="icon-button relative" aria-label="Wishlist">
+                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 icon-color">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                         </svg>
+                         <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-4 w-4 flex items-center justify-center">1</span>
+                    </button>
+                     <button class="icon-button" aria-label="Shopping Bag">
+                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 icon-color">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                         </svg>
+                    </button>
+                    <button class="login-button">Login / Signup</button>
+                    <button id="theme-toggle" class="icon-button" aria-label="Toggle dark mode">
+                        <svg id="theme-toggle-light-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 icon-color hidden">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-6.364-.386 1.591-1.591M3 12h2.25m.386-6.364 1.591 1.591" />
+                        </svg>
+                         <svg id="theme-toggle-dark-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 icon-color hidden">
+                          <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69a.75.75 0 0 1 .981.981A10.503 10.503 0 0 1 18 19.5a10.5 10.5 0 0 1-10.5-10.5A10.503 10.503 0 0 1 9.528 1.718Z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </div>
+                 <div class="md:hidden flex items-center">
+                     <button class="icon-button" aria-label="Open menu">
+                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 icon-color">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                         </svg>
+                     </button>
+                 </div>
+            </div>
+             <div class="md:hidden mobile-menu hidden">
+                 <a href="#" class="block nav-link py-2">Home</a>
+                 <a href="#" class="block nav-link py-2">Shop</a>
+                 <a href="#" class="block nav-link py-2">Categories</a>
+                 <a href="#" class="block nav-link py-2">About</a>
+                 <a href="#" class="block nav-link py-2">Contact</a>
+             </div>
+        </nav>
+    </header>
 
-  <div class="faq-item">
-    <div class="faq-question">What is Inked Essence?</div>
-    <div class="faq-answer">
-      Inked Essence is a clothing brand inspired by creativity, individuality, and bold self-expression through fashion.
-    </div>
-  </div>
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-grow"> <h1 class="text-3xl sm:text-4xl font-bold text-center mb-8 heading-text">Frequently Asked Questions</h1>
 
-  <div class="faq-item">
-    <div class="faq-question">Where are your clothes made?</div>
-    <div class="faq-answer">
-      All our pieces are ethically made with premium materials, sourced and produced with care in the USA and select international partners.
-    </div>
-  </div>
+        <div class="max-w-3xl mx-auto space-y-4">
+            <details class="faq-item group" open>
+                <summary class="faq-question group">
+                    <span>What payment methods do you accept?</span>
+                    <span class="faq-icon">
+                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 group-open:hidden"> <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /> </svg>
+                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 hidden group-open:block"> <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" /> </svg>
+                    </span>
+                </summary>
+                <div class="faq-answer"> We accept major credit cards (Visa, MasterCard, American Express), PayPal, and other secure payment gateways. All transactions are encrypted for your security. </div>
+            </details>
+            <details class="faq-item group">
+                <summary class="faq-question group">
+                    <span>What is your shipping policy?</span>
+                     <span class="faq-icon">
+                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 group-open:hidden"> <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /> </svg>
+                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 hidden group-open:block"> <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" /> </svg>
+                    </span>
+                </summary>
+                <div class="faq-answer"> We offer standard and expedited shipping options. Standard shipping usually takes 5-7 business days, while expedited shipping takes 2-3 business days. Shipping costs are calculated at checkout based on your location and order weight. We offer free standard shipping on orders over ₹1000. </div>
+            </details>
+            <details class="faq-item group">
+                <summary class="faq-question group">
+                    <span>What is your return policy?</span>
+                     <span class="faq-icon">
+                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 group-open:hidden"> <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /> </svg>
+                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 hidden group-open:block"> <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" /> </svg>
+                    </span>
+                </summary>
+                <div class="faq-answer"> We have a 30-day return policy. Items must be returned in their original condition, unworn, unwashed, and with all tags attached. Please visit our Returns page for detailed instructions on how to initiate a return. </div>
+            </details>
+             <details class="faq-item group">
+                <summary class="faq-question group">
+                    <span>How do I track my order?</span>
+                     <span class="faq-icon">
+                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 group-open:hidden"> <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /> </svg>
+                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 hidden group-open:block"> <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" /> </svg>
+                    </span>
+                </summary>
+                <div class="faq-answer"> Once your order ships, you will receive a confirmation email with a tracking number and a link to the carrier's website. You can use this number to track your package's progress. </div>
+            </details>
+             <details class="faq-item group">
+                <summary class="faq-question group">
+                    <span>How do I know what size to order?</span>
+                     <span class="faq-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 group-open:hidden"> <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /> </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 hidden group-open:block"> <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" /> </svg>
+                    </span>
+                </summary>
+                <div class="faq-answer"> We provide a detailed size chart on each product page. Please refer to the measurements provided to find the best fit. If you are between sizes or need further assistance, feel free to contact our customer support team. </div>
+            </details>
+        </div>
+    </main>
 
-  <div class="faq-item">
-    <div class="faq-question">How do I choose my size?</div>
-    <div class="faq-answer">
-      Each product page includes a detailed size chart. If you're between sizes, we recommend sizing up for a more relaxed fit.
-    </div>
-  </div>
+    <footer class="footer-bg footer-text pt-16 pb-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="footer-column">
+                    <a href="#" class="font-logo text-2xl footer-logo-text mb-3 inline-block">Inked Essence</a>
+                    <p class="text-sm footer-text-secondary">
+                        Premium fashion for the modern individual. Quality meets style in every piece.
+                    </p>
+                     <div class="flex space-x-4 mt-4">
+                        <a href="#" class="footer-icon-link" aria-label="Facebook">
+                            <i data-feather="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="footer-icon-link" aria-label="Twitter">
+                            <i data-feather="twitter" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="footer-icon-link" aria-label="Instagram">
+                            <i data-feather="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="footer-icon-link" aria-label="LinkedIn">
+                           <i data-feather="linkedin" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
 
-  <div class="faq-item">
-    <div class="faq-question">Can I return or exchange my order?</div>
-    <div class="faq-answer">
-      Absolutely! We offer a 30-day return and exchange policy as long as the items are unworn and in original condition.
-    </div>
-  </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="footer-link">About Us</a></li>
+                        <li><a href="#" class="footer-link">Contact</a></li>
+                        <li><a href="#" class="footer-link">FAQs</a></li>
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Terms & Conditions</a></li> </ul>
+                </div>
 
-  <div class="faq-item">
-    <div class="faq-question">How long does shipping take?</div>
-    <div class="faq-answer">
-      Standard shipping typically takes 5-7 business days. We also offer express shipping options at checkout!
-    </div>
-  </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">Contact Info</h3>
+                    <address class="not-italic space-y-2 text-sm footer-text-secondary">
+                        <p>123 Fashion Street<br>New York, NY 10001</p>
+                        <p>Phone: <a href="tel:+15551234567" class="footer-link">(555) 123-4567</a></p>
+                        <p>Email: <a href="mailto:info@inkedessence.com" class="footer-link">info@inkedessence.com</a></p>
+                    </address>
+                </div>
 
-  <div class="faq-item">
-    <div class="faq-question">Do you ship internationally?</div>
-    <div class="faq-answer">
-      Yes! Inked Essence ships worldwide. International shipping rates and times vary depending on location.
-    </div>
-  </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">Subscribe to Our Newsletter</h3>
+                    <p class="text-sm mb-3 footer-text-secondary">Stay updated with our latest collections and exclusive offers.</p>
+                    <form class="newsletter-form">
+                        <label for="email-subscribe" class="sr-only">Enter your email</label>
+                        <input type="email" id="email-subscribe" placeholder="Enter your email" class="newsletter-input" required>
+                        <button type="submit" class="newsletter-button">Subscribe</button>
+                    </form>
+                </div>
+            </div>
 
-  <div class="faq-item">
-    <div class="faq-question">How can I contact customer support?</div>
-    <div class="faq-answer">
-      You can reach our team anytime at <a href="mailto:support@inkedessence.com">support@inkedessence.com</a> — we're happy to help!
-    </div>
-  </div>
-</main>
+            <div class="border-t footer-border-light pt-8 text-center text-sm footer-text-secondary">
+                &copy; 2025 Inked Essence. All rights reserved.
+            </div>
+        </div>
+    </footer>
 
-<!-- Footer -->
-<footer>
-  <div class="footer-content">
-    <div class="footer-about">
-      <h3>InkedEssence</h3>
-      <p>Premium fashion for the modern individual. Quality meets style in every piece.</p>
-    </div>
-    <div class="footer-links">
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="aboutus.html">About Us</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="faq.html">FAQs</a></li>
-        <li><a href="privacy.html">Privacy Policy</a></li>
-      </ul>
-    </div>
-    <div class="footer-contact">
-      <h4>Contact Info</h4>
-      <p>123 Fashion Street<br>New York, NY 10001</p>
-      <p>Phone: (555) 123-4567</p>
-      <p>Email: info@inkedessence.com</p>
-    </div>
-    <div class="footer-newsletter">
-      <h4>Subscribe to Our Newsletter</h4>
-      <p>Stay updated with our latest collections and exclusive offers</p>
-      <input type="email" placeholder="Enter your email">
-      <button>Subscribe</button>
-    </div>
-  </div>
-  <p class="footer-bottom">© 2025 InkedEssence. All rights reserved.</p>
-</footer>
-
-<script src="testing.js"></script>
+    <script src="faq.js"></script>
+    <script>
+      feather.replace();
+    </script>
 </body>
 </html>
