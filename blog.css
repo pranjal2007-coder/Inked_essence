@@ -1,0 +1,620 @@
+/* --- Root Variables --- */
+:root {
+    /* Fonts */
+    --primary-font: 'Poppins', sans-serif;
+    /* Use a specific font for the logo if needed, e.g., Playfair Display */
+    /* Or keep it Poppins and style differently */
+     --logo-font: 'Playfair Display', serif; /* Example logo font */
+
+    /* Light Theme */
+    --bg-color-light: #f8f9fa;
+    --navbar-bg-light: #ffffff;
+    --card-bg-light: #ffffff;
+    --text-color-light: #343a40; /* Slightly darker text */
+    --heading-color-light: #1a1a1a; /* Near black headings */
+    --accent-color-light: #6a11cb; /* Example deeper purple */
+    --secondary-accent-light: #2575fc; /* Example blue accent */
+    --border-color-light: #e9ecef; /* Lighter border */
+    --btn-bg-light: linear-gradient(to right, #6a11cb, #2575fc); /* Gradient button */
+    --btn-text-light: #ffffff;
+    --icon-color-light: #495057;
+    --link-color-light: #343a40;
+    --link-hover-light: var(--accent-color-light);
+    --box-shadow-light: 0 5px 20px rgba(0, 0, 0, 0.07);
+
+    /* Dark Theme */
+    --bg-color-dark: #121212; /* Darker background */
+    --navbar-bg-dark: #1e1e1e; /* Slightly lighter dark */
+    --card-bg-dark: #1e1e1e;
+    --text-color-dark: #adb5bd; /* Lighter grey text */
+    --heading-color-dark: #e0e0e0; /* Off-white headings */
+    --accent-color-dark: #9b59b6; /* Adjusted purple for dark */
+    --secondary-accent-dark: #3498db; /* Adjusted blue for dark */
+    --border-color-dark: #333333;
+    --btn-bg-dark: linear-gradient(to right, #9b59b6, #3498db); /* Gradient button dark */
+    --btn-text-dark: #ffffff;
+    --icon-color-dark: #adb5bd;
+    --link-color-dark: #ced4da;
+    --link-hover-dark: var(--accent-color-dark);
+    --box-shadow-dark: 0 5px 20px rgba(255, 255, 255, 0.05);
+
+    /* Footer Colors (Consistent Dark) */
+    --footer-bg: #1a1a1a;
+    --footer-text: #adb5bd;
+    --footer-heading: #e0e0e0;
+    --footer-link: #ced4da;
+    --footer-link-hover: #ffffff;
+    --footer-border: #333333;
+    --footer-btn-bg: #8e44ad; /* Purple button matching screenshot */
+    --footer-btn-text: #ffffff;
+    --footer-input-bg: #2c2c2c;
+    --footer-input-text: #e0e0e0;
+    --footer-input-border: #444444;
+
+
+    /* Apply Initial Theme */
+    --bg-color: var(--bg-color-light);
+    --navbar-bg: var(--navbar-bg-light);
+    --card-bg: var(--card-bg-light);
+    --text-color: var(--text-color-light);
+    --heading-color: var(--heading-color-light);
+    --accent-color: var(--accent-color-light);
+    --secondary-accent: var(--secondary-accent-light);
+    --border-color: var(--border-color-light);
+    --btn-bg: var(--btn-bg-light);
+    --btn-text: var(--btn-text-light);
+    --icon-color: var(--icon-color-light);
+    --link-color: var(--link-color-light);
+    --link-hover: var(--link-hover-light);
+    --box-shadow: var(--box-shadow-light);
+
+    --transition-speed: 0.4s; /* Slightly slower for smoother effect */
+    --border-radius: 8px; /* Consistent border radius */
+}
+
+body.dark-theme {
+    --bg-color: var(--bg-color-dark);
+    --navbar-bg: var(--navbar-bg-dark);
+    --card-bg: var(--card-bg-dark);
+    --text-color: var(--text-color-dark);
+    --heading-color: var(--heading-color-dark);
+    --accent-color: var(--accent-color-dark);
+    --secondary-accent: var(--secondary-accent-dark);
+    --border-color: var(--border-color-dark);
+    --btn-bg: var(--btn-bg-dark);
+    --btn-text: var(--btn-text-dark);
+    --icon-color: var(--icon-color-dark);
+    --link-color: var(--link-color-dark);
+    --link-hover: var(--link-hover-dark);
+    --box-shadow: var(--box-shadow-dark);
+}
+
+/* --- General Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--primary-font);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.7; /* Improved line height */
+    font-size: 16px; /* Base font size */
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+/* Prevent flash of unstyled content/transitions on load */
+body.preload * {
+    transition: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color);
+    margin-bottom: 0.8em;
+    font-weight: 600; /* Bolder headings */
+    line-height: 1.3;
+    transition: color var(--transition-speed) ease;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color var(--transition-speed) ease;
+}
+a:hover {
+    color: var(--link-hover);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+    border: none;
+    background: none;
+    color: inherit;
+}
+
+/* --- Header & Navbar --- */
+header {
+    background-color: var(--navbar-bg);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color var(--transition-speed) ease;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1300px; /* Wider container */
+    margin: 0 auto;
+    padding: 0 2rem; /* More padding */
+    height: 75px; /* Slightly taller */
+}
+
+.logo a {
+    font-weight: 700;
+    font-size: 1.8rem; /* Larger logo */
+    color: var(--heading-color);
+    transition: color var(--transition-speed) ease;
+}
+.logo.logo-font a { /* Apply specific logo font */
+    font-family: var(--logo-font);
+    font-weight: 700; /* Ensure weight is appropriate for the logo font */
+}
+.logo a:hover {
+    color: var(--accent-color);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem; /* Increased gap */
+    margin: 0; /* Reset margin */
+}
+
+.nav-links a {
+    font-weight: 500; /* Standard weight */
+    font-size: 0.95rem; /* Slightly smaller nav links */
+    padding: 0.5rem 0;
+    position: relative;
+    color: var(--link-color);
+    letter-spacing: 0.5px; /* Slight letter spacing */
+}
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px; /* Position underline slightly below */
+    left: 0; /* Start underline from left */
+    background-color: var(--accent-color);
+    transition: width var(--transition-speed) ease;
+}
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+.nav-links a.active {
+    color: var(--accent-color);
+    font-weight: 600; /* Bolder active link */
+}
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* Increased gap */
+}
+
+.nav-icons a,
+.nav-icons button {
+    font-size: 1.2rem; /* Slightly larger icons */
+    color: var(--icon-color);
+    position: relative;
+    background: none;
+    border: none;
+    padding: 0;
+    transition: color var(--transition-speed) ease, transform 0.2s ease;
+}
+.nav-icons a:hover,
+.nav-icons button:hover {
+    color: var(--accent-color);
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Notification badge styling remains same */
+.notification-bell .badge {
+    position: absolute; top: -5px; right: -8px; background-color: red; color: white;
+    font-size: 0.65rem; font-weight: bold; border-radius: 50%; width: 16px; height: 16px;
+    display: flex; justify-content: center; align-items: center;
+}
+
+.login-btn {
+    background: var(--btn-bg); /* Use gradient */
+    color: var(--btn-text) !important;
+    padding: 0.6rem 1.2rem; /* Slightly larger */
+    border-radius: 50px; /* More rounded */
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all var(--transition-speed) ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border: none; /* Remove default border */
+}
+.login-btn:hover {
+    transform: translateY(-2px); /* Lift effect */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    filter: brightness(1.1); /* Slightly brighten gradient */
+}
+
+#theme-toggle {
+    font-size: 1.3rem;
+}
+
+.menu-toggle { display: none; font-size: 1.5rem; color: var(--icon-color); }
+
+
+/* --- Main Blog Content --- */
+.blog-container {
+    max-width: 1100px; /* Wider content area */
+    margin: 3rem auto; /* More space top/bottom */
+    padding: 0 2rem;
+}
+
+.page-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.8rem; /* Larger title */
+    font-weight: 700;
+    color: var(--heading-color);
+}
+
+.blog-feed {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Responsive grid */
+    gap: 2rem; /* Gap between posts */
+}
+
+.blog-post {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color var(--transition-speed) ease;
+    display: flex; /* Use flex for the wrapper link */
+    flex-direction: column;
+}
+
+.blog-post:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+}
+body.dark-theme .blog-post:hover {
+     box-shadow: 0 10px 25px rgba(255, 255, 255, 0.08);
+}
+
+.post-link-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ensure link covers the card */
+    color: inherit; /* Inherit text color */
+}
+.post-link-wrapper:hover {
+    color: inherit; /* Prevent link color change on card hover */
+}
+
+
+.blog-post-image {
+    width: 100%;
+    height: 220px; /* Fixed height for images */
+    object-fit: cover; /* Crop images nicely */
+    border-bottom: 1px solid var(--border-color);
+    transition: border-color var(--transition-speed) ease;
+}
+
+.blog-post-content {
+    padding: 1.5rem;
+    flex-grow: 1; /* Allows content to push footer elements down */
+    display: flex;
+    flex-direction: column;
+}
+
+.post-category {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--btn-text); /* Use button text color */
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    align-self: flex-start; /* Position at the start */
+     transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+.blog-post-title {
+    margin-top: 0;
+    margin-bottom: 0.5rem; /* Reduce space below title */
+    font-size: 1.4rem; /* Slightly larger title */
+    color: var(--heading-color);
+    font-weight: 600;
+    line-height: 1.4;
+     /* Ensure title color uses theme variable */
+     transition: color var(--transition-speed) ease;
+}
+/* Link within title (if any) should inherit color */
+.blog-post-title a {
+    color: inherit;
+}
+.blog-post:hover .blog-post-title {
+    color: var(--accent-color); /* Change title color on card hover */
+}
+
+
+.blog-post-meta {
+    font-size: 0.8rem;
+    color: var(--icon-color); /* Use icon color for subtle meta */
+    margin-bottom: 1rem;
+    transition: color var(--transition-speed) ease;
+}
+.meta-separator {
+    margin: 0 0.5em;
+}
+
+.blog-post-excerpt {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    flex-grow: 1; /* Push meta/read more down if content is short */
+    margin-bottom: 0; /* Remove bottom margin */
+    transition: color var(--transition-speed) ease;
+}
+
+/* Featured Post Styling */
+.featured-post {
+    grid-column: span 2; /* Make featured post wider on larger screens */
+    /* Or use `grid-column: 1 / -1;` for full width if only 1 column needed */
+}
+.featured-post .blog-post-image {
+    height: 350px; /* Taller image for featured post */
+}
+.featured-post .blog-post-title {
+    font-size: 1.8rem; /* Larger title for featured post */
+}
+.featured-post .blog-post-excerpt {
+    font-size: 1rem;
+}
+
+
+/* --- Pagination --- */
+.pagination {
+    text-align: center;
+    margin-top: 3.5rem;
+    padding-bottom: 1rem; /* Add some space before footer */
+}
+
+.pagination a {
+    color: var(--link-color);
+    padding: 0.7rem 1.1rem; /* Slightly larger buttons */
+    margin: 0 0.3rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    transition: all var(--transition-speed) ease; /* Transition all properties */
+    font-size: 0.9rem;
+}
+
+.pagination a:hover,
+.pagination a.active {
+    background-color: var(--accent-color);
+    color: var(--btn-text);
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+
+/* --- New Footer --- */
+.site-footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 4rem 2rem 0; /* More top padding, less bottom initially */
+    margin-top: 4rem; /* Space above footer */
+    border-top: 5px solid var(--accent-color); /* Accent border top */
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.footer-column h4.footer-heading,
+.newsletter-section h4.footer-heading {
+    color: var(--footer-heading);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    position: relative;
+}
+/* Optional underline for headings */
+.footer-column h4.footer-heading::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 40px;
+    height: 2px;
+    background-color: var(--accent-color);
+}
+
+.footer-logo {
+    font-size: 2rem; /* Larger footer logo */
+    margin-bottom: 1rem;
+    color: var(--footer-heading);
+}
+.footer-description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+.footer-links li {
+    margin-bottom: 0.8rem;
+}
+.footer-links a {
+    color: var(--footer-link);
+    transition: color 0.3s ease, padding-left 0.3s ease;
+    font-size: 0.9rem;
+}
+.footer-links a:hover {
+    color: var(--footer-link-hover);
+    padding-left: 5px; /* Slight indent on hover */
+}
+
+.footer-contact {
+    font-style: normal;
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+.footer-contact a {
+    color: var(--footer-link);
+}
+.footer-contact a:hover {
+    color: var(--footer-link-hover);
+}
+
+.newsletter-section {
+    text-align: center;
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--footer-border);
+    margin-top: 2rem;
+}
+.newsletter-section p {
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.newsletter-form {
+    display: flex;
+    justify-content: center;
+    max-width: 500px;
+    margin: 0 auto;
+    gap: 0.5rem;
+}
+.newsletter-form input[type="email"] {
+    flex-grow: 1;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--footer-input-border);
+    background-color: var(--footer-input-bg);
+    color: var(--footer-input-text);
+    border-radius: var(--border-radius);
+    font-family: inherit;
+    font-size: 0.9rem;
+    transition: border-color 0.3s ease;
+}
+.newsletter-form input[type="email"]:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+.newsletter-form button {
+    background-color: var(--footer-btn-bg);
+    color: var(--footer-btn-text);
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.newsletter-form button:hover {
+    background-color: #732d91; /* Darker shade of purple */
+    transform: scale(1.03);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--footer-border);
+    margin-top: 3rem;
+    font-size: 0.85rem;
+    color: var(--footer-text);
+}
+
+/* --- Responsive Design Adjustments --- */
+
+@media (max-width: 992px) {
+     .featured-post {
+        grid-column: span 1; /* Stack featured post in single column */
+    }
+     .featured-post .blog-post-image {
+        height: 300px;
+    }
+     .blog-feed {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjust grid for tablets */
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    nav { padding: 0 1rem; height: 70px;} /* Adjust nav padding */
+    .logo a { font-size: 1.5rem; }
+    .nav-links { top: 70px; } /* Adjust mobile menu position */
+    .nav-icons { gap: 1rem; }
+    .login-btn { padding: 0.5rem 1rem; font-size: 0.85rem; }
+
+    .page-title { font-size: 2.2rem; margin-bottom: 2rem; }
+    .blog-container { margin-top: 2rem; padding: 0 1rem; }
+    .blog-feed { gap: 1.5rem; }
+    .blog-post-image { height: 200px; }
+    .blog-post-title { font-size: 1.3rem; }
+    .featured-post .blog-post-image { height: 250px; }
+    .featured-post .blog-post-title { font-size: 1.5rem; }
+
+    .site-footer { padding: 3rem 1rem 0; }
+    .footer-columns { gap: 2rem; }
+    .newsletter-form { flex-direction: column; gap: 1rem; align-items: stretch;}
+    .newsletter-form button { width: 100%;}
+
+    .menu-toggle { display: block; } /* Show menu toggle */
+    .nav-links { display: none; /* Hide links by default */ }
+    .nav-links.active { display: flex; /* Show when active */ }
+    /* Ensure other mobile styles from previous version are still applied if needed */
+}
+
+@media (max-width: 480px) {
+    .nav-icons { gap: 0.6rem; }
+    .nav-icons a, .nav-icons button { font-size: 1.1rem; }
+    .login-btn { display: none; } /* Hide login text button */
+     /* Optional: Add an icon-only login button if desired */
+    .nav-icons a[title="Settings"] { display: none; } /* Hide settings on smallest */
+
+    .blog-feed { grid-template-columns: 1fr; } /* Single column */
+    .page-title { font-size: 1.8rem; }
+    .blog-post-title { font-size: 1.2rem; }
+    .blog-post-excerpt { font-size: 0.9rem;}
+
+    .footer-columns { grid-template-columns: 1fr; text-align: center; }
+    .footer-column h4.footer-heading::after { left: 50%; transform: translateX(-50%); }
+    .footer-contact br { display: none; } /* Stack contact info */
+    .footer-contact * { display: block; margin-bottom: 0.3rem; }
+}
