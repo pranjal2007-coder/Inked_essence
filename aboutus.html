@@ -5,207 +5,315 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Inked Essence</title>
     <link rel="stylesheet" href="aboutus.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body class="bg-[#ecf2f3] min-h-screen">
-    <!-- Navbar -->
-    <header class="flex justify-between items-center px-6 py-4 bg-white shadow-sm">
-        <div class="flex items-center">
-            <span class="text-2xl font-cursive text-[#1a263a]">InkedEssence</span>
-        </div>
-        <nav class="flex items-center space-x-4 text-base text-[#4b5563] font-medium">
-            <a class="hover:underline hover:text-[#4a90e2] transition" href="#">Home</a>
-            <a class="hover:underline hover:text-[#4a90e2] transition" href="#">Shop</a>
-            <a class="hover:underline hover:text-[#4a90e2] transition" href="#">Categories</a>
-            <a class="hover:underline hover:text-[#4a90e2] transition" href="#">About</a>
-            <a class="hover:underline hover:text-[#4a90e2] transition" href="#">Contact</a>
-        </nav>
-        <div class="flex items-center space-x-3">
-            <a href="#" class="text-[#4a90e2] hover:text-[#357abd] transition text-lg"><i class="fas fa-heart"></i></a>
-            <a href="#" class="relative text-[#4a90e2] hover:text-[#357abd] transition text-lg">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="absolute -top-2 -right-2 bg-[#ef4444] text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
-            </a>
-            <button aria-label="Login/Signup" class="bg-[#4a90e2] text-white px-3 py-1.5 rounded-md hover:bg-[#357abd] transition font-medium text-sm">Login/Signup</button>
-            <button aria-label="Toggle theme" id="theme-toggle" class="text-[#4a90e2] hover:text-[#357abd] transition">
-                <i class="fas fa-cog text-lg"></i>
+<body class="light-mode">
+
+    <header class="site-header">
+        <div class="container header-flex">
+            <div class="logo">
+                <a href="#">Inked Essence</a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#shop">Shop</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#about" class="active">About Us</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <button id="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-sun"></i>
+                </button>
+                <a href="#wishlist" aria-label="Wishlist"><i class="fa-regular fa-heart"></i></a>
+                <a href="#cart" aria-label="Cart"><i class="fa-solid fa-cart-shopping"></i><span class="cart-count">0</span></a>
+                <a href="#login" class="btn btn-primary">Login/Signup</a>
+            </div>
+            <button id="menu-toggle" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars"></i>
             </button>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="parallax-bg"></div>
-        <div class="hero-content">
-            <h1 id="logo" class="font-cursive">Inked Essence</h1>
-        </div>
-    </section>
+    <main>
 
-    <!-- Our Story Section -->
-    <section class="brand-story">
-        <h2>Our Story</h2>
-        <div class="content-box">
-            <ul>
-                <li>Founded in 2025 by a group of passionate designers with a love for premium fashion.</li>
-                <li>Began in a small studio, experimenting with bold designs and innovative patterns.</li>
-                <li>Grew into a global brand, recognized for our unique, quality-driven collections.</li>
-                <li>Driven by a mission to celebrate individuality through every stitch and print.</li>
-                <li>Expanded our reach with online platforms, connecting with fashion enthusiasts worldwide.</li>
-                <li>Collaborated with local artists to infuse cultural elements into our designs.</li>
-                <li>Remained committed to our roots while embracing modern trends and technologies.</li>
-                <li>Today, Inked Essence represents a movement of creativity and self-expression.</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Mission and Values -->
-    <section class="mission-values">
-        <h2>Our Mission & Values</h2>
-        <div class="content-box">
-            <ul>
-                <li><strong>Mission:</strong> Empower individuals to express their unique style with innovative, high-quality fashion.</li>
-                <li><strong>Creativity:</strong> Every design is a unique piece of art, reflecting bold ideas.</li>
-                <li><strong>Quality:</strong> Crafted with the finest materials for durability and comfort.</li>
-                <li><strong>Community:</strong> Building a global network to inspire and support fashion lovers.</li>
-                <li><strong>Sustainability:</strong> Committed to eco-friendly production and reducing waste.</li>
-                <li><strong>Innovation:</strong> Continuously exploring new techniques to enhance our collections.</li>
-                <li><strong>Inclusivity:</strong> Designing for all, celebrating diversity in fashion.</li>
-                <li><strong>Passion:</strong> Fueled by our love for fashion and its cultural impact.</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Why Choose Us -->
-    <section class="why-choose-us">
-        <h2>Why Choose Us?</h2>
-        <div class="content-box">
-            <ul>
-                <li>Unique, bold designs that set trends in the fashion world.</li>
-                <li>Premium fabrics ensuring long-lasting comfort and style.</li>
-                <li>Shipping to over 15 countries with fast and reliable service.</li>
-                <li>Thousands of satisfied customers who love our curated collections.</li>
-                <li>Exclusive collaborations with artists for limited-edition pieces.</li>
-                <li>Affordable pricing without compromising on quality.</li>
-                <li>Regular new releases to keep your wardrobe fresh and exciting.</li>
-                <li>Exceptional customer support to assist you every step of the way.</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Stats Section with Counter Animation -->
-    <section class="stats">
-        <h2>Our Impact</h2>
-        <div class="stats-grid">
-            <div class="stat-item">
-                <h3>Years in Business</h3>
-                <p class="counter" data-target="5">0</p>
+        <section class="hero-section parallax">
+            <div class="container hero-content">
+                <h1>Our Story</h1>
+                <p>Discover the journey behind Inked Essence.</p>
             </div>
-            <div class="stat-item">
-                <h3>Collections Launched</h3>
-                <p class="counter" data-target="20">0</p>
-            </div>
-            <div class="stat-item">
-                <h3>Countries Served</h3>
-                <p class="counter" data-target="15">0</p>
-            </div>
-            <div class="stat-item">
-                <h3>Happy Customers</h3>
-                <p class="counter" data-target="10000">0</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Clothing Carousel -->
-    <section class="clothing-carousel">
-        <h2>Our Collections</h2>
-        <div class="carousel-container">
-            <div class="carousel">
-                <div class="carousel-item" style="background-image: url('https://source.unsplash.com/random/400x600?streetwear,blue');">
-                    <h3>Blue Rebel Jacket</h3>
-                    <p>For the bold and fearless. Price: ₹4999</p>
-                </div>
-                <div class="carousel-item" style="background-image: url('https://source.unsplash.com/random/400x600?hoodie,blue');">
-                    <h3>Sky Hoodie</h3>
-                    <p>Style meets warmth. Price: ₹3999</p>
-                </div>
-                <div class="carousel-item" style="background-image: url('https://source.unsplash.com/random/400x600?tshirt,blue');">
-                    <h3>Bold Tee</h3>
-                    <p>Simple yet powerful. Price: ₹1999</p>
+        <section class="timeline-section section-padding">
+            <div class="container">
+                <h2>The Inked Essence Journey</h2>
+                <div class="timeline">
+                    <div class="timeline-item reveal-on-scroll">
+                        <div class="timeline-content">
+                            <h3>The Spark (Year XXXX)</h3>
+                            <p>It all started with four friends - Ritvik, Pulkit, Siddhant, and Pranjal - sharing a passion for unique fashion and self-expression...</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal-on-scroll">
+                        <div class="timeline-content">
+                            <h3>Brainstorming & Concept (Year XXXX)</h3>
+                            <p>Countless late nights fueled by coffee and creativity led to the core concept: "Inked Essence" - clothing that feels like a second skin...</p>
+                        </div>
+                    </div>
+                     <div class="timeline-item reveal-on-scroll">
+                        <div class="timeline-content">
+                            <h3>Design & Development (Year XXXX)</h3>
+                            <p>From sketches to samples, we meticulously crafted our first collection, focusing on quality materials, sustainable practices, and designs...</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal-on-scroll">
+                        <div class="timeline-content">
+                            <h3>Launch Day! (Year XXXX)</h3>
+                            <p>Inked Essence officially launched online, bringing our vision to life and connecting with a community that values authenticity...</p>
+                        </div>
+                    </div>
+                     <div class="timeline-item reveal-on-scroll">
+                        <div class="timeline-content">
+                            <h3>Growing Together (Present)</h3>
+                            <p>We continue to grow, inspired by our customers and committed to our founding principles. The journey continues!</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <button class="carousel-prev">←</button>
-            <button class="carousel-next">→</button>
-        </div>
-    </section>
+        </section>
 
-    <!-- Team Section -->
-    <section class="team">
-        <h2>Meet the Team</h2>
-        <div class="team-grid">
-            <div class="team-card">
-                <div class="team-img" style="background-image: url('https://source.unsplash.com/random/200x200?person');"></div>
-                <h3>Ritvik Verma</h3>
-                <p>Creative Director. The visionary behind our designs.</p>
+        <section class="founders-section section-padding alt-bg">
+            <div class="container">
+                <h2>Meet the Co-Founders</h2>
+                <div class="founders-grid">
+                    <div class="founder-card reveal-on-scroll">
+                        <img src="https://via.placeholder.com/150/5046e4/ffffff?text=RV" alt="Ritvik Verma placeholder">
+                        <h3>Ritvik Verma</h3>
+                        <p class="founder-role">The Visionary</p>
+                        <p class="founder-bio">Overseeing the brand's direction and future goals.</p>
+                    </div>
+                    <div class="founder-card reveal-on-scroll">
+                        <img src="https://via.placeholder.com/150/5046e4/ffffff?text=PB" alt="Pulkit Bajaj placeholder">
+                        <h3>Pulkit Bajaj</h3>
+                         <p class="founder-role">The Strategist</p>
+                         <p class="founder-bio">Focusing on market strategy and business growth.</p>
+                    </div>
+                    <div class="founder-card reveal-on-scroll">
+                         <img src="https://via.placeholder.com/150/5046e4/ffffff?text=SB" alt="Siddhant Bhatia placeholder">
+                        <h3>Siddhant Bhatia</h3>
+                         <p class="founder-role">The Creative</p>
+                         <p class="founder-bio">Leading the design process and aesthetic choices.</p>
+                    </div>
+                    <div class="founder-card reveal-on-scroll">
+                         <img src="https://via.placeholder.com/150/5046e4/ffffff?text=P" alt="Pranjal placeholder">
+                        <h3>Pranjal</h3>
+                        <p class="founder-role">The Operations Lead</p>
+                        <p class="founder-bio">Managing production, logistics, and day-to-day operations.</p>
+                    </div>
+                </div>
             </div>
-            <div class="team-card">
-                <div class="team-img" style="background-image: url('https://source.unsplash.com/random/200x201?person');"></div>
-                <h3>Pulkit Bajaj</h3>
-                <p>Lead Designer. Pours heart into every piece.</p>
-            </div>
-            <div class="team-card">
-                <div class="team-img" style="background-image: url('https://source.unsplash.com/random/200x202?person');"></div>
-                <h3>Siddhant Bhatia</h3>
-                <p>Marketing Expert. Spreads our story worldwide.</p>
-            </div>
-            <div class="team-card">
-                <div class="team-img" style="background-image: url('https://source.unsplash.com/random/200x203?person');"></div>
-                <h3>Pranjal</h3>
-                <p>Tech Genius. Keeps the site flawless.</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer class="bg-[#1a263a] text-[#e0e0e0] py-10">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="text-center md:text-left">
-                <h3 class="text-xl font-cursive text-[#4a90e2] mb-3">InkedEssence</h3>
-                <p class="text-base leading-relaxed">Premium fashion for the modern individual. Quality meets style in every piece.</p>
+         <section class="core-concept-section section-padding">
+            <div class="container text-center">
+                <h2>Our Core Concept</h2>
+                <p class="large-text">"Wear Your Story"</p>
+                <p>At Inked Essence, we believe clothing is more than just fabric; it's a canvas for self-expression. Our designs are inspired by stories, experiences, and the desire to stand out. We focus on high-quality materials, comfort, and unique artwork that lets you wear your essence.</p>
+                <i class="fa-solid fa-feather-pointed core-icon"></i>
             </div>
-            <div class="text-center">
-                <h3 class="text-xl font-semibold text-[#4a90e2] mb-3">Quick Links</h3>
-                <ul class="space-y-2">
-                    <li><a href="aboutus.html" class="hover:text-white text-base transition">About Us</a></li>
-                    <li><a href="#" class="hover:text-white text-base transition">Contact</a></li>
-                    <li><a href="#" class="hover:text-white text-base transition">FAQs</a></li>
-                    <li><a href="terms.html" class="hover:text-white text-base transition">Privacy Policy</a></li>
+        </section>
+
+        <section class="values-section section-padding alt-bg">
+            <div class="container">
+                <h2>Our Core Values</h2>
+                <div class="values-grid">
+                    <div class="value-item reveal-on-scroll">
+                        <div class="value-icon"><i class="fa-solid fa-palette"></i></div>
+                        <h3>Creativity</h3>
+                        <p>Pushing boundaries with unique and expressive designs.</p>
+                    </div>
+                    <div class="value-item reveal-on-scroll">
+                         <div class="value-icon"><i class="fa-solid fa-gem"></i></div>
+                        <h3>Quality</h3>
+                        <p>Using premium materials for comfort and durability.</p>
+                    </div>
+                    <div class="value-item reveal-on-scroll">
+                        <div class="value-icon"><i class="fa-solid fa-leaf"></i></div>
+                        <h3>Sustainability</h3>
+                        <p>Committing to responsible sourcing and ethical practices.</p>
+                    </div>
+                    <div class="value-item reveal-on-scroll">
+                        <div class="value-icon"><i class="fa-solid fa-users"></i></div>
+                        <h3>Community</h3>
+                        <p>Building a connection with those who wear our story.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="discover-essence-section section-padding">
+            <div class="container text-center">
+                <h2>Discover Your Essence</h2>
+                <p>What defines your style? Click an icon to reveal a part of your essence!</p>
+                <div class="essence-chooser">
+                    <button class="essence-icon" data-essence="Bold & Expressive" aria-label="Bold"><i class="fa-solid fa-bolt"></i></button>
+                    <button class="essence-icon" data-essence="Subtle & Intricate" aria-label="Intricate"><i class="fa-solid fa-feather-pointed"></i></button>
+                    <button class="essence-icon" data-essence="Nature-Inspired & Free" aria-label="Nature"><i class="fa-solid fa-tree"></i></button>
+                    <button class="essence-icon" data-essence="Modern & Edgy" aria-label="Edgy"><i class="fa-solid fa-skull"></i></button>
+                     <button class="essence-icon" data-essence="Classic & Timeless" aria-label="Classic"><i class="fa-solid fa-anchor"></i></button>
+                </div>
+                <div id="essence-result" class="essence-result-display">
+                    <p>Your choice reveals...</p>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="comparison-section section-padding alt-bg">
+            <div class="container">
+                <h2>Why Choose Inked Essence?</h2>
+                <div class="comparison-table-wrapper reveal-on-scroll">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th class="text-center"><span class="logo-font">Inked Essence</span></th>
+                                <th class="text-center">Other Brands</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><i class="fa-solid fa-shirt"></i> Unique Designs</td>
+                                <td class="text-center checkmark"><i class="fa-solid fa-check"></i></td>
+                                <td class="text-center">Varies</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa-solid fa-leaf"></i> Quality Materials</td>
+                                <td class="text-center checkmark"><i class="fa-solid fa-check"></i></td>
+                                <td class="text-center">Often Compromised</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa-solid fa-hand-holding-heart"></i> Focus on Expression</td>
+                               <td class="text-center checkmark"><i class="fa-solid fa-check"></i></td>
+                                <td class="text-center crossmark"><i class="fa-solid fa-times"></i></td>
+                            </tr>
+                             <tr>
+                                <td><i class="fa-solid fa-earth-americas"></i> Sustainable Practices</td>
+                               <td class="text-center checkmark"><i class="fa-solid fa-check"></i></td>
+                                <td class="text-center">Limited</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa-solid fa-users"></i> Community Focused</td>
+                                <td class="text-center checkmark"><i class="fa-solid fa-check"></i></td>
+                                <td class="text-center">Less Emphasis</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials-section section-padding">
+             <div class="container">
+                <h2>What Our Community Says</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card reveal-on-scroll">
+                        <div class="testimonial-rating">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Absolutely love the designs and the quality is amazing! Feels great to wear."</p>
+                        <p class="testimonial-author">- Alex R.</p>
+                    </div>
+                    <div class="testimonial-card reveal-on-scroll">
+                        <div class="testimonial-rating">
+                             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Finally, a brand that gets it. The T-shirt is my new favourite. So comfortable and unique."</p>
+                        <p class="testimonial-author">- Sarah K.</p>
+                    </div>
+                     <div class="testimonial-card reveal-on-scroll">
+                        <div class="testimonial-rating">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                        </div>
+                        <p class="testimonial-text">"Great customer service and fast shipping. The hoodie design is even better in person."</p>
+                        <p class="testimonial-author">- Mike T.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter-section section-padding parallax">
+            <div class="container newsletter-content">
+                <h2>Stay In The Loop</h2>
+                <p>Sign up for our newsletter to get exclusive deals, new release sneak peeks, and more!</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                 <div class="logo footer-logo">
+                    <a href="#">Inked Essence</a>
+                </div>
+                <p>Clothing that feels like a second skin, inked with designs that tell your story.</p>
+                 <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                </div>
+                <span id="easter-egg" title="Psst! Click me!"><i class="fa-solid fa-map-pin"></i></span>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#shop">Shop</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                     <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Size Guide</a></li>
                 </ul>
             </div>
-            <div class="text-center">
-                <h3 class="text-xl font-semibold text-[#4a90e2] mb-3">Contact Info</h3>
-                <p class="text-base leading-relaxed">123 Fashion Street</p>
-                <p class="text-base leading-relaxed">New York, NY 10001</p>
-                <p class="text-base leading-relaxed">Phone: (555) 123-4567</p>
-                <p class="text-base leading-relaxed">Email: info@inkedessence.com</p>
+
+             <div class="footer-col">
+                 <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Track Order</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                 <h4>Contact Us</h4>
+                 <address>
+                    123 Fashion Ave,<br>
+                    Style City, SC 12345<br>
+                    <a href="mailto:support@inkedessence.com">support@inkedessence.com</a><br>
+                    <a href="tel:+1234567890">+1 (234) 567-890</a>
+                 </address>
             </div>
         </div>
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center mt-8">
-            <h3 class="text-xl font-semibold text-[#4a90e2] mb-3">Subscribe to Our Newsletter</h3>
-            <p class="text-base mb-4 leading-relaxed">Stay updated with our latest collections and exclusive offers</p>
-            <div class="flex justify-center space-x-0">
-                <input type="email" placeholder="Enter your email" class="bg-[#2a3b4c] text-base text-[#e0e0e0] px-4 py-2 rounded-l-md w-full max-w-xs focus:outline-none focus:ring-2 focus:ring-[#4a90e2] transition">
-                <button class="bg-[#4a90e2] text-white text-base px-4 py-2 rounded-r-md hover:bg-[#357abd] transition">Subscribe</button>
-            </div>
-        </div>
-        <div class="text-center mt-6">
-            <p class="text-base">© 2025 InkedEssence. All rights reserved.</p>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Inked Essence. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- External Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="aboutus.js"></script>
 </body>
 </html>
