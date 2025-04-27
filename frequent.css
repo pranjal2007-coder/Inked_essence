@@ -1,139 +1,324 @@
-/* Reset and basic styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Helvetica Neue', sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    transition: background 0.3s, color 0.3s;
-  }
-  
-  /* Theme Variables */
-  :root {
-    --bg-color: #ffffff;
-    --text-color: #333333;
-    --card-bg: #f9f9f9;
-  }
-  
-  body.dark-mode {
-    --bg-color: #121212;
-    --text-color: #e0e0e0;
-    --card-bg: #1e1e1e;
-  }
-  
-  /* Navbar */
-  .navbar {
-    background: var(--bg-color);
-    padding: 10px 20px;
+/* Import Tailwind base, components, and utilities */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css');
+
+/* Define custom properties for theming */
+:root {
+    --font-primary: 'Inter', sans-serif;
+    --font-logo: 'Pacifico', cursive;
+
+    /* Light Theme Colors */
+    --color-bg-light: #ffffff;
+    --color-bg-secondary-light: #f9fafb; /* Off-white for elements like FAQ items */
+    --color-text-primary-light: #1f2937; /* Dark Gray */
+    --color-text-secondary-light: #6b7280; /* Medium Gray */
+    --color-border-light: #e5e7eb; /* Light Gray Border */
+    --color-icon-light: #4b5563; /* Gray Icon */
+    --color-button-bg-light: #6d28d9; /* Purple */
+    --color-button-text-light: #ffffff;
+    --color-link-light: #4b5563; /* Gray */
+    --color-link-hover-light: #6d28d9; /* Purple */
+    --color-logo-light: #1f2937; /* Dark Gray */
+    --color-faq-bg-light: #ffffff;
+    --color-faq-border-light: #e5e7eb;
+    /* Footer specific light mode (using dark bg as per screenshot) */
+    --color-footer-bg-light: #111827; /* Very Dark Gray/Blue */
+    --color-footer-text-primary-light: #f9fafb; /* Light Gray */
+    --color-footer-text-secondary-light: #9ca3af; /* Medium Gray */
+    --color-footer-link-light: #d1d5db; /* Light Gray */
+    --color-footer-link-hover-light: #ffffff;
+    --color-footer-border-light: #374151; /* Darker border for contrast */
+    --color-footer-input-bg-light: #374151;
+    --color-footer-input-text-light: #f9fafb;
+    --color-footer-button-bg-light: #6d28d9; /* Purple */
+    --color-footer-button-text-light: #ffffff;
+
+
+    /* Dark Theme Colors */
+    --color-bg-dark: #1f2937; /* Dark Gray-Blue */
+    --color-bg-secondary-dark: #374151; /* Medium Dark Gray */
+    --color-text-primary-dark: #f9fafb; /* Very Light Gray */
+    --color-text-secondary-dark: #d1d5db; /* Light Gray */
+    --color-border-dark: #4b5563; /* Gray Border */
+    --color-icon-dark: #d1d5db; /* Light Gray Icon */
+    --color-button-bg-dark: #8b5cf6; /* Lighter Purple */
+    --color-button-text-dark: #ffffff;
+    --color-link-dark: #d1d5db; /* Light Gray */
+    --color-link-hover-dark: #a78bfa; /* Lighter Purple */
+    --color-logo-dark: #f9fafb; /* Light Gray */
+    --color-faq-bg-dark: #374151;
+    --color-faq-border-dark: #4b5563;
+    /* Footer specific dark mode (similar to light mode footer bg) */
+    --color-footer-bg-dark: #111827; /* Very Dark Gray/Blue */
+    --color-footer-text-primary-dark: #f9fafb; /* Light Gray */
+    --color-footer-text-secondary-dark: #9ca3af; /* Medium Gray */
+    --color-footer-link-dark: #d1d5db; /* Light Gray */
+    --color-footer-link-hover-dark: #ffffff;
+    --color-footer-border-dark: #374151; /* Darker border */
+    --color-footer-input-bg-dark: #374151;
+    --color-footer-input-text-dark: #f9fafb;
+    --color-footer-button-bg-dark: #8b5cf6; /* Lighter Purple */
+    --color-footer-button-text-dark: #ffffff;
+}
+
+/* Apply base styles */
+body {
+    font-family: var(--font-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: flex; /* Added for sticky footer */
+    flex-direction: column; /* Added for sticky footer */
+    min-height: 100vh; /* Added for sticky footer */
+}
+
+main {
+    flex-grow: 1; /* Added for sticky footer */
+}
+
+
+/* Utility classes for theming - General */
+.body-bg { background-color: var(--color-bg-light); }
+.body-text { color: var(--color-text-primary-light); }
+.header-bg { background-color: var(--color-bg-light); }
+.logo-text { color: var(--color-logo-light); }
+.nav-link { color: var(--color-link-light); transition: color 0.2s ease; }
+.nav-link:hover { color: var(--color-link-hover-light); }
+.icon-color { color: var(--color-icon-light); transition: color 0.2s ease; }
+.icon-button:hover .icon-color { color: var(--color-link-hover-light); }
+.login-button {
+    background-color: var(--color-button-bg-light);
+    color: var(--color-button-text-light);
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem; /* rounded-md */
+    font-weight: 500; /* medium */
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.login-button:hover {
+    background-color: #5b21b6; /* Darker purple */
+}
+.heading-text { color: var(--color-text-primary-light); }
+.faq-item {
+    background-color: var(--color-faq-bg-light);
+    border: 1px solid var(--color-faq-border-light);
+    border-radius: 0.5rem; /* rounded-lg */
+    overflow: hidden; /* Prevents content spill */
+}
+.faq-question {
+    color: var(--color-text-primary-light);
+}
+.faq-answer {
+    color: var(--color-text-secondary-light);
+    border-top: 1px solid var(--color-faq-border-light);
+}
+.faq-icon {
+    color: var(--color-icon-light);
+}
+
+
+/* Dark mode styles - General */
+html.dark .body-bg { background-color: var(--color-bg-dark); }
+html.dark .body-text { color: var(--color-text-primary-dark); }
+html.dark .header-bg { background-color: var(--color-bg-dark); }
+html.dark .logo-text { color: var(--color-logo-dark); }
+html.dark .nav-link { color: var(--color-link-dark); }
+html.dark .nav-link:hover { color: var(--color-link-hover-dark); }
+html.dark .icon-color { color: var(--color-icon-dark); }
+html.dark .icon-button:hover .icon-color { color: var(--color-link-hover-dark); }
+html.dark .login-button {
+    background-color: var(--color-button-bg-dark);
+    color: var(--color-button-text-dark);
+}
+html.dark .login-button:hover {
+    background-color: #7c3aed; /* Slightly darker purple */
+}
+html.dark .heading-text { color: var(--color-text-primary-dark); }
+html.dark .faq-item {
+    background-color: var(--color-faq-bg-dark);
+    border-color: var(--color-faq-border-dark);
+}
+html.dark .faq-question {
+    color: var(--color-text-primary-dark);
+}
+html.dark .faq-answer {
+    color: var(--color-text-secondary-dark);
+    border-top-color: var(--color-faq-border-dark);
+}
+html.dark .faq-icon {
+    color: var(--color-icon-dark);
+}
+/* Ensure shadow is visible in dark mode */
+html.dark .shadow-md {
+     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Default shadow */
+     /* Optionally add a subtle white shadow for dark mode if needed */
+     /* box-shadow: 0 1px 3px 0 rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(255, 255, 255, 0.06); */
+}
+
+
+/* Tailwind Customizations / Component Styles */
+.container {
+    max-width: 1280px; /* Or your preferred max width */
+}
+
+.font-logo {
+    font-family: var(--font-logo);
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    padding: 0.25rem; /* Add some padding for easier clicking */
+    cursor: pointer;
+    border-radius: 9999px; /* Make it round */
+    display: inline-flex; /* Align icon properly */
+    align-items: center;
+    justify-content: center;
+}
+.icon-button:hover {
+    /* Optional: Add a subtle background on hover */
+    /* background-color: rgba(0, 0, 0, 0.05); */
+}
+html.dark .icon-button:hover {
+     /* background-color: rgba(255, 255, 255, 0.1); */
+}
+
+/* FAQ Accordion Styling */
+details > summary {
+    list-style: none; /* Remove default marker */
+    cursor: pointer;
+    padding: 1rem 1.5rem; /* p-4 sm:p-6 */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .nav-links a {
-    margin: 0 10px;
-    text-decoration: none;
-    color: var(--text-color);
-  }
-  
-  .nav-icons span, .login-btn, .theme-toggle {
-    margin-left: 10px;
+    font-weight: 600; /* font-semibold */
+    transition: background-color 0.2s ease;
+}
+details > summary::-webkit-details-marker {
+    display: none; /* Hide marker for Chrome/Safari */
+}
+details > summary:hover {
+    /* Optional hover background */
+    /* background-color: rgba(0, 0, 0, 0.02); */
+}
+html.dark details > summary:hover {
+    /* background-color: rgba(255, 255, 255, 0.05); */
+}
+
+.faq-answer {
+    padding: 1rem 1.5rem; /* p-4 sm:p-6 */
+    line-height: 1.6; /* Improve readability */
+}
+
+.faq-icon {
+    transition: transform 0.2s ease-in-out;
+}
+
+
+/* --- Updated Footer Styles --- */
+.footer-bg { background-color: var(--color-footer-bg-light); }
+.footer-text { color: var(--color-footer-text-primary-light); }
+.footer-text-secondary { color: var(--color-footer-text-secondary-light); }
+.footer-logo-text { color: var(--color-footer-text-primary-light); } /* Footer logo matches primary text */
+.footer-title {
+    font-size: 1rem; /* text-base */
+    font-weight: 600; /* font-semibold */
+    margin-bottom: 0.75rem; /* mb-3 */
+    color: var(--color-footer-text-primary-light);
+}
+.footer-link {
+    color: var(--color-footer-link-light);
+    transition: color 0.2s ease;
+    font-size: 0.875rem; /* text-sm */
+}
+.footer-link:hover {
+    color: var(--color-footer-link-hover-light);
+}
+.footer-icon-link {
+    color: var(--color-footer-link-light);
+    transition: color 0.2s ease;
+}
+.footer-icon-link:hover {
+    color: var(--color-footer-link-hover-light);
+}
+.footer-border-light { border-color: var(--color-footer-border-light); }
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column; /* Stack input and button on small screens */
+    gap: 0.5rem; /* space-y-2 equivalent */
+}
+.newsletter-input {
+    background-color: var(--color-footer-input-bg-light);
+    color: var(--color-footer-input-text-light);
+    border: 1px solid var(--color-footer-border-light); /* Use footer border color */
+    border-radius: 0.375rem; /* rounded-md */
+    padding: 0.5rem 0.75rem; /* py-2 px-3 */
+    font-size: 0.875rem; /* text-sm */
+    flex-grow: 1; /* Allow input to grow */
+}
+.newsletter-input::placeholder {
+    color: var(--color-footer-text-secondary-light); /* Use secondary text color for placeholder */
+}
+.newsletter-button {
+    background-color: var(--color-footer-button-bg-light);
+    color: var(--color-footer-button-text-light);
+    padding: 0.5rem 1rem; /* py-2 px-4 */
+    border-radius: 0.375rem; /* rounded-md */
+    font-weight: 500; /* medium */
+    font-size: 0.875rem; /* text-sm */
     cursor: pointer;
-    background: none;
-    border: none;
-    color: var(--text-color);
-    font-size: 16px;
-  }
-  
-  /* Main FAQ Content */
-  main {
-    padding: 30px 20px;
-    max-width: 900px;
-    margin: auto;
-  }
-  
-  h1 {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  
-  .faq-item {
-    background: var(--card-bg);
-    border-radius: 10px;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  }
-  
-  .faq-question {
-    padding: 15px 20px;
-    cursor: pointer;
-    font-weight: bold;
-    position: relative;
-  }
-  
-  .faq-question::after {
-    content: '+';
-    font-size: 24px;
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: transform 0.3s;
-  }
-  
-  .faq-question.active::after {
-    content: '-';
-    transform: translateY(-50%) rotate(180deg);
-  }
-  
-  .faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    padding: 0 20px;
-    background: var(--card-bg);
-    transition: max-height 0.4s ease, padding 0.4s ease;
-  }
-  
-  .faq-answer.open {
-    max-height: 300px;
-    padding: 15px 20px;
-  }
-  
-  /* Footer */
-  footer {
-    background: #0d1b2a;
-    color: #ccc;
-    padding: 40px 20px;
-    margin-top: 40px;
-  }
-  
-  .footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
-  }
-  
-  .footer-content h4 {
-    margin-bottom: 10px;
-  }
-  
-  .footer-content p, .footer-content a {
-    font-size: 14px;
-    color: #ccc;
-  }
-  
-  .footer-content a {
-    text-decoration: none;
-  }
-  
-  .footer-bottom {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 14px;
-  }
-  
+    transition: background-color 0.2s ease;
+}
+.newsletter-button:hover {
+    background-color: #5b21b6; /* Darker purple */
+}
+
+/* Dark mode footer styles */
+html.dark .footer-bg { background-color: var(--color-footer-bg-dark); }
+html.dark .footer-text { color: var(--color-footer-text-primary-dark); }
+html.dark .footer-text-secondary { color: var(--color-footer-text-secondary-dark); }
+html.dark .footer-logo-text { color: var(--color-footer-text-primary-dark); }
+html.dark .footer-title { color: var(--color-footer-text-primary-dark); }
+html.dark .footer-link { color: var(--color-footer-link-dark); }
+html.dark .footer-link:hover { color: var(--color-footer-link-hover-dark); }
+html.dark .footer-icon-link { color: var(--color-footer-link-dark); }
+html.dark .footer-icon-link:hover { color: var(--color-footer-link-hover-dark); }
+html.dark .footer-border-light { border-color: var(--color-footer-border-dark); } /* Use dark border variable */
+html.dark .newsletter-input {
+    background-color: var(--color-footer-input-bg-dark);
+    color: var(--color-footer-input-text-dark);
+    border-color: var(--color-footer-border-dark);
+}
+html.dark .newsletter-input::placeholder {
+    color: var(--color-footer-text-secondary-dark);
+}
+html.dark .newsletter-button {
+    background-color: var(--color-footer-button-bg-dark);
+    color: var(--color-footer-button-text-dark);
+}
+html.dark .newsletter-button:hover {
+    background-color: #7c3aed; /* Slightly darker purple */
+}
+
+
+/* Responsive adjustments */
+@media (min-width: 640px) { /* sm breakpoint */
+    .newsletter-form {
+        flex-direction: row; /* Input and button side-by-side */
+    }
+    .newsletter-button {
+        flex-shrink: 0; /* Prevent button from shrinking */
+    }
+}
+
+@media (max-width: 768px) { /* md breakpoint */
+    .login-button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.875rem; /* text-sm */
+    }
+    /* Stack footer columns */
+     .footer-column {
+        /* Tailwind grid handles stacking, but you could add margin if needed */
+        /* margin-bottom: 2rem; */
+     }
+     .footer-column:last-child {
+        /* margin-bottom: 0; */
+     }
+}
