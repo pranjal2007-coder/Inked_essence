@@ -52,7 +52,7 @@ git clone https://github.com/pranjal2007-coder/Inked_essence
 2. Navigate to the project directory:
 
 ```bash
-cd inked-essence
+cd Inked_essence
 ```
 
 3. Install dependencies:
