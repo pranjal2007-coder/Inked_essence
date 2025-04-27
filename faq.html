@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ - InkedEssence</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link href="faq.css" rel="stylesheet">
+</head>
+<body class="bg-white dark:bg-gray-800 text-black dark:text-white transition-colors duration-300">
+  <!-- Navbar -->
+  <nav class="fixed w-full shadow-lg z-50 bg-white dark:bg-gray-900" style="color: var(--text-color);">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex justify-between items-center h-16">
+        <!-- Brand -->
+        <div class="flex items-center space-x-1 font-['Pacifico'] text-2xl brand">
+          <span>Inked</span><span>Essence</span>
+        </div>
+
+        <div class="flex-grow"></div>
+
+        <div class="flex items-center">
+          <a href="index.html" class="mr-4 text-gray-700 dark:text-gray-300 hover:underline">Home</a>
+          <button id="themeToggle" class="w-8 h-8 flex items-center justify-center cursor-pointer" title="Toggle Theme" aria-label="Toggle Theme">
+            <i id="themeIcon" class="ri-sun-line text-xl"></i>
+          </button>
+
+
+        </div>
+  </nav>
+
+  <!-- FAQ Section -->
+  <div class="container mx-auto p-8 pt-20">
+    <h1 class="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white">Frequently Asked Questions</h1>
+    
+      <div id="faqContainer">
+        <!-- FAQ Item 1 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            What is InkedEssence? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>InkedEssence is a fashion e-commerce platform offering high-quality clothing and accessories with a focus on trendy and oversized styles.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            How do I place an order? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>You can place an order by selecting products, adding them to your cart, and proceeding to checkout.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            Can I track my order? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes, you will receive a tracking number once your order has shipped.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            What payment methods do you accept? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>We accept credit cards, debit cards, PayPal, and other popular payment methods.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 5 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            How do I return or exchange an item? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>You can return or exchange items within 30 days of purchase. Please visit our returns page for details.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 6 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            Do you offer international shipping? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes, we ship to many countries worldwide. Shipping fees and times vary by location.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 7 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            How can I contact customer support? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>You can contact us via email, phone, or live chat during business hours.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 8 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            Are your products eco-friendly? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>We strive to use sustainable materials and ethical manufacturing processes.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 9 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            Can I change or cancel my order? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Orders can be changed or canceled within 2 hours of placement. Contact support immediately.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 10 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            How do I apply a discount code? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Enter your discount code at checkout in the designated field.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 11 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            What sizes do you offer? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>We offer a wide range of sizes from XS to XXL. Check our size chart for details.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 12 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            How do I care for my clothing? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Follow the care instructions on the label to keep your items in great condition.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 13 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            Do you have a physical store? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Currently, we operate exclusively online.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 14 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            Can I gift wrap my order? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes, gift wrapping is available for an additional fee at checkout.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 15 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            How long does shipping take? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Shipping times vary by location but typically take 3-7 business days.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 16 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            What is your privacy policy? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>We respect your privacy and do not share your information with third parties.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 17 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            How do I track my shipment? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Tracking information will be emailed to you once your order ships.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 18 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            Can I create an account? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes, creating an account allows you to track orders and save preferences.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 19 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            Do you offer discounts for bulk orders? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Contact our sales team for information on bulk order discounts.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 20 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            What is your return policy? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Returns are accepted within 30 days of purchase with a valid receipt.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 21 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            How do I reset my password? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Use the "Forgot Password" link on the login page to reset your password.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 22 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            Are your products ethically sourced? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes, we ensure all products are sourced ethically and sustainably.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 23 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            Can I change my shipping address after ordering? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Contact customer service immediately to update your shipping address.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 24 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            What should I do if I receive a damaged item? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Contact us within 48 hours with photos of the damage for assistance.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 25 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            Do you offer gift cards? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes, gift cards are available for purchase on our website.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 26 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            How do I unsubscribe from emails? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Use the unsubscribe link at the bottom of any marketing email.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 27 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            Can I save items to a wishlist? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes, create an account to save items to your wishlist.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 28 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            What are your customer service hours? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Our customer service is available Monday to Friday, 9am to 5pm EST.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 29 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            How do I leave a product review? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>After purchasing, you can leave a review on the product page.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 30 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            Do you offer free shipping? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Free shipping is available on orders over $50.</p>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="font-['Pacifico'] text-2xl mb-4 brand">InkedEssence</h3>
+          <p class="text-gray-400">Premium fashion for the modern individual. Quality meets style in every piece.</p>
+          <div class="flex space-x-4 mt-4">
+            <a href="#" class="text-gray-400 hover:text-white w-8 h-8 flex items-center justify-center cursor-pointer">
+              <i class="ri-facebook-fill"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white w-8 h-8 flex items-center justify-center cursor-pointer">
+              <i class="ri-twitter-fill"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white w-8 h-8 flex items-center justify-center cursor-pointer">
+              <i class="ri-instagram-fill"></i>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="aboutus.html" class="text-gray-400 hover:text-white">About Us</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white">FAQs</a></li>
+            <li><a href="privacy.html" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li>123 Fashion Street</li>
+            <li>New York, NY 10001</li>
+            <li>Phone: (555) 123-4567</li>
+            <li>Email: info@inkedessence.com</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+        <div class="max-w-md mx-auto">
+          <h4 class="text-lg font-semibold mb-4">Subscribe to Our Newsletter</h4>
+          <p class="text-gray-400 mb-4">Stay updated with our latest collections and exclusive offers</p>
+          <form class="flex space-x-2">
+            <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-2 rounded bg-gray-800 border-none text-white" required>
+            <button type="submit" class="button px-6 py-2">Subscribe</button>
+          </form>
+        </div>
+        <p class="text-gray-400 mt-8">&copy; 2025 InkedEssence. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="faq.js" defer></script>
+</body>
+</html>
