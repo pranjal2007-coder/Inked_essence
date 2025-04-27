@@ -1,141 +1,126 @@
-/* Import Dancing Script font */
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Inter:wght@400;600&display=swap');
+/* style.css */
 
+/* Apply Inter font globally */
 body {
-    font-family: "Inter", sans-serif;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    /* Base background color is set in HTML via Tailwind */
 }
 
-.font-cursive {
+/* Style the logo specifically */
+.font-logo {
     font-family: 'Dancing Script', cursive;
 }
 
-/* Define custom properties for better maintainability */
-:root {
-    --light-bg: #ecf2f3;
-    --light-text: #1a263a;
-    --accent-color: #4a90e2;
-    --card-bg: #ffffff;
-    --input-bg: #e6f0ff;
-    --summary-bg: #f7fafc;
-    --dark-bg: #1a263a;
-    --dark-text: #e0e0e0;
-    --dark-card-bg: #2a3b4c;
-    --dark-input-bg: #3a4d62;
-    --dark-summary-bg: #2a3b4c;
-    --dark-gray-600: #b0b7c3;
-    --dark-gray-700: #d3d8e0;
-    --hover-color: #357abd;
+/* Style form elements for better visual consistency */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select {
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.dark-mode {
-    background-color: var(--dark-bg);
-    color: var(--dark-text);
-    transition: background-color 0.3s ease, color 0.3s ease;
+/* Remove default spinner from number inputs if needed */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield; /* Firefox */
 }
 
-.dark-mode .bg-white {
-    background-color: var(--dark-card-bg);
+
+/* Style for error messages */
+.error-message {
+    display: none; /* Hidden initially */
 }
 
-.dark-mode .bg-[#e6f0ff] {
-    background-color: var(--dark-input-bg);
+input.border-red-500 + .error-message,
+select.border-red-500 + .error-message,
+#payment-error.error-message:not(.hidden) {
+    display: block; /* Show when needed */
 }
 
-.dark-mode .bg-[#f7fafc] {
-    background-color: var(--dark-summary-bg);
+
+/* Modal styles */
+#success-modal.flex { /* Use flex to trigger opacity transition */
+    opacity: 1;
+}
+#success-modal.flex > div { /* Target the inner div for scale/opacity */
+    transform: scale(1);
+    opacity: 1;
 }
 
-.dark-mode .bg-[#ecf2f3] {
-    background-color: var(--dark-bg);
-}
-
-.dark-mode .text-gray-800 {
-    color: var(--dark-text);
-}
-
-.dark-mode .text-gray-600 {
-    color: var(--dark-gray-600);
-}
-
-.dark-mode .text-gray-700 {
-    color: var(--dark-gray-700);
-}
-
-.dark-mode .hover:underline {
-    color: var(--accent-color);
-}
-
-.dark-mode input,
-.dark-mode select {
-    background-color: var(--dark-input-bg);
-    color: var(--dark-text);
-    border-color: var(--dark-gray-600);
-}
-
-.dark-mode input::placeholder,
-.dark-mode select::placeholder {
-    color: var(--dark-gray-600);
-}
-
-.dark-mode button {
-    background-color: var(--accent-color);
-    color: var(--dark-text);
-}
-
-.dark-mode button:hover {
-    background-color: var(--hover-color);
-}
-
-header {
-    background-color: var(--card-bg);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
-}
-
-footer {
-    background-color: var(--dark-bg);
-    color: var(--dark-text);
-}
-
-footer a:hover {
-    color: var(--dark-text);
-}
-
-.bg-[#e6f0ff] {
-    background-color: var(--input-bg);
-}
-
-.bg-[#f7fafc] {
-    background-color: var(--summary-bg);
-}
-
-/* Additional default styles */
-input, select {
-    padding: 0.5rem;
-    border: 1px solid #d3d8e0;
-    border-radius: 0.375rem;
-    transition: border-color 0.3s ease, background-color 0.3s ease;
-}
-
-input:focus, select:focus {
-    outline: none;
-    border-color: var(--accent-color);
-    box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
-}
-
-button {
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 0.375rem;
+/* Style the close button in the modal */
+#close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    /* Color set via Tailwind dark: prefix */
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: color 0.2s ease-in-out;
 }
 
-a {
-    text-decoration: none;
+/* Add a subtle transition for the theme toggle icon change */
+#theme-icon {
+    transition: transform 0.3s ease;
 }
 
-a:hover {
-    text-decoration: underline;
+/* Add custom scrollbar styles (optional) */
+.overflow-y-auto::-webkit-scrollbar {
+  width: 6px;
+}
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: transparent; /* Or use a light gray: #f1f1f1; */
+}
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: #ccc; /* Light gray thumb */
+  border-radius: 3px;
+}
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: #aaa; /* Darker gray on hover */
+}
+.dark .overflow-y-auto::-webkit-scrollbar-thumb {
+  background: #555; /* Darker thumb for dark mode */
+}
+.dark .overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: #777; /* Lighter gray on hover in dark mode */
+}
+
+/* Ensure select dropdown arrow is visible in dark mode */
+select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem; /* Make space for the arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.dark select {
+     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%239ca3af' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e"); /* Use a lighter arrow color for dark mode */
+     border-color: #4b5563; /* Adjust border color if needed */
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    main.container {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    h1 {
+        font-size: 1.875rem; /* text-3xl */
+        margin-bottom: 2rem;
+    }
+    /* Stack order summary below form on mobile */
+    .md\:col-span-1 {
+        position: static; /* Remove sticky positioning on mobile */
+        margin-top: 2rem; /* Add space between form and summary */
+    }
 }
