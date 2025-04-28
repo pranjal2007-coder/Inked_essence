@@ -3,7 +3,6 @@
 /* Apply Inter font globally */
 body {
     font-family: 'Inter', sans-serif;
-    /* Base background color is set in HTML via Tailwind */
 }
 
 /* Style the logo specifically */
@@ -11,56 +10,285 @@ body {
     font-family: 'Dancing Script', cursive;
 }
 
-/* Style form elements for better visual consistency */
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-select {
-    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+/* --- Reusable Form/UI Component Styles --- */
+
+/* Standard form input style */
+.form-input {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    background-color: #ffffff;
+    color: #000000;
+    outline: none;
+    transition: all 0.3s;
+}
+.form-input:focus {
+    ring: 2px solid #8b5cf6;
+    border-color: transparent;
 }
 
-/* Remove default spinner from number inputs if needed */
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+/* Style for select dropdowns */
+.select-input {
+    background-color: #ffffff;
+    appearance: none;
+    padding-right: 2rem;
 }
-input[type=number] {
-  -moz-appearance: textfield; /* Firefox */
+.select-arrow {
+    position: absolute;
+    inset-y: 0;
+    right: 0;
+    top: 1.5rem;
+    display: flex;
+    align-items: center;
+    padding: 0 0.5rem;
+    pointer-events: none;
+    color: #4b5563;
 }
 
+/* Radio button style */
+.form-radio {
+    height: 1rem;
+    width: 1rem;
+    border: 1px solid #d1d5db;
+    background-color: #ffffff;
+}
+.form-radio:focus {
+    ring: 2px solid #8b5cf6;
+}
 
-/* Style for error messages */
+/* Standard style for form labels */
+.form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #4b5563;
+    margin-bottom: 0.25rem;
+}
+
+/* Error message style (initially hidden) */
 .error-message {
-    display: none; /* Hidden initially */
+    color: #ef4444;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+    display: none;
 }
 
-input.border-red-500 + .error-message,
-select.border-red-500 + .error-message,
-#payment-error.error-message:not(.hidden) {
-    display: block; /* Show when needed */
+/* Show error message when input has error class */
+.form-input.border-red-500 + .error-message,
+.select-input.border-red-500 + .error-message,
+#payment-error:not(.hidden) {
+    display: block;
 }
 
+/* Add red border directly for error indication */
+.form-input.border-red-500,
+.select-input.border-red-500 {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 1px #ef4444;
+}
 
-/* Modal styles */
-#success-modal.flex { /* Use flex to trigger opacity transition */
+/* --- Navigation Styles --- */
+.nav-link,
+.nav-icon-btn {
+    color: #4b5563;
+    transition: color 0.3s;
+}
+.nav-link:hover,
+.nav-icon-btn:hover {
+    color: #8b5cf6;
+}
+
+/* Mobile nav link */
+.mobile-nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #4b5563;
+    border-radius: 0.375rem;
+    transition: background-color 0.3s;
+}
+.mobile-nav-link:hover {
+    background-color: #f3f4f6;
+}
+
+/* --- Payment Option Styles --- */
+.payment-option {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+.payment-option:hover,
+.payment-option:has(input:checked) {
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 2px #8b5cf6;
+}
+.payment-label {
+    margin-left: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #4b5563;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* --- Footer Styles --- */
+.footer-heading {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+.footer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+}
+.footer-link {
+    color: #9ca3af;
+    transition: color 0.3s;
+}
+.footer-link:hover {
+    color: #ffffff;
+}
+.footer-input {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background-color: #1f2937;
+    border: 1px solid #374151;
+    border-radius: 0.375rem;
+    color: #9ca3af;
+    placeholder-color: #6b7280;
+    font-size: 0.875rem;
+    outline: none;
+    transition: border-color 0.3s, ring 0.3s;
+}
+.footer-input:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 2px #8b5cf6;
+}
+.footer-button {
+    background-color: #8b5cf6;
+    color: #ffffff;
+    padding: 0.5rem 1.25rem;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    font-size: 0.875rem;
+}
+.footer-button:hover {
+    background-color: #7c3aed;
+}
+
+/* --- Modal Styles --- */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 50;
+    transition: opacity 0.3s;
+    opacity: 0;
+}
+.modal-overlay.show {
+    display: flex;
     opacity: 1;
 }
-#success-modal.flex > div { /* Target the inner div for scale/opacity */
+.modal-content {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    max-width: 24rem;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transform: scale(0.95);
+    opacity: 0;
+    transition: all 0.3s;
+}
+.modal-overlay.show .modal-content {
     transform: scale(1);
     opacity: 1;
 }
-
-/* Style the close button in the modal */
-#close-modal {
+.modal-close-button {
     position: absolute;
-    top: 1rem;
+    top: 0.75rem;
     right: 1rem;
+    color: #6b7280;
     font-size: 1.5rem;
-    line-height: 2rem;
-    /* Color set via Tailwind dark: prefix */
+    font-weight: 300;
     cursor: pointer;
-    transition: color 0.2s ease-in-out;
+}
+.modal-heading {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 0.75rem;
+}
+.modal-text {
+    color: #4b5563;
+    margin-bottom: 1.5rem;
+}
+.modal-ok-button {
+    background-color: #8b5cf6;
+    color: #ffffff;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+.modal-ok-button:hover {
+    background-color: #7c3aed;
+}
+
+/* --- Utility Styles --- */
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 3px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
+}
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #555;
+}
+.dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #777;
+}
+
+/* Firefox scrollbar */
+.custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #ccc transparent;
+}
+.dark .custom-scrollbar {
+    scrollbar-color: #555 transparent;
+}
+
+/* Ensure select dropdown arrow is visible */
+select.select-input {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+}
+.dark select.select-input {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%239ca3af' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
 }
 
 /* Add a subtle transition for the theme toggle icon change */
@@ -68,59 +296,10 @@ select.border-red-500 + .error-message,
     transition: transform 0.3s ease;
 }
 
-/* Add custom scrollbar styles (optional) */
-.overflow-y-auto::-webkit-scrollbar {
-  width: 6px;
-}
-.overflow-y-auto::-webkit-scrollbar-track {
-  background: transparent; /* Or use a light gray: #f1f1f1; */
-}
-.overflow-y-auto::-webkit-scrollbar-thumb {
-  background: #ccc; /* Light gray thumb */
-  border-radius: 3px;
-}
-.overflow-y-auto::-webkit-scrollbar-thumb:hover {
-  background: #aaa; /* Darker gray on hover */
-}
-.dark .overflow-y-auto::-webkit-scrollbar-thumb {
-  background: #555; /* Darker thumb for dark mode */
-}
-.dark .overflow-y-auto::-webkit-scrollbar-thumb:hover {
-  background: #777; /* Lighter gray on hover in dark mode */
-}
-
-/* Ensure select dropdown arrow is visible in dark mode */
-select {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
-    background-position: right 0.5rem center;
-    background-repeat: no-repeat;
-    background-size: 1.5em 1.5em;
-    padding-right: 2.5rem; /* Make space for the arrow */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-
-.dark select {
-     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%239ca3af' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e"); /* Use a lighter arrow color for dark mode */
-     border-color: #4b5563; /* Adjust border color if needed */
-}
-
-
 /* Responsive adjustments */
-@media (max-width: 768px) {
-    main.container {
-        padding-top: 2rem;
-        padding-bottom: 2rem;
-    }
-
-    h1 {
-        font-size: 1.875rem; /* text-3xl */
-        margin-bottom: 2rem;
-    }
-    /* Stack order summary below form on mobile */
-    .md\:col-span-1 {
-        position: static; /* Remove sticky positioning on mobile */
-        margin-top: 2rem; /* Add space between form and summary */
+@media (max-width: 1024px) {
+    .lg\:col-span-1 {
+        position: static;
+        margin-top: 2rem;
     }
 }
