@@ -4,199 +4,218 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ - Inked Essence</title>
-
+    <link rel="stylesheet" href="testing.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="faq.css">
-
-    <script src="https://unpkg.com/heroicons@2.1.3/24/outline/magnifying-glass.js"></script>
-    <script src="https://unpkg.com/heroicons@2.1.3/24/outline/heart.js"></script>
-    <script src="https://unpkg.com/heroicons@2.1.3/24/outline/shopping-bag.js"></script>
-    <script src="https://unpkg.com/heroicons@2.1.3/24/outline/sun.js"></script>
-    <script src="https://unpkg.com/heroicons@2.1.3/24/solid/moon.js"></script>
-    <script src="https://unpkg.com/feather-icons"></script>
-
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+         {
+          "@type": "Question",
+          "name": "What payment methods do you accept?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We accept various payment methods including major credit cards (Visa, MasterCard, American Express), PayPal, and other secure online payment gateways. All transactions are encrypted for your security."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is your shipping policy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We offer standard and expedited shipping options. Shipping costs and delivery times vary based on your location and the selected shipping method. We often have promotions for free shipping on orders over a certain amount – check our homepage or promotional banners for details!"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I track my order?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Once your order is shipped, you will receive an email confirmation containing a tracking number and a link to the carrier's website. You can use this number to monitor the progress of your delivery."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is your return and exchange policy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We offer a 30-day return policy for most items, provided they are in their original condition with tags attached. Some exclusions may apply (e.g., final sale items). Please visit our Returns & Exchanges page for detailed instructions on how to initiate a return or exchange."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I determine the right size?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Each product page includes a size chart specific to that item. We recommend comparing your measurements to the chart for the best fit. If you're between sizes or need further assistance, feel free to contact our customer support team."
+          }
+        }
+        // ... other schema items ...
+      ]
+    }
+    </script>
 
 </head>
-<body class="body-bg body-text flex flex-col min-h-screen"> <header class="header-bg shadow-md sticky top-0 z-50">
-        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-3">
-            <div class="flex items-center justify-between flex-wrap">
-                <a href="#" class="font-logo text-2xl logo-text">Inked Essence</a>
-
-                <div class="hidden md:flex items-center space-x-6">
-                    <a href="#" class="nav-link">Home</a>
-                    <a href="#" class="nav-link">Shop</a>
-                    <a href="#" class="nav-link">Categories</a>
-                    <a href="#" class="nav-link">About</a>
-                    <a href="#" class="nav-link">Contact</a>
-                </div>
-
-                <div class="flex items-center space-x-4">
-                     <button class="icon-button" aria-label="Search">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 icon-color">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                        </svg>
-                    </button>
-                    <button class="icon-button relative" aria-label="Wishlist">
-                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 icon-color">
-                           <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
-                         </svg>
-                         <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-4 w-4 flex items-center justify-center">1</span>
-                    </button>
-                     <button class="icon-button" aria-label="Shopping Bag">
-                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 icon-color">
-                           <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
-                         </svg>
-                    </button>
-                    <button class="login-button">Login / Signup</button>
-                    <button id="theme-toggle" class="icon-button" aria-label="Toggle dark mode">
-                        <svg id="theme-toggle-light-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 icon-color hidden">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-6.364-.386 1.591-1.591M3 12h2.25m.386-6.364 1.591 1.591" />
-                        </svg>
-                         <svg id="theme-toggle-dark-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 icon-color hidden">
-                          <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69a.75.75 0 0 1 .981.981A10.503 10.503 0 0 1 18 19.5a10.5 10.5 0 0 1-10.5-10.5A10.503 10.503 0 0 1 9.528 1.718Z" clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                </div>
-                 <div class="md:hidden flex items-center">
-                     <button class="icon-button" aria-label="Open menu">
-                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 icon-color">
-                           <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                         </svg>
-                     </button>
-                 </div>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-logo">Inked Essence</a>
+            <button id="mobile-menu-button" class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="navbar-menu" id="navbar-menu">
+                <a href="#" class="nav-link">Home</a>
+                <a href="#" class="nav-link">Shop</a>
+                <a href="#" class="nav-link">Categories</a>
+                <a href="#" class="nav-link">About</a>
+                <a href="#" class="nav-link">Contact</a>
+                <a href="#" class="nav-link active">FAQ</a>
             </div>
-             <div class="md:hidden mobile-menu hidden">
-                 <a href="#" class="block nav-link py-2">Home</a>
-                 <a href="#" class="block nav-link py-2">Shop</a>
-                 <a href="#" class="block nav-link py-2">Categories</a>
-                 <a href="#" class="block nav-link py-2">About</a>
-                 <a href="#" class="block nav-link py-2">Contact</a>
-             </div>
-        </nav>
-    </header>
-
-    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-grow"> <h1 class="text-3xl sm:text-4xl font-bold text-center mb-8 heading-text">Frequently Asked Questions</h1>
-
-        <div class="max-w-3xl mx-auto space-y-4">
-            <details class="faq-item group" open>
-                <summary class="faq-question group">
-                    <span>What payment methods do you accept?</span>
-                    <span class="faq-icon">
-                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 group-open:hidden"> <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /> </svg>
-                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 hidden group-open:block"> <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" /> </svg>
-                    </span>
-                </summary>
-                <div class="faq-answer"> We accept major credit cards (Visa, MasterCard, American Express), PayPal, and other secure payment gateways. All transactions are encrypted for your security. </div>
-            </details>
-            <details class="faq-item group">
-                <summary class="faq-question group">
-                    <span>What is your shipping policy?</span>
-                     <span class="faq-icon">
-                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 group-open:hidden"> <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /> </svg>
-                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 hidden group-open:block"> <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" /> </svg>
-                    </span>
-                </summary>
-                <div class="faq-answer"> We offer standard and expedited shipping options. Standard shipping usually takes 5-7 business days, while expedited shipping takes 2-3 business days. Shipping costs are calculated at checkout based on your location and order weight. We offer free standard shipping on orders over ₹1000. </div>
-            </details>
-            <details class="faq-item group">
-                <summary class="faq-question group">
-                    <span>What is your return policy?</span>
-                     <span class="faq-icon">
-                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 group-open:hidden"> <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /> </svg>
-                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 hidden group-open:block"> <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" /> </svg>
-                    </span>
-                </summary>
-                <div class="faq-answer"> We have a 30-day return policy. Items must be returned in their original condition, unworn, unwashed, and with all tags attached. Please visit our Returns page for detailed instructions on how to initiate a return. </div>
-            </details>
-             <details class="faq-item group">
-                <summary class="faq-question group">
-                    <span>How do I track my order?</span>
-                     <span class="faq-icon">
-                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 group-open:hidden"> <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /> </svg>
-                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 hidden group-open:block"> <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" /> </svg>
-                    </span>
-                </summary>
-                <div class="faq-answer"> Once your order ships, you will receive a confirmation email with a tracking number and a link to the carrier's website. You can use this number to track your package's progress. </div>
-            </details>
-             <details class="faq-item group">
-                <summary class="faq-question group">
-                    <span>How do I know what size to order?</span>
-                     <span class="faq-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 group-open:hidden"> <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /> </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 hidden group-open:block"> <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" /> </svg>
-                    </span>
-                </summary>
-                <div class="faq-answer"> We provide a detailed size chart on each product page. Please refer to the measurements provided to find the best fit. If you are between sizes or need further assistance, feel free to contact our customer support team. </div>
-            </details>
+            <div class="navbar-actions">
+                 <a href="#" class="icon-link" aria-label="Wishlist"><i class="far fa-heart icon-size"></i></a>
+                 <a href="#" class="icon-link cart-link" aria-label="Shopping Cart">
+                    <i class="fas fa-shopping-bag icon-size"></i><span class="cart-badge">1</span>
+                 </a>
+                <a href="#" class="button button-primary">Login / Signup</a>
+                 <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme"><i class="fas fa-cog icon-size"></i></button>
+            </div>
         </div>
-    </main>
+        <div class="mobile-menu" id="mobile-menu">
+             <a href="#" class="nav-link">Home</a>
+             <a href="#" class="nav-link">Shop</a>
+             <a href="#" class="nav-link">Categories</a>
+             <a href="#" class="nav-link">About</a>
+             <a href="#" class="nav-link">Contact</a>
+             <a href="#" class="nav-link active">FAQ</a>
+             <div class="mobile-actions">
+                  <a href="#" class="icon-link" aria-label="Wishlist"><i class="far fa-heart icon-size"></i></a>
+                  <a href="#" class="icon-link cart-link" aria-label="Shopping Cart"><i class="fas fa-shopping-bag icon-size"></i><span class="cart-badge">1</span></a>
+                  <button id="theme-toggle-mobile" class="theme-toggle-btn" aria-label="Toggle theme"><i class="fas fa-cog icon-size"></i></button>
+             </div>
+             <a href="#" class="button button-primary mobile-login">Login / Signup</a>
+        </div>
+    </nav>
 
-    <footer class="footer-bg footer-text pt-16 pb-8">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-                <div class="footer-column">
-                    <a href="#" class="font-logo text-2xl footer-logo-text mb-3 inline-block">Inked Essence</a>
-                    <p class="text-sm footer-text-secondary">
-                        Premium fashion for the modern individual. Quality meets style in every piece.
-                    </p>
-                     <div class="flex space-x-4 mt-4">
-                        <a href="#" class="footer-icon-link" aria-label="Facebook">
-                            <i data-feather="facebook" class="w-5 h-5"></i>
-                        </a>
-                        <a href="#" class="footer-icon-link" aria-label="Twitter">
-                            <i data-feather="twitter" class="w-5 h-5"></i>
-                        </a>
-                        <a href="#" class="footer-icon-link" aria-label="Instagram">
-                            <i data-feather="instagram" class="w-5 h-5"></i>
-                        </a>
-                        <a href="#" class="footer-icon-link" aria-label="LinkedIn">
-                           <i data-feather="linkedin" class="w-5 h-5"></i>
-                        </a>
+    <main class="main-content">
+        <div class="content-container">
+            <h1 class="page-title">Frequently Asked Questions</h1>
+            <div class="search-container">
+                <input type="text" id="faq-search" placeholder="Search questions..." class="search-input" aria-label="Search FAQs">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+            <div class="faq-section" id="faq-section">
+                <div class="faq-category" data-category="General & Payment">
+                    <h2 class="category-title">General & Payment</h2>
+                    <div class="faq-accordion">
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">
+                                <span>What payment methods do you accept?</span><i class="fas fa-chevron-down faq-icon"></i>
+                            </button>
+                            <div id="faq-answer-1" class="faq-answer" role="region" aria-labelledby="faq-question-1">
+                                <p>We accept various payment methods including major credit cards (Visa, MasterCard, American Express), PayPal, and other secure online payment gateways. All transactions are encrypted for your security.</p>
+                                <div class="faq-feedback"><span>Was this helpful?</span><button class="feedback-btn" aria-label="Yes, this was helpful"><i class="fas fa-thumbs-up"></i> Yes</button><button class="feedback-btn" aria-label="No, this was not helpful"><i class="fas fa-thumbs-down"></i> No</button></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <div class="footer-column">
-                    <h3 class="footer-title">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="footer-link">About Us</a></li>
-                        <li><a href="#" class="footer-link">Contact</a></li>
-                        <li><a href="#" class="footer-link">FAQs</a></li>
-                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
-                        <li><a href="#" class="footer-link">Terms & Conditions</a></li> </ul>
+                <div class="faq-category" data-category="Shipping & Tracking">
+                    <h2 class="category-title">Shipping & Tracking</h2>
+                    <div class="faq-accordion">
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">
+                                <span>What is your shipping policy?</span><i class="fas fa-chevron-down faq-icon"></i>
+                            </button>
+                            <div id="faq-answer-2" class="faq-answer" role="region" aria-labelledby="faq-question-2">
+                                <p>We offer standard and expedited shipping options...</p>
+                                <div class="faq-feedback"><span>Was this helpful?</span><button class="feedback-btn" aria-label="Yes, this was helpful"><i class="fas fa-thumbs-up"></i> Yes</button><button class="feedback-btn" aria-label="No, this was not helpful"><i class="fas fa-thumbs-down"></i> No</button></div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">
+                                <span>How do I track my order?</span><i class="fas fa-chevron-down faq-icon"></i>
+                            </button>
+                            <div id="faq-answer-3" class="faq-answer" role="region" aria-labelledby="faq-question-3">
+                                <p>Once your order is shipped...</p>
+                                <div class="faq-feedback"><span>Was this helpful?</span><button class="feedback-btn" aria-label="Yes, this was helpful"><i class="fas fa-thumbs-up"></i> Yes</button><button class="feedback-btn" aria-label="No, this was not helpful"><i class="fas fa-thumbs-down"></i> No</button></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <div class="faq-category" data-category="Returns & Sizing">
+                    <h2 class="category-title">Returns & Sizing</h2>
+                    <div class="faq-accordion">
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">
+                                <span>What is your return and exchange policy?</span><i class="fas fa-chevron-down faq-icon"></i>
+                            </button>
+                            <div id="faq-answer-4" class="faq-answer" role="region" aria-labelledby="faq-question-4">
+                                <p>We offer a 30-day return policy...</p>
+                                <div class="faq-feedback"><span>Was this helpful?</span><button class="feedback-btn" aria-label="Yes, this was helpful"><i class="fas fa-thumbs-up"></i> Yes</button><button class="feedback-btn" aria-label="No, this was not helpful"><i class="fas fa-thumbs-down"></i> No</button></div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">
+                                <span>How do I determine the right size?</span><i class="fas fa-chevron-down faq-icon"></i>
+                            </button>
+                            <div id="faq-answer-5" class="faq-answer" role="region" aria-labelledby="faq-question-5">
+                                <p>Each product page includes a size chart...</p>
+                                <div class="faq-feedback"><span>Was this helpful?</span><button class="feedback-btn" aria-label="Yes, this was helpful"><i class="fas fa-thumbs-up"></i> Yes</button><button class="feedback-btn" aria-label="No, this was not helpful"><i class="fas fa-thumbs-down"></i> No</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <div id="no-results-message" class="no-results" style="display: none;">No questions found matching your search.</div>
+            </div> </div> </main>
 
-                <div class="footer-column">
-                    <h3 class="footer-title">Contact Info</h3>
-                    <address class="not-italic space-y-2 text-sm footer-text-secondary">
-                        <p>123 Fashion Street<br>New York, NY 10001</p>
-                        <p>Phone: <a href="tel:+15551234567" class="footer-link">(555) 123-4567</a></p>
-                        <p>Email: <a href="mailto:info@inkedessence.com" class="footer-link">info@inkedessence.com</a></p>
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-column footer-about">
+                    <h3 class="footer-logo">Inked Essence</h3>
+                    <p class="footer-description">Premium fashion for the modern individual. Quality meets style in every piece.</p>
+                </div>
+                <div class="footer-column footer-links">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column footer-contact">
+                    <h4 class="footer-heading">Contact Info</h4>
+                    <address>
+                        123 Fashion Street<br>
+                        New York, NY 10001<br>
+                        <i class="fas fa-phone-alt"></i> <a href="tel:+15551234567"> (555) 123-4567</a><br>
+                        <i class="fas fa-envelope"></i> <a href="mailto:info@inkedessence.com"> info@inkedessence.com</a>
                     </address>
                 </div>
-
-                <div class="footer-column">
-                    <h3 class="footer-title">Subscribe to Our Newsletter</h3>
-                    <p class="text-sm mb-3 footer-text-secondary">Stay updated with our latest collections and exclusive offers.</p>
-                    <form class="newsletter-form">
-                        <label for="email-subscribe" class="sr-only">Enter your email</label>
-                        <input type="email" id="email-subscribe" placeholder="Enter your email" class="newsletter-input" required>
-                        <button type="submit" class="newsletter-button">Subscribe</button>
-                    </form>
-                </div>
             </div>
-
-            <div class="border-t footer-border-light pt-8 text-center text-sm footer-text-secondary">
-                &copy; 2025 Inked Essence. All rights reserved.
+            <div class="footer-newsletter">
+                <h4 class="footer-heading">Subscribe to Our Newsletter</h4>
+                <p>Stay updated with our latest collections and exclusive offers.</p>
+                <form class="newsletter-form" action="#" method="post">
+                    <input type="email" name="email" placeholder="Enter your email" required aria-label="Email for newsletter">
+                    <button type="submit" class="button button-primary">Subscribe</button>
+                </form>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Inked Essence. All rights reserved.</p>
             </div>
         </div>
     </footer>
+    <button id="back-to-top" class="back-to-top-btn" title="Go to top" aria-label="Go back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
-    <script src="faq.js"></script>
-    <script>
-      feather.replace();
-    </script>
+    <script src="testing.js"></script>
 </body>
 </html>
