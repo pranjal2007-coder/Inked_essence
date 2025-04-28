@@ -1,97 +1,134 @@
-/**
- * script.js
- * Handles theme toggling (light/dark mode) and potentially other
- * interactive elements for the Inked Essence FAQ page.
- */
+// script.js (Enhanced + Updated Navbar Logic)
 
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Theme Toggle Functionality ---
-    const themeToggleButton = document.getElementById('theme-toggle');
-    const lightIcon = document.getElementById('theme-toggle-light-icon');
-    const darkIcon = document.getElementById('theme-toggle-dark-icon');
-    const htmlElement = document.documentElement; // Get the <html> element
 
-    // Function to apply theme based on preference
-    const applyTheme = (theme) => {
-        if (theme === 'dark') {
-            htmlElement.classList.add('dark');
-            darkIcon.classList.remove('hidden'); // Show moon
-            lightIcon.classList.add('hidden');   // Hide sun
-        } else {
-            htmlElement.classList.remove('dark');
-            darkIcon.classList.add('hidden');    // Hide moon
-            lightIcon.classList.remove('hidden');  // Show sun
-        }
-    };
+  // --- Theme Toggle Functionality (Updated for potentially multiple buttons) ---
+  const htmlElement = document.documentElement;
 
-    // Check for saved theme preference in localStorage
-    const savedTheme = localStorage.getItem('theme');
-    // Check for user's OS preference
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  // Function to apply theme based on preference
+  const applyTheme = (theme) => {
+      htmlElement.classList.remove('light', 'dark'); // Remove existing classes
+      htmlElement.classList.add(theme); // Add the new theme class
+      htmlElement.setAttribute('data-theme', theme); // Also set data attribute if needed
+  };
 
-    // Determine initial theme: localStorage > OS preference > default (light)
-    let currentTheme;
-    if (savedTheme) {
-        currentTheme = savedTheme;
-    } else if (prefersDark) {
-        currentTheme = 'dark';
-    } else {
-        currentTheme = 'light';
-    }
+  // Check localStorage for saved theme preference
+  const savedTheme = localStorage.getItem('theme');
+  // Check system preference if no saved theme
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-    // Apply the determined theme on initial load
-    applyTheme(currentTheme);
+  // Determine initial theme: saved theme > system preference > default (light)
+  const initialTheme = savedTheme ? savedTheme : (prefersDark ? 'dark' : 'light');
+  applyTheme(initialTheme); // Apply initial theme
 
-    // Add event listener for the theme toggle button
-    if (themeToggleButton) {
-        themeToggleButton.addEventListener('click', () => {
-            // Toggle the theme
-            const newTheme = htmlElement.classList.contains('dark') ? 'light' : 'dark';
-            applyTheme(newTheme);
-            // Save the new preference to localStorage
-            localStorage.setItem('theme', newTheme);
-        });
-    } else {
-        console.warn("Theme toggle button not found.");
-    }
+  // Add event listener to ALL theme toggle buttons (desktop and mobile)
+  const themeToggleButtons = document.querySelectorAll('.theme-toggle-btn'); // Use class selector
+
+  if (themeToggleButtons.length > 0) {
+      themeToggleButtons.forEach(button => {
+          button.addEventListener('click', () => {
+              const currentTheme = htmlElement.classList.contains('dark') ? 'dark' : 'light';
+              const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+              applyTheme(newTheme);
+              localStorage.setItem('theme', newTheme);
+          });
+      });
+  } else {
+      console.warn("Theme toggle buttons not found.");
+  }
+
+  // --- Mobile Menu Toggle Functionality (Unchanged) ---
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', () => {
+          const isMenuOpen = mobileMenu.classList.toggle('open');
+          mobileMenuButton.setAttribute('aria-expanded', isMenuOpen);
+          const icon = mobileMenuButton.querySelector('i');
+          if (icon) {
+              icon.classList.toggle('fa-bars', !isMenuOpen);
+              icon.classList.toggle('fa-times', isMenuOpen);
+          }
+      });
+  } else {
+       console.warn("Mobile menu button or mobile menu container not found.");
+  }
+
+  // --- FAQ Accordion Functionality (Keep as is) ---
+  const faqSection = document.getElementById('faq-section');
+  if (faqSection) {
+      faqSection.addEventListener('click', (event) => {
+          const questionButton = event.target.closest('.faq-question');
+          if (!questionButton) return;
+          const faqItem = questionButton.closest('.faq-item');
+          if (!faqItem) return;
+          const answerPanel = faqItem.querySelector('.faq-answer');
+          if (!answerPanel) return;
+          const isExpanded = questionButton.getAttribute('aria-expanded') === 'true';
+          questionButton.setAttribute('aria-expanded', !isExpanded);
+          answerPanel.classList.toggle('open');
+      });
+  } else {
+      console.warn("FAQ section container not found.");
+  }
+
+  // --- FAQ Search/Filter Functionality (Keep as is) ---
+  const searchInput = document.getElementById('faq-search');
+  const noResultsMessage = document.getElementById('no-results-message');
+  if (searchInput && faqSection && noResultsMessage) {
+      searchInput.addEventListener('input', () => {
+          const searchTerm = searchInput.value.toLowerCase().trim();
+          let hasVisibleItems = false;
+          faqSection.querySelectorAll('.faq-category').forEach(category => {
+              let categoryHasVisibleItems = false;
+              category.querySelectorAll('.faq-item').forEach(item => {
+                  const questionText = item.querySelector('.faq-question span')?.textContent.toLowerCase() || '';
+                  const answerText = item.querySelector('.faq-answer p')?.textContent.toLowerCase() || '';
+                  const isMatch = questionText.includes(searchTerm) || answerText.includes(searchTerm);
+                  item.classList.toggle('hidden', !isMatch);
+                  if (isMatch) {
+                      categoryHasVisibleItems = true;
+                      hasVisibleItems = true;
+                  }
+              });
+              const categoryTitle = category.querySelector('.category-title');
+               if (categoryTitle) {
+                  category.style.display = categoryHasVisibleItems ? '' : 'none';
+               }
+          });
+          noResultsMessage.style.display = hasVisibleItems ? 'none' : 'block';
+      });
+  } else {
+      console.warn("FAQ search input, section, or no-results message not found.");
+  }
 
 
-    // --- Mobile Menu Toggle (Basic Example - Needs HTML structure) ---
-    const mobileMenuButton = document.querySelector('[aria-label="Open menu"]'); // Adjust selector if needed
-    const mobileMenu = document.querySelector('.mobile-menu'); // Adjust selector if needed
+  // --- Back to Top Button Functionality (Keep as is) ---
+  const backToTopButton = document.getElementById('back-to-top');
+  if (backToTopButton) {
+      window.addEventListener('scroll', () => {
+          backToTopButton.classList.toggle('visible', window.scrollY > 300);
+      });
+      backToTopButton.addEventListener('click', (e) => {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+  } else {
+      console.warn("Back to top button not found.");
+  }
 
-    if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            // Optional: Toggle ARIA expanded state
-            const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
-            mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
-        });
-    }
+  // --- FAQ Feedback Button (Mock Interaction - Keep as is) ---
+   if (faqSection) {
+      faqSection.addEventListener('click', (event) => {
+          const feedbackButton = event.target.closest('.feedback-btn');
+          if (!feedbackButton) return;
+          const feedbackContainer = feedbackButton.closest('.faq-feedback');
+          if (!feedbackContainer) return;
+          // Provide visual feedback
+          const theme = htmlElement.classList.contains('dark') ? 'dark' : 'light';
+          const accentColor = theme === 'dark' ? 'var(--accent-color-dark)' : 'var(--accent-color-light)';
+          feedbackContainer.innerHTML = `<span style="font-style: italic; color: ${accentColor};">Thank you for your feedback!</span>`;
+      });
+  }
 
-    // --- FAQ Accordion (Native Functionality) ---
-    // The <details> and <summary> elements handle the accordion
-    // behavior natively. You might add JS for:
-    // 1. Closing other items when one opens (optional).
-    // 2. Animating the opening/closing (more complex).
-
-    // Example: Close others when one opens
-    const detailsElements = document.querySelectorAll('.faq-item'); // Use the class on <details>
-
-    detailsElements.forEach(details => {
-        details.addEventListener('toggle', (event) => {
-            // If the details element was opened
-            if (event.target.open) {
-                // Close all other details elements
-                detailsElements.forEach(otherDetails => {
-                    if (otherDetails !== event.target && otherDetails.open) {
-                        otherDetails.removeAttribute('open');
-                    }
-                });
-            }
-        });
-    });
-
-
-    console.log("FAQ page script loaded.");
-}); // End DOMContentLoaded
+});
