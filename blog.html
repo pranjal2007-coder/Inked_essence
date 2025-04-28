@@ -3,132 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fashion Insights - InkedEssence Blog</title> <link rel="stylesheet" href="blog.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>INKED ESSENCE Blog - Fashion Insights</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"> </head>
-<body class="preload"> <header>
-        <nav>
-            <div class="logo logo-font"> <a href="#">InkedEssence</a>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="blog.css">
+</head>
+<body class="preload"> 
+
+    <header class="site-header">
+        <nav class="main-nav container">
+            <div class="logo">
+                <a href="#">Inked Essence</a> 
             </div>
             <ul class="nav-links">
-                 <li><a href="#">Home</a></li>
-                 <li><a href="#">Shop</a></li>
-                 <li><a href="#">Categories</a></li>
-                 <li><a href="#">About</a></li>
-                 <li><a href="#">Contact</a></li>
-                 <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="blog.html" class="active" id="blog-link">Blog</a></li>
             </ul>
-            <div class="nav-icons">
-                <button id="theme-toggle" title="Toggle Theme">
-                    <i class="fas fa-sun"></i>
-                </button>
-                <a href="#" title="Wishlist"><i class="far fa-heart"></i></a>
-                <a href="#" title="Notifications" class="notification-bell">
+            <div class="nav-actions">
+                <a href="#" title="Wishlist" class="nav-icon wishlist-icon"><i class="far fa-heart"></i></a>
+                <a href="#" title="Notifications" class="nav-icon notification-icon">
                     <i class="far fa-bell"></i>
-                    <span class="badge">1</span>
+                    <span class="badge">1</span> 
                 </a>
-                 <a href="#" title="FAQ"><i class="far fa-question-circle"></i></a>
-                <a href="#" class="login-btn">Login/Signup</a>
-                <a href="#" title="Settings"><i class="fas fa-cog"></i></a>
+                 <a href="#" class="login-signup-btn">Login/Signup</a>
+                 <button id="theme-toggle" title="Toggle Theme" class="nav-icon theme-toggle-btn">
+                    <i class="fas fa-sun"></i> 
+                </button>
+                 <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
-             <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
-                 <i class="fas fa-bars"></i>
-             </button>
         </nav>
     </header>
 
-    <main class="blog-container">
-        <h1 class="page-title">InkedEssence Fashion Blog</h1> <div class="blog-feed">
-            <article class="blog-post featured-post">
-                 <a href="#" class="post-link-wrapper"> <img src="placeholder-image.jpg" alt="Spring fashion trends" class="blog-post-image">
-                    <div class="blog-post-content">
-                        <span class="post-category">Trends</span>
-                        <h2 class="blog-post-title">Spring 2025: Top 5 Must-Have Trends</h2>
-                        <p class="blog-post-meta">By Admin <span class="meta-separator">|</span> April 27, 2025</p>
-                        <p class="blog-post-excerpt">Discover the hottest trends hitting the runways and streets this spring. From vibrant colors to sustainable fabrics...</p>
-                    </div>
-                </a>
+    <main class="blog-main container">
+        <h1 class="page-title" data-scroll-animation>INKED ESSENCE Blog</h1>
+        <p class="page-subtitle" data-scroll-animation>News, Trends & Insights from the World of Fashion</p>
+
+        <div class="blog-feed">
+            <article class="blog-post featured-post" data-scroll-animation>
+                 <div class="post-content-wrapper">
+                    <span class="post-category">Trends Analysis</span>
+                    <h2 class="blog-post-title">Decoding Spring 2025: Key Silhouettes & Palettes</h2>
+                    <p class="blog-post-meta">By Fashion Editor <span class="meta-separator">&bull;</span> April 28, 2025</p>
+                    <p class="blog-post-excerpt">This season isn't just about fleeting trends; it's a narrative of conscious choices and revived classics. Dive into the dominant shapes, must-have hues, and the fabrics defining Spring 2025...</p>
+                    <a href="#" class="read-more-link">Read More <i class="fas fa-arrow-right-long"></i></a>
+                </div>
             </article>
 
-            <article class="blog-post">
-                 <a href="#" class="post-link-wrapper">
-                    <img src="placeholder-image-2.jpg" alt="Fast vs Slow fashion concept" class="blog-post-image">
-                    <div class="blog-post-content">
-                        <span class="post-category">Industry Insights</span>
-                        <h2 class="blog-post-title">Understanding Fast Fashion vs. Slow Fashion</h2>
-                        <p class="blog-post-meta">By Jane Doe <span class="meta-separator">|</span> April 25, 2025</p>
-                        <p class="blog-post-excerpt">The fashion industry is evolving. Learn the key differences and why conscious consumerism matters...</p>
-                    </div>
-                 </a>
+            <article class="blog-post" data-scroll-animation>
+                 <div class="post-content-wrapper">
+                    <span class="post-category">Sustainability</span>
+                    <h2 class="blog-post-title">The Shift to Circularity: Beyond Fast Fashion</h2>
+                    <p class="blog-post-meta">By Jane Doe <span class="meta-separator">&bull;</span> April 25, 2025</p>
+                    <p class="blog-post-excerpt">Explore the growing movement towards a circular economy. What does it mean for brands and consumers, and how can we participate more responsibly? Insights into rental models, resale...</p>
+                     <a href="#" class="read-more-link">Read More <i class="fas fa-arrow-right-long"></i></a>
+                </div>
             </article>
 
-             <article class="blog-post">
-                 <a href="#" class="post-link-wrapper">
-                    <img src="placeholder-image-3.jpg" alt="Styling tips" class="blog-post-image">
-                    <div class="blog-post-content">
-                         <span class="post-category">Style Guides</span>
-                        <h2 class="blog-post-title">5 Ways to Style a Classic White Shirt</h2>
-                        <p class="blog-post-meta">By Style Team <span class="meta-separator">|</span> April 23, 2025</p>
-                        <p class="blog-post-excerpt">Unlock the versatility of a wardrobe staple. From casual chic to office-ready looks...</p>
-                    </div>
-                 </a>
+            <article class="blog-post" data-scroll-animation>
+                 <div class="post-content-wrapper">
+                     <span class="post-category">Style Edit</span>
+                    <h2 class="blog-post-title">Mastering Monochrome: Effortless Elegance</h2>
+                    <p class="blog-post-meta">By Style Team <span class="meta-separator">&bull;</span> April 23, 2025</p>
+                    <p class="blog-post-excerpt">Think monochrome is boring? Think again. Discover the power of dressing head-to-toe in one color, from creating elongating silhouettes to making a bold, sophisticated statement...</p>
+                     <a href="#" class="read-more-link">Read More <i class="fas fa-arrow-right-long"></i></a>
+                </div>
             </article>
 
-            </div><div class="pagination">
-            <a href="#">&laquo; Prev</a>
-            <a href="#" class="active">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">Next &raquo;</a>
+            <article class="blog-post" data-scroll-animation>
+                <div class="post-content-wrapper">
+                    <span class="post-category">Industry Buzz</span>
+                    <h2 class="blog-post-title">AI's Impact on Fashion Design & Personalization</h2>
+                    <p class="blog-post-meta">By Tech Analyst <span class="meta-separator">&bull;</span> April 21, 2025</p>
+                    <p class="blog-post-excerpt">Artificial intelligence is reshaping how fashion is created, marketed, and experienced. Learn about AI-driven design tools, personalized shopping algorithms, and the future of virtual try-ons...</p>
+                     <a href="#" class="read-more-link">Read More <i class="fas fa-arrow-right-long"></i></a>
+                 </div>
+            </article>
         </div>
+
+        <nav class="pagination" aria-label="Blog Posts Navigation" data-scroll-animation>
+            <a href="#" class="page-link prev" aria-label="Previous Page">&laquo; Prev</a>
+            <a href="#" class="page-link active" aria-current="page">1</a>
+            <a href="#" class="page-link">2</a>
+            <a href="#" class="page-link">3</a>
+            <span class="page-link ellipsis">&hellip;</span>
+            <a href="#" class="page-link">10</a>
+            <a href="#" class="page-link next" aria-label="Next Page">Next &raquo;</a>
+        </nav>
 
     </main>
 
     <footer class="site-footer">
-        <div class="footer-content">
+        <div class="container footer-content">
             <div class="footer-columns">
                 <div class="footer-column about-column">
-                    <h3 class="logo-font footer-logo">InkedEssence</h3>
-                    <p class="footer-description">Premium fashion for the modern individual. Quality meets style in every piece.</p>
+                   <h3 class="footer-logo">Inked Essence</h3>
+                   <p class="footer-description">Premium fashion for the modern individual. Quality meets style.</p>
                 </div>
-
                 <div class="footer-column links-column">
-                    <h4 class="footer-heading">Quick Links</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">FAQs</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
+                   <h4 class="footer-heading">Quick Links</h4>
+                   <ul class="footer-links">
+                       <li><a href="#">About Us</a></li>
+                       <li><a href="#">Contact</a></li>
+                       <li><a href="#">FAQs</a></li>
+                       <li><a href="#">Privacy Policy</a></li>
+                       <li><a href="#">Blog</a></li>
+                   </ul>
                 </div>
-
                 <div class="footer-column contact-column">
-                    <h4 class="footer-heading">Contact Info</h4>
-                    <address class="footer-contact">
-                        123 Fashion Street<br>
-                        New York, NY 10001<br>
-                        Phone: (555) 123-4567<br>
-                        Email: <a href="mailto:info@inkredessence.com">info@inkredessence.com</a>
-                    </address>
+                   <h4 class="footer-heading">Contact Info</h4>
+                   <address class="footer-contact">
+                       <span>123 Fashion Street</span>
+                       <span>New York, NY 10001</span>
+                       <span>Phone: (555) 123-4567</span>
+                       <span>Email: <a href="mailto:info@inkedessence.com">info@inkedessence.com</a></span>
+                   </address>
                 </div>
-            </div>
+           </div>
+           <div class="newsletter-section">
+               <h4 class="footer-heading">Subscribe to Our Newsletter</h4>
+               <p>Stay updated with our latest collections and exclusive offers.</p>
+               <form class="newsletter-form">
+                   <input type="email" placeholder="Enter your email" required aria-label="Email Address">
+                   <button type="submit">Subscribe</button>
+               </form>
+           </div>
+       </div>
+       <div class="footer-bottom">
+           <p>&copy; <span id="current-year"></span> INKED ESSENCE. All rights reserved.</p>
+       </div>
+   </footer>
 
-            <div class="newsletter-section">
-                <h4 class="footer-heading">Subscribe to Our Newsletter</h4>
-                <p>Stay updated with our latest collections and exclusive offers.</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Enter your email" required>
-                    <button type="submit">Subscribe</button>
-                </form>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2025 InkredEssence. All rights reserved.</p>
-        </div>
-    </footer>
-    <script src="blog.js"></script>
+   <script src="blog.js"></script>
 </body>
 </html>
