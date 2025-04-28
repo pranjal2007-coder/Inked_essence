@@ -102,7 +102,7 @@ We welcome all contributors who are passionate about fashion, design, or tech!
 - **Manager**: Pranjal Kwatra
 - **Developer1**: Pulkit Bajaj
 - **Developer2**: Ritvik Verma
-- **Tester**: Siddhant Bhatia
+- **Developer&Tester**: Siddhant Bhatia
 
 ---
 
@@ -123,5 +123,5 @@ We welcome all contributors who are passionate about fashion, design, or tech!
 ## 🌐 Connect With Us
 
 - **Instagram**: https://www.instagram.com/inked___essence/
-- **Website**: [Coming Soon]
+- **Website**: [https://pranjal2007-coder.github.io/Inked_essence/](https://pranjal2007-coder.github.io/Inked_essence/)
 - **Email**: info@inkedessence.co
