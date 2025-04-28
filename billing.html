@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Billing - Inked Essence</title>
+    <title>Checkout - Inked Essence</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,9 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="billing.css">
     <script>
-        // Configure Tailwind for dark mode
+        // Configure Tailwind for dark mode & custom styles
         tailwind.config = {
-            darkMode: 'class', // Enable dark mode based on class
+            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
@@ -21,18 +21,27 @@
                         logo: ['Dancing Script', 'cursive'],
                     },
                     colors: {
-                        // Define custom colors (optional, Tailwind covers most)
-                        'brand-purple': '#6d28d9', // Example purple used in buttons
-                        'footer-bg': '#111827', // Dark background for footer (like gray-900)
-                        'footer-text': '#9ca3af', // Lighter gray text for footer (like gray-400)
-                        'footer-link': '#d1d5db', // Slightly lighter gray for links (like gray-300)
+                        'brand-purple': '#6d28d9',
+                        'footer-bg': '#111827',
+                        'footer-text': '#9ca3af',
+                        'footer-link': '#d1d5db',
                         'brand-gray': {
-                            light: '#f3f4f6', // Light mode background
-                            dark: '#1f2937'   // Dark mode background (example: gray-800)
+                            light: '#f3f4f6',
+                            dark: '#1f2937'
                         },
-                        'text-light': '#1f2937', // Dark text for light mode
-                        'text-dark': '#f3f4f6',  // Light text for dark mode
-                    }
+                        'text-light': '#1f2937',
+                        'text-dark': '#f3f4f6',
+                    },
+                    // Added animation for spinner
+                    keyframes: {
+                        spin: {
+                            '0%': { transform: 'rotate(0deg)' },
+                            '100%': { transform: 'rotate(360deg)' },
+                        },
+                    },
+                    animation: {
+                        spin: 'spin 1s linear infinite',
+                    },
                 }
             }
         }
@@ -43,20 +52,19 @@
     <nav class="bg-white dark:bg-gray-900 shadow-md py-3 px-4 md:px-8 transition-colors duration-300 sticky top-0 z-40">
         <div class="container mx-auto flex justify-between items-center">
             <a href="#" class="text-3xl font-logo text-gray-900 dark:text-white">Inked Essence</a>
-
             <ul class="hidden md:flex space-x-6 items-center">
-                <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-brand-purple dark:hover:text-brand-purple transition duration-300">Home</a></li>
-                <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-brand-purple dark:hover:text-brand-purple transition duration-300">Shop</a></li>
-                <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-brand-purple dark:hover:text-brand-purple transition duration-300">Categories</a></li>
-                <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-brand-purple dark:hover:text-brand-purple transition duration-300">About</a></li>
-                <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-brand-purple dark:hover:text-brand-purple transition duration-300">Contact</a></li>
+                <li><a href="#" class="nav-link">Home</a></li>
+                <li><a href="#" class="nav-link">Shop</a></li>
+                <li><a href="#" class="nav-link">Categories</a></li>
+                <li><a href="#" class="nav-link">About</a></li>
+                <li><a href="#" class="nav-link">Contact</a></li>
             </ul>
-
             <div class="flex items-center space-x-4">
-                 <button id="theme-toggle" class="text-gray-600 dark:text-gray-300 hover:text-brand-purple dark:hover:text-brand-purple transition duration-300 focus:outline-none" aria-label="Toggle theme">
-                    <i id="theme-icon" class="fa-solid fa-moon text-xl"></i> </button>
-                <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-brand-purple dark:hover:text-brand-purple transition duration-300" aria-label="Wishlist"><i class="fa-regular fa-heart text-xl"></i></a>
-                <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-brand-purple dark:hover:text-brand-purple transition duration-300 relative" aria-label="Notifications">
+                <button id="theme-toggle" class="nav-icon-btn" aria-label="Toggle theme">
+                    <i id="theme-icon" class="fa-solid fa-moon text-xl"></i>
+                </button>
+                <a href="#" class="nav-icon-btn" aria-label="Wishlist"><i class="fa-regular fa-heart text-xl"></i></a>
+                <a href="#" class="nav-icon-btn relative" aria-label="Notifications">
                     <i class="fa-regular fa-bell text-xl"></i>
                     <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">3</span>
                 </a>
@@ -64,19 +72,19 @@
                     <i class="fa-regular fa-user"></i>
                     <span>Login/Signup</span>
                 </a>
-                 <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-brand-purple dark:hover:text-brand-purple transition duration-300" aria-label="Settings"><i class="fa-solid fa-gear text-xl"></i></a>
-                 <button id="mobile-menu-button" class="md:hidden text-gray-600 dark:text-gray-300 hover:text-brand-purple dark:hover:text-brand-purple" aria-label="Open menu">
+                 <a href="#" class="nav-icon-btn" aria-label="Settings"><i class="fa-solid fa-gear text-xl"></i></a>
+                 <button id="mobile-menu-button" class="md:hidden nav-icon-btn" aria-label="Open menu" aria-expanded="false">
                     <i class="fa-solid fa-bars text-xl"></i>
                  </button>
             </div>
         </div>
          <div id="mobile-menu" class="hidden md:hidden mt-4 bg-white dark:bg-gray-900 rounded-md shadow-lg absolute top-full left-0 right-0 mx-4 border dark:border-gray-700">
              <ul class="flex flex-col space-y-1 p-2">
-                <li><a href="#" class="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Home</a></li>
-                <li><a href="#" class="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Shop</a></li>
-                <li><a href="#" class="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Categories</a></li>
-                <li><a href="#" class="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded">About</a></li>
-                <li><a href="#" class="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Contact</a></li>
+                <li><a href="#" class="mobile-nav-link">Home</a></li>
+                <li><a href="#" class="mobile-nav-link">Shop</a></li>
+                <li><a href="#" class="mobile-nav-link">Categories</a></li>
+                <li><a href="#" class="mobile-nav-link">About</a></li>
+                <li><a href="#" class="mobile-nav-link">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -84,139 +92,193 @@
     <main class="container mx-auto px-4 py-8 md:py-16">
         <h1 class="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-gray-900 dark:text-white">Checkout</h1>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-            <div class="md:col-span-2 bg-white dark:bg-gray-800 p-6 md:p-8 rounded-lg shadow-lg transition-colors duration-300">
-                <h2 class="text-2xl font-semibold mb-6 text-gray-800 dark:text-gray-100">Billing Details</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
+            <div class="lg:col-span-2 bg-white dark:bg-gray-800 p-6 md:p-8 rounded-lg shadow-lg transition-colors duration-300">
+                <h2 class="text-2xl font-semibold mb-6 text-gray-800 dark:text-gray-100">Billing & Shipping Details</h2>
                 <form id="billing-form" novalidate>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
-                        <div>
-                            <label for="full-name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Full Name *</label>
-                            <input type="text" id="full-name" name="full-name" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-brand-purple focus:border-brand-purple dark:focus:ring-offset-gray-800 dark:bg-gray-700 dark:text-gray-200 transition duration-300" placeholder="John Doe">
-                            <p class="text-red-500 text-xs mt-1 error-message hidden">Full Name is required.</p>
+                    <section aria-labelledby="personal-info-heading" class="mb-8">
+                         <h3 id="personal-info-heading" class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-100">Personal Information</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="full-name" class="form-label">Full Name *</label>
+                                <input type="text" id="full-name" name="full-name" required class="form-input" placeholder="John Doe" autocomplete="name">
+                                <p class="error-message">Full Name is required.</p>
+                            </div>
+                            <div>
+                                <label for="email" class="form-label">Email Address *</label>
+                                <input type="email" id="email" name="email" required class="form-input" placeholder="you@example.com" autocomplete="email">
+                                <p class="error-message">Please enter a valid email address.</p>
+                            </div>
+                            <div>
+                                <label for="phone" class="form-label">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required class="form-input" placeholder="+91 12345 67890" autocomplete="tel">
+                                <p class="error-message">Valid Phone Number is required.</p>
+                            </div>
                         </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email Address *</label>
-                            <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-brand-purple focus:border-brand-purple dark:focus:ring-offset-gray-800 dark:bg-gray-700 dark:text-gray-200 transition duration-300" placeholder="you@example.com">
-                             <p class="text-red-500 text-xs mt-1 error-message hidden">Please enter a valid email address.</p>
-                        </div>
-                        <div>
-                            <label for="phone" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Phone Number *</label>
-                            <input type="tel" id="phone" name="phone" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-brand-purple focus:border-brand-purple dark:focus:ring-offset-gray-800 dark:bg-gray-700 dark:text-gray-200 transition duration-300" placeholder="+91 12345 67890">
-                             <p class="text-red-500 text-xs mt-1 error-message hidden">Phone Number is required.</p>
-                        </div>
-                    </div>
+                    </section>
 
-                    <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-100 border-t dark:border-gray-700 pt-6">Shipping Address</h3>
-                    <div class="grid grid-cols-1 gap-6 mb-6">
-                        <div>
-                            <label for="address-street" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Street Address *</label>
-                            <input type="text" id="address-street" name="address-street" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-brand-purple focus:border-brand-purple dark:focus:ring-offset-gray-800 dark:bg-gray-700 dark:text-gray-200 transition duration-300" placeholder="123 Main St, Apartment 4B">
-                             <p class="text-red-500 text-xs mt-1 error-message hidden">Street Address is required.</p>
+                    <section aria-labelledby="shipping-address-heading" class="mb-8 border-t dark:border-gray-700 pt-6">
+                        <h3 id="shipping-address-heading" class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-100">Shipping Address</h3>
+                        <div class="grid grid-cols-1 gap-6 mb-6">
+                            <div>
+                                <label for="address-street" class="form-label">Street Address *</label>
+                                <input type="text" id="address-street" name="address-street" required class="form-input" placeholder="123 Main St, Apartment 4B" autocomplete="street-address">
+                                <p class="error-message">Street Address is required.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-6">
-                        <div>
-                            <label for="address-city" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">City *</label>
-                            <input type="text" id="address-city" name="address-city" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-brand-purple focus:border-brand-purple dark:focus:ring-offset-gray-800 dark:bg-gray-700 dark:text-gray-200 transition duration-300" placeholder="Anytown">
-                             <p class="text-red-500 text-xs mt-1 error-message hidden">City is required.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-6">
+                            <div>
+                                <label for="address-city" class="form-label">City *</label>
+                                <input type="text" id="address-city" name="address-city" required class="form-input" placeholder="Anytown" autocomplete="address-level2">
+                                <p class="error-message">City is required.</p>
+                            </div>
+                            <div>
+                                <label for="address-state" class="form-label">State / Province *</label>
+                                <input type="text" id="address-state" name="address-state" required class="form-input" placeholder="State" autocomplete="address-level1">
+                                <p class="error-message">State is required.</p>
+                            </div>
+                            <div>
+                                <label for="address-zip" class="form-label">PIN / Postal Code *</label>
+                                <input type="text" id="address-zip" name="address-zip" required inputmode="numeric" pattern="[0-9]{5,6}" class="form-input" placeholder="123456" autocomplete="postal-code">
+                                <p class="error-message">Valid PIN Code is required.</p>
+                            </div>
                         </div>
-                        <div>
-                            <label for="address-state" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">State / Province *</label>
-                            <input type="text" id="address-state" name="address-state" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-brand-purple focus:border-brand-purple dark:focus:ring-offset-gray-800 dark:bg-gray-700 dark:text-gray-200 transition duration-300" placeholder="State">
-                             <p class="text-red-500 text-xs mt-1 error-message hidden">State is required.</p>
-                        </div>
-                        <div>
-                            <label for="address-zip" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">PIN / Postal Code *</label>
-                            <input type="text" id="address-zip" name="address-zip" required inputmode="numeric" pattern="[0-9]{6}" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-brand-purple focus:border-brand-purple dark:focus:ring-offset-gray-800 dark:bg-gray-700 dark:text-gray-200 transition duration-300" placeholder="123456">
-                            <p class="text-red-500 text-xs mt-1 error-message hidden">Valid 6-digit PIN Code is required.</p>
-                        </div>
-                    </div>
-                     <div class="relative"> <label for="address-country" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Country *</label>
-                            <select id="address-country" name="address-country" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-brand-purple focus:border-brand-purple dark:focus:ring-offset-gray-800 bg-white dark:bg-gray-700 dark:text-gray-200 transition duration-300 appearance-none">
+                        <div class="relative mb-6">
+                            <label for="address-country" class="form-label">Country *</label>
+                            <select id="address-country" name="address-country" required class="form-input select-input" autocomplete="country-name">
                                 <option value="">Select Country</option>
                                 <option value="IN">India</option>
                                 <option value="US">United States</option>
                                 <option value="CA">Canada</option>
                                 <option value="GB">United Kingdom</option>
-                                </select>
-                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dark:text-gray-300 top-6"> <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                            </select>
+                            <div class="select-arrow">
+                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
                             </div>
-                             <p class="text-red-500 text-xs mt-1 error-message hidden">Country is required.</p>
+                            <p class="error-message">Country is required.</p>
                         </div>
+                         <div class="flex items-center">
+                            <input id="save-address" name="save-address" type="checkbox" class="h-4 w-4 text-brand-purple border-gray-300 dark:border-gray-600 rounded focus:ring-brand-purple dark:bg-gray-700 dark:focus:ring-offset-gray-800">
+                            <label for="save-address" class="ml-2 block text-sm text-gray-700 dark:text-gray-300">Save this address for future orders</label>
+                        </div>
+                    </section>
 
-                    <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-100 border-t dark:border-gray-700 pt-6 mt-8">Payment Method</h3>
-                     <div class="space-y-4">
-                         <div class="flex items-center p-4 border dark:border-gray-700 rounded-md hover:border-brand-purple dark:hover:border-brand-purple transition duration-300 has-[:checked]:border-brand-purple has-[:checked]:ring-2 has-[:checked]:ring-brand-purple has-[:checked]:ring-offset-2 dark:has-[:checked]:ring-offset-gray-800">
-                             <input id="payment-cc" name="payment-method" type="radio" value="cc" class="focus:ring-brand-purple h-4 w-4 text-brand-purple border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:focus:ring-offset-gray-800">
-                             <label for="payment-cc" class="ml-3 block text-sm font-medium text-gray-700 dark:text-gray-300 cursor-pointer flex-1">Credit Card</label>
-                         </div>
-                         <div class="flex items-center p-4 border dark:border-gray-700 rounded-md hover:border-brand-purple dark:hover:border-brand-purple transition duration-300 has-[:checked]:border-brand-purple has-[:checked]:ring-2 has-[:checked]:ring-brand-purple has-[:checked]:ring-offset-2 dark:has-[:checked]:ring-offset-gray-800">
-                             <input id="payment-dc" name="payment-method" type="radio" value="dc" class="focus:ring-brand-purple h-4 w-4 text-brand-purple border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:focus:ring-offset-gray-800">
-                             <label for="payment-dc" class="ml-3 block text-sm font-medium text-gray-700 dark:text-gray-300 cursor-pointer flex-1">Debit Card</label>
-                         </div>
-                         <div class="flex items-center p-4 border dark:border-gray-700 rounded-md hover:border-brand-purple dark:hover:border-brand-purple transition duration-300 has-[:checked]:border-brand-purple has-[:checked]:ring-2 has-[:checked]:ring-brand-purple has-[:checked]:ring-offset-2 dark:has-[:checked]:ring-offset-gray-800">
-                             <input id="payment-upi" name="payment-method" type="radio" value="upi" class="focus:ring-brand-purple h-4 w-4 text-brand-purple border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:focus:ring-offset-gray-800">
-                             <label for="payment-upi" class="ml-3 block text-sm font-medium text-gray-700 dark:text-gray-300 cursor-pointer flex-1">UPI</label>
-                         </div>
-                         <div class="flex items-center p-4 border dark:border-gray-700 rounded-md hover:border-brand-purple dark:hover:border-brand-purple transition duration-300 has-[:checked]:border-brand-purple has-[:checked]:ring-2 has-[:checked]:ring-brand-purple has-[:checked]:ring-offset-2 dark:has-[:checked]:ring-offset-gray-800">
-                             <input id="payment-cod" name="payment-method" type="radio" value="cod" class="focus:ring-brand-purple h-4 w-4 text-brand-purple border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:focus:ring-offset-gray-800">
-                             <label for="payment-cod" class="ml-3 block text-sm font-medium text-gray-700 dark:text-gray-300 cursor-pointer flex-1">Cash on Delivery</label>
-                         </div>
-                     </div>
-                     <p id="payment-error" class="text-red-500 text-xs mt-1 error-message hidden">Please select a payment method.</p>
+                    <section aria-labelledby="shipping-method-heading" class="mb-8 border-t dark:border-gray-700 pt-6">
+                        <h3 id="shipping-method-heading" class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-100">Shipping Method</h3>
+                        <div class="space-y-4">
+                             <div class="flex items-center p-4 border dark:border-gray-700 rounded-md has-[:checked]:border-brand-purple has-[:checked]:ring-2 has-[:checked]:ring-brand-purple has-[:checked]:ring-offset-1 dark:has-[:checked]:ring-offset-gray-800">
+                                <input id="shipping-standard" name="shipping-method" type="radio" value="standard" checked class="form-radio">
+                                <label for="shipping-standard" class="ml-3 flex-1 cursor-pointer">
+                                    <span class="block text-sm font-medium text-gray-800 dark:text-gray-100">Standard Shipping</span>
+                                    <span class="block text-sm text-gray-500 dark:text-gray-400">4-7 business days - Free</span>
+                                </label>
+                            </div>
+                             <div class="flex items-center p-4 border dark:border-gray-700 rounded-md has-[:checked]:border-brand-purple has-[:checked]:ring-2 has-[:checked]:ring-brand-purple has-[:checked]:ring-offset-1 dark:has-[:checked]:ring-offset-gray-800">
+                                <input id="shipping-express" name="shipping-method" type="radio" value="express" class="form-radio">
+                                <label for="shipping-express" class="ml-3 flex-1 cursor-pointer">
+                                    <span class="block text-sm font-medium text-gray-800 dark:text-gray-100">Express Shipping</span>
+                                    <span class="block text-sm text-gray-500 dark:text-gray-400">1-3 business days - ₹150</span>
+                                </label>
+                            </div>
+                        </div>
+                    </section>
 
-                    <div class="mt-8 text-right">
-                        <button type="submit" class="bg-gray-800 dark:bg-gray-700 text-white px-8 py-3 rounded-md font-semibold hover:bg-brand-purple dark:hover:bg-brand-purple focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-purple dark:focus:ring-offset-gray-800 transition duration-300">
-                            Place Order
+                    <section aria-labelledby="payment-method-heading" class="border-t dark:border-gray-700 pt-6">
+                        <h3 id="payment-method-heading" class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-100">Payment Method</h3>
+                        <div class="space-y-4">
+                            <div class="payment-option">
+                                <input id="payment-cc" name="payment-method" type="radio" value="cc" class="form-radio">
+                                <label for="payment-cc" class="payment-label">
+                                    <i class="fa-regular fa-credit-card w-5 mr-2"></i> Credit Card
+                                </label>
+                            </div>
+                             <div class="payment-option">
+                                <input id="payment-dc" name="payment-method" type="radio" value="dc" class="form-radio">
+                                <label for="payment-dc" class="payment-label">
+                                     <i class="fa-solid fa-credit-card w-5 mr-2"></i> Debit Card
+                                </label>
+                            </div>
+                             <div class="payment-option">
+                                <input id="payment-upi" name="payment-method" type="radio" value="upi" class="form-radio">
+                                <label for="payment-upi" class="payment-label">
+                                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/UPI-Logo-vector.svg/2560px-UPI-Logo-vector.svg.png" alt="UPI Logo" class="h-4 w-auto mr-2 inline dark:invert"> UPI
+                                </label>
+                            </div>
+                            <div class="payment-option">
+                                <input id="payment-cod" name="payment-method" type="radio" value="cod" class="form-radio">
+                                <label for="payment-cod" class="payment-label">
+                                     <i class="fa-solid fa-hand-holding-dollar w-5 mr-2"></i> Cash on Delivery
+                                </label>
+                            </div>
+                        </div>
+                        <p id="payment-error" class="error-message mt-2">Please select a payment method.</p>
+                    </section>
+
+                    <div class="mt-10 text-right border-t dark:border-gray-700 pt-6">
+                        <button type="submit" id="submit-button" class="bg-gray-800 dark:bg-gray-700 text-white px-8 py-3 rounded-md font-semibold hover:bg-brand-purple dark:hover:bg-brand-purple focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-purple dark:focus:ring-offset-gray-800 transition duration-300 inline-flex items-center justify-center disabled:opacity-50">
+                             <span class="button-text">Place Order</span>
+                             <svg id="spinner" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                             </svg>
                         </button>
                     </div>
                 </form>
             </div>
 
-            <div class="md:col-span-1 bg-white dark:bg-gray-800 p-6 md:p-8 rounded-lg shadow-lg h-fit transition-colors duration-300 sticky top-24"> <h2 class="text-2xl font-semibold mb-6 text-gray-800 dark:text-gray-100 border-b dark:border-gray-700 pb-4">Order Summary</h2>
-                 <div class="space-y-4 mb-6 max-h-60 overflow-y-auto pr-2"> <div class="flex justify-between items-center text-sm text-gray-600 dark:text-gray-300">
-                        <div>
+            <div class="lg:col-span-1 bg-white dark:bg-gray-800 p-6 md:p-8 rounded-lg shadow-lg h-fit transition-colors duration-300 lg:sticky lg:top-24">
+                 <h2 class="text-2xl font-semibold mb-6 text-gray-800 dark:text-gray-100 border-b dark:border-gray-700 pb-4">Order Summary</h2>
+                 <div class="space-y-4 mb-6 max-h-60 overflow-y-auto pr-2 custom-scrollbar">
+                    <div class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                         <img src="https://placehold.co/64x64/e2e8f0/94a3b8?text=Item+1" alt="Product Image" class="w-16 h-16 rounded-md mr-4 object-cover flex-shrink-0 bg-gray-200 dark:bg-gray-700">
+                        <div class="flex-grow">
                             <p class="font-medium text-gray-800 dark:text-gray-100">Graphic T-Shirt "Abstract Flow"</p>
                             <p>Size: M, Qty: 1</p>
                         </div>
-                        <span>₹899</span>
+                        <span class="font-medium text-gray-800 dark:text-gray-100">₹899</span>
                     </div>
-                     <div class="flex justify-between items-center text-sm text-gray-600 dark:text-gray-300">
-                        <div>
+                     <div class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                         <img src="https://placehold.co/64x64/e2e8f0/94a3b8?text=Item+2" alt="Product Image" class="w-16 h-16 rounded-md mr-4 object-cover flex-shrink-0 bg-gray-200 dark:bg-gray-700">
+                        <div class="flex-grow">
                             <p class="font-medium text-gray-800 dark:text-gray-100">Custom Hoodie "Urban Lines"</p>
                             <p>Size: L, Qty: 1</p>
                         </div>
-                        <span>₹1499</span>
+                         <span class="font-medium text-gray-800 dark:text-gray-100">₹1499</span>
                     </div>
-                     <div class="flex justify-between items-center text-sm text-gray-600 dark:text-gray-300">
-                        <div>
+                     <div class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                         <img src="https://placehold.co/64x64/e2e8f0/94a3b8?text=Item+3" alt="Product Image" class="w-16 h-16 rounded-md mr-4 object-cover flex-shrink-0 bg-gray-200 dark:bg-gray-700">
+                        <div class="flex-grow">
                             <p class="font-medium text-gray-800 dark:text-gray-100">Beanie "Night Sky"</p>
                             <p>Qty: 1</p>
                         </div>
-                        <span>₹499</span>
+                         <span class="font-medium text-gray-800 dark:text-gray-100">₹499</span>
                     </div>
-                     <div class="flex justify-between items-center text-sm text-gray-600 dark:text-gray-300">
-                        <div>
-                            <p class="font-medium text-gray-800 dark:text-gray-100">Socks "Pattern Play"</p>
-                            <p>Qty: 2</p>
-                        </div>
-                        <span>₹398</span>
-                    </div>
+                 </div>
+
+                 <div class="border-t dark:border-gray-700 pt-4 mb-4">
+                     <label for="discount-code" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Discount Code</label>
+                     <div class="flex gap-2">
+                         <input type="text" id="discount-code" name="discount-code" class="form-input flex-grow" placeholder="Enter code">
+                         <button type="button" id="apply-discount" class="bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-200 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-300 dark:hover:bg-gray-500 transition duration-300">Apply</button>
+                     </div>
+                     <p id="discount-message" class="text-xs mt-1 text-green-600 dark:text-green-400 hidden">Discount applied!</p>
                  </div>
 
                  <div class="border-t dark:border-gray-700 pt-4 space-y-2">
                     <div class="flex justify-between text-sm text-gray-600 dark:text-gray-300">
                         <span>Subtotal</span>
-                        <span>₹3295</span>
+                        <span id="summary-subtotal">₹2897</span> </div>
+                     <div class="flex justify-between text-sm text-gray-600 dark:text-gray-300">
+                        <span>Discount</span>
+                        <span id="summary-discount" class="text-red-500">-₹0</span>
                     </div>
                     <div class="flex justify-between text-sm text-gray-600 dark:text-gray-300">
                         <span>Shipping</span>
-                        <span class="text-green-600 dark:text-green-400">Free</span>
+                        <span id="summary-shipping">Free</span>
                     </div>
                      <div class="flex justify-between text-lg font-semibold text-gray-900 dark:text-white border-t dark:border-gray-700 pt-4 mt-4">
                         <span>Total</span>
-                        <span>₹3295</span>
-                    </div>
+                        <span id="summary-total">₹2897</span> </div>
                  </div>
             </div>
         </div>
@@ -224,67 +286,57 @@
 
     <footer class="bg-footer-bg text-footer-text mt-16 pt-16 pb-8 px-4">
         <div class="container mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-                <div class="md:col-span-1">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div class="md:col-span-1 lg:col-span-1">
                     <a href="#" class="text-3xl font-logo text-white mb-4 inline-block">Inked Essence</a>
-                    <p class="text-sm">
-                        Premium fashion for the modern individual. Quality meets style in every piece.
-                    </p>
-                    </div>
-
-                <div>
-                    <h3 class="text-lg font-semibold text-white mb-4">Quick Links</h3>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="#" class="hover:text-white transition duration-300">About Us</a></li>
-                        <li><a href="#" class="hover:text-white transition duration-300">Contact</a></li>
-                        <li><a href="#" class="hover:text-white transition duration-300">FAQs</a></li>
-                        <li><a href="#" class="hover:text-white transition duration-300">Privacy Policy</a></li>
-                        </ul>
+                    <p class="text-sm">Premium fashion for the modern individual. Quality meets style.</p>
                 </div>
-
                 <div>
-                    <h3 class="text-lg font-semibold text-white mb-4">Contact Info</h3>
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <ul class="footer-list">
+                        <li><a href="#" class="footer-link">About Us</a></li>
+                        <li><a href="#" class="footer-link">Contact</a></li>
+                        <li><a href="#" class="footer-link">FAQs</a></li>
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-heading">Contact Info</h3>
                     <address class="text-sm not-italic space-y-2">
                         <p>123 Fashion Street<br>New York, NY 10001</p>
-                        <p>Phone: <a href="tel:+15551234567" class="hover:text-white transition duration-300">(555) 123-4567</a></p>
-                        <p>Email: <a href="mailto:info@inkedessence.com" class="hover:text-white transition duration-300">info@inkedessence.com</a></p>
+                        <p>Phone: <a href="tel:+15551234567" class="footer-link">(555) 123-4567</a></p>
+                        <p>Email: <a href="mailto:info@inkedessence.com" class="footer-link">info@inkedessence.com</a></p>
                     </address>
                 </div>
-
                 <div>
-                     <h3 class="text-lg font-semibold text-white mb-4">Subscribe to Our Newsletter</h3>
-                     <p class="text-sm mb-4">Stay updated with our latest collections and exclusive offers.</p>
-                     <form action="#" method="POST">
+                     <h3 class="footer-heading">Subscribe to Our Newsletter</h3>
+                     <p class="text-sm mb-4">Stay updated with our latest collections.</p>
+                     <form action="#" method="POST" class="mt-4">
                          <div class="flex flex-col sm:flex-row gap-2">
                              <label for="newsletter-email" class="sr-only">Email address</label>
-                             <input type="email" id="newsletter-email" name="newsletter-email" required class="w-full px-4 py-2 border border-gray-700 rounded-md bg-gray-800 text-footer-link placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-purple focus:border-transparent text-sm" placeholder="Enter your email">
-                             <button type="submit" class="bg-brand-purple text-white px-5 py-2 rounded-md font-semibold hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-footer-bg focus:ring-brand-purple transition duration-300 text-sm whitespace-nowrap">
-                                 Subscribe
-                             </button>
+                             <input type="email" id="newsletter-email" name="newsletter-email" required class="footer-input flex-grow" placeholder="Enter your email">
+                             <button type="submit" class="footer-button">Subscribe</button>
                          </div>
                      </form>
                 </div>
             </div>
-
             <div class="border-t border-gray-700 pt-8 mt-8 text-center text-sm">
                 <p>&copy; 2025 Inked Essence. All rights reserved.</p>
             </div>
         </div>
     </footer>
-    <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden z-50 transition-opacity duration-300 opacity-0">
-        <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-xl text-center max-w-sm w-full transition-all duration-300 transform scale-95 opacity-0">
-            <button id="close-modal" class="absolute top-4 right-4 text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white text-2xl cursor-pointer" aria-label="Close modal">&times;</button>
+
+    <div id="success-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="close-modal" class="modal-close-button" aria-label="Close modal">&times;</button>
             <div class="text-green-500 dark:text-green-400 mb-4">
                 <i class="fas fa-check-circle fa-3x"></i>
             </div>
-            <h2 class="text-2xl font-semibold mb-3 text-gray-800 dark:text-gray-100">Order Placed Successfully!</h2>
-            <p class="text-gray-600 dark:text-gray-300 mb-6">Thank you for your purchase. You'll receive a confirmation email shortly.</p>
-            <button id="modal-ok-button" class="bg-brand-purple text-white px-6 py-2 rounded-md font-semibold hover:bg-purple-700 dark:hover:bg-purple-500 transition duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-purple dark:focus:ring-offset-gray-800">
-                OK
-            </button>
+            <h2 class="modal-heading">Order Placed Successfully!</h2>
+            <p class="modal-text">Thank you for your purchase. Confirmation details sent to your email.</p>
+            <button id="modal-ok-button" class="modal-ok-button">OK</button>
         </div>
     </div>
-
 
     <script src="billing.js"></script>
 </body>
