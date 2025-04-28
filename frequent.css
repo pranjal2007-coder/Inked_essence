@@ -1,324 +1,323 @@
-/* Import Tailwind base, components, and utilities */
-@import url('https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css');
+/* style.css (Enhanced + Updated Navbar + Footer + New Fonts) */
 
-/* Define custom properties for theming */
+/* --- Base Styles & Variables (Updated Fonts) --- */
 :root {
-    --font-primary: 'Inter', sans-serif;
-    --font-logo: 'Pacifico', cursive;
+  /* Font Variables */
+  --font-primary: 'Nunito Sans', sans-serif; /* Main font for UI/body */
+  --font-headings: 'Cormorant Garamond', serif; /* Font for logo & main headings */
 
-    /* Light Theme Colors */
-    --color-bg-light: #ffffff;
-    --color-bg-secondary-light: #f9fafb; /* Off-white for elements like FAQ items */
-    --color-text-primary-light: #1f2937; /* Dark Gray */
-    --color-text-secondary-light: #6b7280; /* Medium Gray */
-    --color-border-light: #e5e7eb; /* Light Gray Border */
-    --color-icon-light: #4b5563; /* Gray Icon */
-    --color-button-bg-light: #6d28d9; /* Purple */
-    --color-button-text-light: #ffffff;
-    --color-link-light: #4b5563; /* Gray */
-    --color-link-hover-light: #6d28d9; /* Purple */
-    --color-logo-light: #1f2937; /* Dark Gray */
-    --color-faq-bg-light: #ffffff;
-    --color-faq-border-light: #e5e7eb;
-    /* Footer specific light mode (using dark bg as per screenshot) */
-    --color-footer-bg-light: #111827; /* Very Dark Gray/Blue */
-    --color-footer-text-primary-light: #f9fafb; /* Light Gray */
-    --color-footer-text-secondary-light: #9ca3af; /* Medium Gray */
-    --color-footer-link-light: #d1d5db; /* Light Gray */
-    --color-footer-link-hover-light: #ffffff;
-    --color-footer-border-light: #374151; /* Darker border for contrast */
-    --color-footer-input-bg-light: #374151;
-    --color-footer-input-text-light: #f9fafb;
-    --color-footer-button-bg-light: #6d28d9; /* Purple */
-    --color-footer-button-text-light: #ffffff;
+  /* ... (Color variables remain the same) ... */
+   /* Light Mode Colors */
+  --bg-primary-light: #ffffff;
+  --bg-secondary-light: #f9fafb;
+  --text-primary-light: #1f2937;
+  --text-secondary-light: #6b7280;
+  --border-color-light: #e5e7eb;
+  --accent-color-light: #4f46e5;
+  --accent-color-hover-light: #4338ca;
+  --navbar-bg-light: #ffffff;
+  --navbar-shadow-light: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+  --card-bg-light: #ffffff;
+  --button-text-light: #ffffff;
+  --shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+  --input-bg-light: #ffffff;
+  --input-border-light: #d1d5db;
+  --input-focus-border-light: var(--accent-color-light);
+  --badge-bg-light: #ef4444;
+  --badge-text-light: #ffffff;
+  --footer-bg-light: #1f2937;
+  --footer-text-primary-light: #f9fafb;
+  --footer-text-secondary-light: #9ca3af;
+  --footer-border-light: #374151;
+  --footer-input-bg-light: #374151;
+  --footer-input-border-light: #4b5563;
+  --footer-input-text-light: #f9fafb;
 
+  /* Dark Mode Colors */
+  --bg-primary-dark: #111827;
+  --bg-secondary-dark: #1f2937;
+  --text-primary-dark: #f9fafb;
+  --text-secondary-dark: #9ca3af;
+  --border-color-dark: #374151;
+  --accent-color-dark: #6366f1;
+  --accent-color-hover-dark: #818cf8;
+  --navbar-bg-dark: #1f2937;
+  --navbar-shadow-dark: 0 1px 3px 0 rgba(255, 255, 255, 0.05), 0 1px 2px 0 rgba(255, 255, 255, 0.04);
+  --card-bg-dark: #1f2937;
+  --button-text-dark: #ffffff;
+  --shadow-dark: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+  --input-bg-dark: #374151;
+  --input-border-dark: #4b5563;
+  --input-focus-border-dark: var(--accent-color-dark);
+  --badge-bg-dark: #f87171;
+  --badge-text-dark: #111827;
+  --footer-bg-dark: #111827;
+  --footer-text-primary-dark: #f9fafb;
+  --footer-text-secondary-dark: #9ca3af;
+  --footer-border-dark: #1f2937;
+  --footer-input-bg-dark: #1f2937;
+  --footer-input-border-dark: #374151;
+  --footer-input-text-dark: #f9fafb;
 
-    /* Dark Theme Colors */
-    --color-bg-dark: #1f2937; /* Dark Gray-Blue */
-    --color-bg-secondary-dark: #374151; /* Medium Dark Gray */
-    --color-text-primary-dark: #f9fafb; /* Very Light Gray */
-    --color-text-secondary-dark: #d1d5db; /* Light Gray */
-    --color-border-dark: #4b5563; /* Gray Border */
-    --color-icon-dark: #d1d5db; /* Light Gray Icon */
-    --color-button-bg-dark: #8b5cf6; /* Lighter Purple */
-    --color-button-text-dark: #ffffff;
-    --color-link-dark: #d1d5db; /* Light Gray */
-    --color-link-hover-dark: #a78bfa; /* Lighter Purple */
-    --color-logo-dark: #f9fafb; /* Light Gray */
-    --color-faq-bg-dark: #374151;
-    --color-faq-border-dark: #4b5563;
-    /* Footer specific dark mode (similar to light mode footer bg) */
-    --color-footer-bg-dark: #111827; /* Very Dark Gray/Blue */
-    --color-footer-text-primary-dark: #f9fafb; /* Light Gray */
-    --color-footer-text-secondary-dark: #9ca3af; /* Medium Gray */
-    --color-footer-link-dark: #d1d5db; /* Light Gray */
-    --color-footer-link-hover-dark: #ffffff;
-    --color-footer-border-dark: #374151; /* Darker border */
-    --color-footer-input-bg-dark: #374151;
-    --color-footer-input-text-dark: #f9fafb;
-    --color-footer-button-bg-dark: #8b5cf6; /* Lighter Purple */
-    --color-footer-button-text-dark: #ffffff;
+  /* Transitions */
+  --transition-speed: 0.3s;
+  --transition-timing: ease;
+  --transition-speed-fast: 0.2s;
+
+  /* Added for smooth scroll */
+  scroll-behavior: smooth;
 }
 
-/* Apply base styles */
+/* Apply base font and light mode variables by default */
 body {
-    font-family: var(--font-primary);
-    transition: background-color 0.3s ease, color 0.3s ease;
-    display: flex; /* Added for sticky footer */
-    flex-direction: column; /* Added for sticky footer */
-    min-height: 100vh; /* Added for sticky footer */
+  font-family: var(--font-primary); /* Use Nunito Sans as the base font */
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-primary-light);
+  color: var(--text-primary-light);
+  transition: background-color var(--transition-speed) var(--transition-timing),
+              color var(--transition-speed) var(--transition-timing);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-main {
-    flex-grow: 1; /* Added for sticky footer */
-}
+/* --- Dark Mode Specific Styles (Keep as is) --- */
+html.dark body { background-color: var(--bg-primary-dark); color: var(--text-primary-dark); }
+/* ... (All other dark mode styles remain the same) ... */
+html.dark .navbar { background-color: var(--navbar-bg-dark); box-shadow: var(--navbar-shadow-dark); }
+html.dark .navbar-logo { color: var(--text-primary-dark); }
+html.dark .nav-link, html.dark .icon-link, html.dark .mobile-menu-toggle, html.dark .theme-toggle-btn { color: var(--text-primary-dark); }
+html.dark .nav-link:hover, html.dark .icon-link:hover, html.dark .mobile-menu-toggle:hover, html.dark .theme-toggle-btn:hover { color: var(--accent-color-dark); }
+html.dark .nav-link.active { color: var(--accent-color-dark); }
+html.dark .button-primary { background-color: var(--accent-color-dark); color: var(--button-text-dark); }
+html.dark .button-primary:hover { background-color: var(--accent-color-hover-dark); }
+html.dark .cart-badge { background-color: var(--badge-bg-dark); color: var(--badge-text-dark); border-color: var(--navbar-bg-dark); }
+html.dark .main-content { background-color: var(--bg-primary-dark); }
+html.dark .page-title { color: var(--text-primary-dark); } /* Heading font applied below */
+html.dark .search-input { background-color: var(--input-bg-dark); border-color: var(--input-border-dark); color: var(--text-primary-dark); }
+html.dark .search-input::placeholder { color: var(--text-secondary-dark); }
+html.dark .search-input:focus { border-color: var(--input-focus-border-dark); box-shadow: 0 0 0 2px var(--accent-color-dark); }
+html.dark .search-icon { color: var(--text-secondary-dark); }
+html.dark .category-title { color: var(--text-primary-dark); border-bottom-color: var(--border-color-dark); }
+html.dark .faq-accordion { border-color: var(--border-color-dark); background-color: var(--card-bg-dark); box-shadow: var(--shadow-dark); }
+html.dark .faq-item { border-color: var(--border-color-dark); }
+html.dark .faq-question { color: var(--text-primary-dark); }
+html.dark .faq-question:hover { background-color: var(--bg-secondary-dark); }
+html.dark .faq-answer { background-color: var(--bg-secondary-dark); color: var(--text-secondary-dark); border-top-color: var(--border-color-dark); }
+html.dark .faq-icon { color: var(--text-secondary-dark); }
+html.dark .faq-feedback span { color: var(--text-secondary-dark); }
+html.dark .feedback-btn { background-color: var(--bg-secondary-dark); color: var(--text-secondary-dark); border-color: var(--border-color-dark); }
+html.dark .feedback-btn:hover { background-color: var(--border-color-dark); color: var(--text-primary-dark); }
+html.dark .no-results { color: var(--text-secondary-dark); }
+html.dark .back-to-top-btn { background-color: var(--accent-color-dark); color: var(--button-text-dark); }
+html.dark .back-to-top-btn:hover { background-color: var(--accent-color-hover-dark); }
+html.dark .mobile-menu { background-color: var(--navbar-bg-dark); border-top-color: var(--border-color-dark); }
+html.dark .mobile-menu .nav-link { border-bottom-color: var(--border-color-dark); }
+html.dark .mobile-menu .nav-link.active { border-left-color: var(--accent-color-dark); color: var(--accent-color-dark); background-color: rgba(255,255,255,0.03); }
+html.dark .mobile-actions { border-bottom-color: var(--border-color-dark); }
+html.dark .site-footer { background-color: var(--footer-bg-dark); color: var(--footer-text-primary-dark); }
+html.dark .footer-heading, html.dark .footer-logo { color: var(--footer-text-primary-dark); } /* Heading font applied below */
+html.dark .footer-description, html.dark .footer-links a, html.dark .footer-contact address, html.dark .footer-contact a, html.dark .footer-newsletter p, html.dark .footer-bottom p { color: var(--footer-text-secondary-dark); }
+html.dark .footer-links a:hover, html.dark .footer-contact a:hover { color: var(--footer-text-primary-dark); }
+html.dark .footer-newsletter { border-top-color: var(--footer-border-dark); border-bottom-color: var(--footer-border-dark); }
+html.dark .newsletter-form input[type="email"] { background-color: var(--footer-input-bg-dark); border-color: var(--footer-input-border-dark); color: var(--footer-input-text-dark); }
+html.dark .newsletter-form input[type="email"]::placeholder { color: var(--footer-text-secondary-dark); opacity: 0.7; }
+html.dark .newsletter-form input[type="email"]:focus { border-color: var(--accent-color-dark); box-shadow: 0 0 0 2px var(--accent-color-dark); }
+html.dark .newsletter-form .button-primary { background-color: var(--accent-color-dark); }
+html.dark .newsletter-form .button-primary:hover { background-color: var(--accent-color-hover-dark); }
 
 
-/* Utility classes for theming - General */
-.body-bg { background-color: var(--color-bg-light); }
-.body-text { color: var(--color-text-primary-light); }
-.header-bg { background-color: var(--color-bg-light); }
-.logo-text { color: var(--color-logo-light); }
-.nav-link { color: var(--color-link-light); transition: color 0.2s ease; }
-.nav-link:hover { color: var(--color-link-hover-light); }
-.icon-color { color: var(--color-icon-light); transition: color 0.2s ease; }
-.icon-button:hover .icon-color { color: var(--color-link-hover-light); }
-.login-button {
-    background-color: var(--color-button-bg-light);
-    color: var(--color-button-text-light);
-    padding: 0.5rem 1rem;
-    border-radius: 0.375rem; /* rounded-md */
-    font-weight: 500; /* medium */
-    transition: background-color 0.2s ease, color 0.2s ease;
-}
-.login-button:hover {
-    background-color: #5b21b6; /* Darker purple */
-}
-.heading-text { color: var(--color-text-primary-light); }
-.faq-item {
-    background-color: var(--color-faq-bg-light);
-    border: 1px solid var(--color-faq-border-light);
-    border-radius: 0.5rem; /* rounded-lg */
-    overflow: hidden; /* Prevents content spill */
-}
-.faq-question {
-    color: var(--color-text-primary-light);
-}
-.faq-answer {
-    color: var(--color-text-secondary-light);
-    border-top: 1px solid var(--color-faq-border-light);
-}
-.faq-icon {
-    color: var(--color-icon-light);
+/* --- Utility Classes --- */
+.content-container { max-width: 1100px; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; }
+
+/* --- Navbar Styles (Font Update) --- */
+.navbar { background-color: var(--navbar-bg-light); box-shadow: var(--navbar-shadow-light); position: sticky; top: 0; z-index: 1000; transition: background-color var(--transition-speed) var(--transition-timing), box-shadow var(--transition-speed) var(--transition-timing); }
+.navbar-container { display: flex; align-items: center; justify-content: space-between; height: 4rem; padding-left: 1rem; padding-right: 1rem; max-width: 1280px; margin: 0 auto; }
+
+/* Apply heading font to logo */
+.navbar-logo {
+  font-family: var(--font-headings); /* Use Cormorant Garamond */
+  font-size: 1.8rem; /* Adjust size if needed */
+  font-weight: 700;
+  color: var(--text-primary-light);
+  text-decoration: none;
+  transition: color var(--transition-speed) var(--transition-timing);
+  flex-shrink: 0;
+  line-height: 1; /* Adjust line height for serif font */
 }
 
+.navbar-menu { display: none; align-items: center; gap: 1.25rem; margin-left: 2rem; }
+/* Use primary font for nav links */
+.nav-link { font-family: var(--font-primary); color: var(--text-secondary-light); text-decoration: none; font-size: 0.9rem; font-weight: 600; /* Slightly bolder */ padding: 0.5rem 0.25rem; border-bottom: 2px solid transparent; transition: color var(--transition-speed-fast) var(--transition-timing), border-color var(--transition-speed-fast) var(--transition-timing); }
+.nav-link:hover { color: var(--accent-color-light); }
+.nav-link.active { color: var(--accent-color-light); }
+.navbar-actions { display: none; align-items: center; gap: 1rem; margin-left: auto; }
+.icon-link { color: var(--text-secondary-light); font-size: 1.2rem; position: relative; padding: 0.5rem; border-radius: 50%; transition: color var(--transition-speed-fast) var(--transition-timing), background-color var(--transition-speed-fast) var(--transition-timing); }
+.icon-link:hover { color: var(--accent-color-light); background-color: rgba(0, 0, 0, 0.04); }
+html.dark .icon-link:hover { background-color: rgba(255, 255, 255, 0.06); }
+.cart-badge { position: absolute; top: 0px; right: 0px; background-color: var(--badge-bg-light); color: var(--badge-text-light); font-size: 0.65rem; font-weight: bold; border-radius: 50%; padding: 1px 5px; line-height: 1; border: 1px solid var(--navbar-bg-light); transition: background-color var(--transition-speed) var(--transition-timing), color var(--transition-speed) var(--transition-timing), border-color var(--transition-speed) var(--transition-timing); }
+html.dark .cart-badge { border-color: var(--navbar-bg-dark); }
+/* Use primary font for buttons */
+.button { font-family: var(--font-primary); padding: 0.5rem 1.25rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 600; /* Bolder button text */ text-decoration: none; cursor: pointer; border: none; transition: background-color var(--transition-speed-fast) var(--transition-timing), color var(--transition-speed-fast) var(--transition-timing); display: inline-block; text-align: center; white-space: nowrap; }
+.button-primary { background-color: var(--accent-color-light); color: var(--button-text-light); }
+.button-primary:hover { background-color: var(--accent-color-hover-light); }
+.theme-toggle-btn { background: none; border: none; cursor: pointer; color: var(--text-secondary-light); padding: 0.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: color var(--transition-speed-fast) var(--transition-timing), background-color var(--transition-speed-fast) var(--transition-timing); }
+.theme-toggle-btn:hover { color: var(--accent-color-light); background-color: rgba(0, 0, 0, 0.04); }
+html.dark .theme-toggle-btn:hover { background-color: rgba(255, 255, 255, 0.06); }
+.mobile-menu-toggle { display: block; background: none; border: none; font-size: 1.5rem; color: var(--text-secondary-light); cursor: pointer; padding: 0.5rem; margin-left: 1rem; transition: color var(--transition-speed-fast) var(--transition-timing); }
+.mobile-menu-toggle:hover { color: var(--accent-color-light); }
+.mobile-menu { font-family: var(--font-primary); display: none; position: absolute; top: 100%; left: 0; right: 0; background-color: var(--navbar-bg-light); border-top: 1px solid var(--border-color-light); padding: 1rem 0; box-shadow: var(--navbar-shadow-light); transition: background-color var(--transition-speed) var(--transition-timing), border-color var(--transition-speed) var(--transition-timing); }
+.mobile-menu.open { display: block; }
+.mobile-menu .nav-link { display: block; padding: 0.75rem 1.5rem; text-align: left; border-bottom: 1px solid var(--border-color-light); border-left: 3px solid transparent; }
+.mobile-menu .nav-link.active { border-left-color: var(--accent-color-light); color: var(--accent-color-light); background-color: rgba(0,0,0,0.02); }
+html.dark .mobile-menu .nav-link.active { border-left-color: var(--accent-color-dark); color: var(--accent-color-dark); background-color: rgba(255,255,255,0.03); }
+.mobile-menu .nav-link:last-of-type { border-bottom: none; }
+.mobile-actions { display: flex; justify-content: center; align-items: center; gap: 1.5rem; padding: 1rem 1.5rem; border-bottom: 1px solid var(--border-color-light); }
+html.dark .mobile-actions { border-bottom-color: var(--border-color-dark); }
+.mobile-menu .mobile-login { display: block; margin: 1rem auto; width: fit-content; }
 
-/* Dark mode styles - General */
-html.dark .body-bg { background-color: var(--color-bg-dark); }
-html.dark .body-text { color: var(--color-text-primary-dark); }
-html.dark .header-bg { background-color: var(--color-bg-dark); }
-html.dark .logo-text { color: var(--color-logo-dark); }
-html.dark .nav-link { color: var(--color-link-dark); }
-html.dark .nav-link:hover { color: var(--color-link-hover-dark); }
-html.dark .icon-color { color: var(--color-icon-dark); }
-html.dark .icon-button:hover .icon-color { color: var(--color-link-hover-dark); }
-html.dark .login-button {
-    background-color: var(--color-button-bg-dark);
-    color: var(--color-button-text-dark);
-}
-html.dark .login-button:hover {
-    background-color: #7c3aed; /* Slightly darker purple */
-}
-html.dark .heading-text { color: var(--color-text-primary-dark); }
-html.dark .faq-item {
-    background-color: var(--color-faq-bg-dark);
-    border-color: var(--color-faq-border-dark);
-}
-html.dark .faq-question {
-    color: var(--color-text-primary-dark);
-}
-html.dark .faq-answer {
-    color: var(--color-text-secondary-dark);
-    border-top-color: var(--color-faq-border-dark);
-}
-html.dark .faq-icon {
-    color: var(--color-icon-dark);
-}
-/* Ensure shadow is visible in dark mode */
-html.dark .shadow-md {
-     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Default shadow */
-     /* Optionally add a subtle white shadow for dark mode if needed */
-     /* box-shadow: 0 1px 3px 0 rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(255, 255, 255, 0.06); */
-}
+/* --- Main Content Styles (Font Update) --- */
+.main-content { font-family: var(--font-primary); padding-top: 3rem; padding-bottom: 5rem; background-color: var(--bg-primary-light); transition: background-color var(--transition-speed) var(--transition-timing); flex-grow: 1; }
 
-
-/* Tailwind Customizations / Component Styles */
-.container {
-    max-width: 1280px; /* Or your preferred max width */
-}
-
-.font-logo {
-    font-family: var(--font-logo);
+/* Apply heading font to page title */
+.page-title {
+  font-family: var(--font-headings); /* Use Cormorant Garamond */
+  font-size: 2.75rem; /* Larger size for serif heading */
+  font-weight: 700;
+  margin-bottom: 3rem; /* More space below */
+  color: var(--text-primary-light);
+  text-align: center;
+  transition: color var(--transition-speed) var(--transition-timing);
+  line-height: 1.2; /* Adjust line height */
 }
 
-.icon-button {
-    background: none;
-    border: none;
-    padding: 0.25rem; /* Add some padding for easier clicking */
-    cursor: pointer;
-    border-radius: 9999px; /* Make it round */
-    display: inline-flex; /* Align icon properly */
-    align-items: center;
-    justify-content: center;
-}
-.icon-button:hover {
-    /* Optional: Add a subtle background on hover */
-    /* background-color: rgba(0, 0, 0, 0.05); */
-}
-html.dark .icon-button:hover {
-     /* background-color: rgba(255, 255, 255, 0.1); */
+/* --- Search Bar Styles (Keep as is) --- */
+.search-container { position: relative; max-width: 600px; margin: 0 auto 3rem auto; }
+.search-input { font-family: var(--font-primary); width: 100%; padding: 0.75rem 1rem 0.75rem 2.5rem; font-size: 1rem; border: 1px solid var(--input-border-light); border-radius: 0.5rem; background-color: var(--input-bg-light); color: var(--text-primary-light); transition: border-color var(--transition-speed-fast) var(--transition-timing), background-color var(--transition-speed) var(--transition-timing), color var(--transition-speed) var(--transition-timing), box-shadow var(--transition-speed-fast) var(--transition-timing); box-sizing: border-box; }
+.search-input:focus { outline: none; border-color: var(--input-focus-border-light); box-shadow: 0 0 0 2px var(--accent-color-light); }
+.search-input::placeholder { color: var(--text-secondary-light); opacity: 0.8; }
+.search-icon { position: absolute; left: 0.875rem; top: 50%; transform: translateY(-50%); color: var(--text-secondary-light); pointer-events: none; transition: color var(--transition-speed) var(--transition-timing); }
+
+/* --- FAQ Section & Categories (Font Update) --- */
+.faq-section { font-family: var(--font-primary); max-width: 800px; margin: 0 auto; }
+.faq-category { margin-bottom: 2.5rem; }
+/* Use primary font (bold) for category titles */
+.category-title {
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  font-weight: 700; /* Bold Nunito Sans */
+  color: var(--text-primary-light);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--border-color-light);
+  transition: color var(--transition-speed) var(--transition-timing), border-color var(--transition-speed) var(--transition-timing);
 }
 
-/* FAQ Accordion Styling */
-details > summary {
-    list-style: none; /* Remove default marker */
-    cursor: pointer;
-    padding: 1rem 1.5rem; /* p-4 sm:p-6 */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: 600; /* font-semibold */
-    transition: background-color 0.2s ease;
-}
-details > summary::-webkit-details-marker {
-    display: none; /* Hide marker for Chrome/Safari */
-}
-details > summary:hover {
-    /* Optional hover background */
-    /* background-color: rgba(0, 0, 0, 0.02); */
-}
-html.dark details > summary:hover {
-    /* background-color: rgba(255, 255, 255, 0.05); */
+/* --- FAQ Accordion Styles (Keep as is) --- */
+.faq-accordion { border: 1px solid var(--border-color-light); border-radius: 0.5rem; overflow: hidden; background-color: var(--card-bg-light); box-shadow: var(--shadow-light); transition: border-color var(--transition-speed) var(--transition-timing), background-color var(--transition-speed) var(--transition-timing), box-shadow var(--transition-speed) var(--transition-timing); }
+.faq-item { border-bottom: 1px solid var(--border-color-light); transition: border-color var(--transition-speed) var(--transition-timing), opacity var(--transition-speed-fast) ease, max-height var(--transition-speed-fast) ease, margin var(--transition-speed-fast) ease, padding var(--transition-speed-fast) ease, border var(--transition-speed-fast) ease; overflow: hidden; }
+.faq-item:last-child { border-bottom: none; }
+.faq-item.hidden { opacity: 0; max-height: 0 !important; padding-top: 0; padding-bottom: 0; margin-top: 0; margin-bottom: 0; border-width: 0; pointer-events: none; }
+.faq-question { font-family: var(--font-primary); display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 1.25rem 1.5rem; background: none; border: none; cursor: pointer; text-align: left; font-size: 1rem; font-weight: 600; /* Semibold Nunito Sans */ color: var(--text-primary-light); transition: background-color var(--transition-speed-fast) ease, color var(--transition-speed) var(--transition-timing); }
+.faq-question:hover { background-color: var(--bg-secondary-light); }
+.faq-icon { font-size: 0.875rem; color: var(--text-secondary-light); transition: transform 0.3s ease, color var(--transition-speed) var(--transition-timing); margin-left: 1rem; flex-shrink: 0; }
+.faq-question[aria-expanded="true"] .faq-icon { transform: rotate(180deg); }
+.faq-answer { font-family: var(--font-primary); max-height: 0; overflow: hidden; padding: 0 1.5rem; background-color: var(--bg-secondary-light); color: var(--text-secondary-light); transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, background-color var(--transition-speed) var(--transition-timing), color var(--transition-speed) var(--transition-timing), border-color var(--transition-speed) var(--transition-timing); border-top: 1px solid transparent; opacity: 0; }
+.faq-answer.open { max-height: 500px; padding: 1.25rem 1.5rem; border-top: 1px solid var(--border-color-light); opacity: 1; }
+.faq-answer p { margin: 0 0 1rem 0; font-weight: 400; /* Regular weight for answer */ }
+.faq-answer p:last-child { margin-bottom: 0; }
+
+/* --- FAQ Feedback Styles (Keep as is) --- */
+.faq-feedback { font-family: var(--font-primary); margin-top: 1.5rem; padding-top: 1rem; border-top: 1px dashed var(--border-color-light); display: flex; align-items: center; gap: 0.75rem; font-size: 0.875rem; color: var(--text-secondary-light); transition: border-color var(--transition-speed) var(--transition-timing), color var(--transition-speed) var(--transition-timing); }
+.feedback-btn { font-family: var(--font-primary); background-color: transparent; border: 1px solid var(--border-color-light); color: var(--text-secondary-light); padding: 0.3rem 0.8rem; border-radius: 9999px; cursor: pointer; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 0.3rem; transition: background-color var(--transition-speed-fast) ease, color var(--transition-speed-fast) ease, border-color var(--transition-speed-fast) ease; }
+.feedback-btn i { font-size: 0.9em; }
+.feedback-btn:hover { background-color: var(--bg-secondary-light); border-color: var(--accent-color-light); color: var(--accent-color-light); }
+html.dark .feedback-btn:hover { background-color: var(--border-color-dark); border-color: var(--accent-color-dark); color: var(--accent-color-dark); }
+
+/* --- No Results Message (Keep as is) --- */
+.no-results { font-family: var(--font-primary); text-align: center; padding: 2rem; color: var(--text-secondary-light); font-style: italic; transition: color var(--transition-speed) var(--transition-timing); }
+
+/* --- Back to Top Button (Keep as is) --- */
+.back-to-top-btn { position: fixed; bottom: 2rem; right: 2rem; background-color: var(--accent-color-light); color: var(--button-text-light); border: none; border-radius: 50%; width: 3rem; height: 3rem; font-size: 1.25rem; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); opacity: 0; visibility: hidden; transform: translateY(20px); transition: opacity var(--transition-speed-fast) ease, visibility var(--transition-speed-fast) ease, transform var(--transition-speed-fast) ease, background-color var(--transition-speed) var(--transition-timing); z-index: 900; }
+.back-to-top-btn.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+.back-to-top-btn:hover { background-color: var(--accent-color-hover-light); }
+
+/* --- Icon Sizing --- */
+.icon-size { width: 1.1rem; height: 1.1rem; vertical-align: middle; }
+
+/* --- Footer Styles (Font Update) --- */
+.site-footer {
+  font-family: var(--font-primary); /* Base font for footer */
+  background-color: var(--footer-bg-light);
+  color: var(--footer-text-primary-light);
+  padding: 3rem 0 1.5rem 0;
+  margin-top: auto;
+  transition: background-color var(--transition-speed) var(--transition-timing),
+              color var(--transition-speed) var(--transition-timing);
 }
 
-.faq-answer {
-    padding: 1rem 1.5rem; /* p-4 sm:p-6 */
-    line-height: 1.6; /* Improve readability */
+.footer-container { max-width: 1280px; margin: 0 auto; padding: 0 1rem; }
+.footer-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem; margin-bottom: 2.5rem; }
+.footer-column { flex: 1; min-width: 200px; }
+
+/* Apply heading font to footer logo */
+.footer-logo {
+  font-family: var(--font-headings); /* Use Cormorant Garamond */
+  font-size: 1.8rem; /* Match navbar logo size */
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--footer-text-primary-light);
+  transition: color var(--transition-speed) var(--transition-timing);
+  line-height: 1; /* Adjust line height */
 }
 
-.faq-icon {
-    transition: transform 0.2s ease-in-out;
-}
+.footer-description { font-size: 0.9rem; line-height: 1.6; color: var(--footer-text-secondary-light); margin-bottom: 1rem; transition: color var(--transition-speed) var(--transition-timing); }
+/* Use primary font (bold) for footer headings */
+.footer-heading { font-family: var(--font-primary); font-size: 1.1rem; font-weight: 700; /* Bold Nunito Sans */ margin-bottom: 1rem; color: var(--footer-text-primary-light); transition: color var(--transition-speed) var(--transition-timing); }
+.footer-links ul { list-style: none; padding: 0; margin: 0; }
+.footer-links li { margin-bottom: 0.6rem; }
+.footer-links a { color: var(--footer-text-secondary-light); text-decoration: none; font-size: 0.9rem; transition: color var(--transition-speed-fast) ease; }
+.footer-links a:hover { color: var(--footer-text-primary-light); text-decoration: underline; }
+.footer-contact address { font-style: normal; font-size: 0.9rem; line-height: 1.7; color: var(--footer-text-secondary-light); transition: color var(--transition-speed) var(--transition-timing); }
+.footer-contact address i { margin-right: 0.5rem; width: 1em; text-align: center; }
+.footer-contact a { color: var(--footer-text-secondary-light); text-decoration: none; transition: color var(--transition-speed-fast) ease; }
+.footer-contact a:hover { color: var(--footer-text-primary-light); text-decoration: underline; }
+.footer-newsletter { text-align: center; padding: 2rem 0; margin: 2rem 0; border-top: 1px solid var(--footer-border-light); border-bottom: 1px solid var(--footer-border-light); transition: border-color var(--transition-speed) var(--transition-timing); }
+.footer-newsletter h4 { margin-bottom: 0.5rem; }
+.footer-newsletter p { font-size: 0.9rem; color: var(--footer-text-secondary-light); margin-bottom: 1.5rem; max-width: 450px; margin-left: auto; margin-right: auto; transition: color var(--transition-speed) var(--transition-timing); }
+.newsletter-form { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 0.5rem; max-width: 500px; margin: 0 auto; }
+.newsletter-form input[type="email"] { font-family: var(--font-primary); flex-grow: 1; padding: 0.75rem 1rem; border: 1px solid var(--footer-input-border-light); background-color: var(--footer-input-bg-light); color: var(--footer-input-text-light); border-radius: 0.375rem; font-size: 0.9rem; min-width: 200px; transition: background-color var(--transition-speed) var(--transition-timing), border-color var(--transition-speed) var(--transition-timing), color var(--transition-speed) var(--transition-timing), box-shadow var(--transition-speed-fast) ease; }
+.newsletter-form input[type="email"]::placeholder { color: var(--footer-text-secondary-light); opacity: 0.7; }
+.newsletter-form input[type="email"]:focus { outline: none; border-color: var(--accent-color-light); box-shadow: 0 0 0 2px var(--accent-color-light); }
+.newsletter-form .button-primary { font-family: var(--font-primary); flex-shrink: 0; }
+.footer-bottom { text-align: center; margin-top: 2rem; font-size: 0.85rem; color: var(--footer-text-secondary-light); opacity: 0.8; transition: color var(--transition-speed) var(--transition-timing); }
 
 
-/* --- Updated Footer Styles --- */
-.footer-bg { background-color: var(--color-footer-bg-light); }
-.footer-text { color: var(--color-footer-text-primary-light); }
-.footer-text-secondary { color: var(--color-footer-text-secondary-light); }
-.footer-logo-text { color: var(--color-footer-text-primary-light); } /* Footer logo matches primary text */
-.footer-title {
-    font-size: 1rem; /* text-base */
-    font-weight: 600; /* font-semibold */
-    margin-bottom: 0.75rem; /* mb-3 */
-    color: var(--color-footer-text-primary-light);
-}
-.footer-link {
-    color: var(--color-footer-link-light);
-    transition: color 0.2s ease;
-    font-size: 0.875rem; /* text-sm */
-}
-.footer-link:hover {
-    color: var(--color-footer-link-hover-light);
-}
-.footer-icon-link {
-    color: var(--color-footer-link-light);
-    transition: color 0.2s ease;
-}
-.footer-icon-link:hover {
-    color: var(--color-footer-link-hover-light);
-}
-.footer-border-light { border-color: var(--color-footer-border-light); }
-
-.newsletter-form {
-    display: flex;
-    flex-direction: column; /* Stack input and button on small screens */
-    gap: 0.5rem; /* space-y-2 equivalent */
-}
-.newsletter-input {
-    background-color: var(--color-footer-input-bg-light);
-    color: var(--color-footer-input-text-light);
-    border: 1px solid var(--color-footer-border-light); /* Use footer border color */
-    border-radius: 0.375rem; /* rounded-md */
-    padding: 0.5rem 0.75rem; /* py-2 px-3 */
-    font-size: 0.875rem; /* text-sm */
-    flex-grow: 1; /* Allow input to grow */
-}
-.newsletter-input::placeholder {
-    color: var(--color-footer-text-secondary-light); /* Use secondary text color for placeholder */
-}
-.newsletter-button {
-    background-color: var(--color-footer-button-bg-light);
-    color: var(--color-footer-button-text-light);
-    padding: 0.5rem 1rem; /* py-2 px-4 */
-    border-radius: 0.375rem; /* rounded-md */
-    font-weight: 500; /* medium */
-    font-size: 0.875rem; /* text-sm */
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-.newsletter-button:hover {
-    background-color: #5b21b6; /* Darker purple */
+/* --- Responsive Design (Keep as is) --- */
+@media (min-width: 768px) {
+  .navbar-menu { display: flex; }
+  .navbar-actions { display: flex; }
+  .mobile-menu-toggle { display: none; }
+  .mobile-menu { display: none !important; }
+  .navbar-container { padding-left: 1.5rem; padding-right: 1.5rem; }
 }
 
-/* Dark mode footer styles */
-html.dark .footer-bg { background-color: var(--color-footer-bg-dark); }
-html.dark .footer-text { color: var(--color-footer-text-primary-dark); }
-html.dark .footer-text-secondary { color: var(--color-footer-text-secondary-dark); }
-html.dark .footer-logo-text { color: var(--color-footer-text-primary-dark); }
-html.dark .footer-title { color: var(--color-footer-text-primary-dark); }
-html.dark .footer-link { color: var(--color-footer-link-dark); }
-html.dark .footer-link:hover { color: var(--color-footer-link-hover-dark); }
-html.dark .footer-icon-link { color: var(--color-footer-link-dark); }
-html.dark .footer-icon-link:hover { color: var(--color-footer-link-hover-dark); }
-html.dark .footer-border-light { border-color: var(--color-footer-border-dark); } /* Use dark border variable */
-html.dark .newsletter-input {
-    background-color: var(--color-footer-input-bg-dark);
-    color: var(--color-footer-input-text-dark);
-    border-color: var(--color-footer-border-dark);
-}
-html.dark .newsletter-input::placeholder {
-    color: var(--color-footer-text-secondary-dark);
-}
-html.dark .newsletter-button {
-    background-color: var(--color-footer-button-bg-dark);
-    color: var(--color-footer-button-text-dark);
-}
-html.dark .newsletter-button:hover {
-    background-color: #7c3aed; /* Slightly darker purple */
+@media (min-width: 1024px) {
+   .navbar-container { padding-left: 2rem; padding-right: 2rem; }
+  .navbar-menu { gap: 1.5rem; }
+   .navbar-actions { gap: 1.25rem; }
 }
 
-
-/* Responsive adjustments */
-@media (min-width: 640px) { /* sm breakpoint */
-    .newsletter-form {
-        flex-direction: row; /* Input and button side-by-side */
-    }
-    .newsletter-button {
-        flex-shrink: 0; /* Prevent button from shrinking */
-    }
+/* Footer Responsive */
+@media (max-width: 768px) {
+  .footer-top { flex-direction: column; align-items: center; text-align: center; }
+  .footer-column { min-width: 100%; margin-bottom: 1.5rem; }
+  .footer-links ul, .footer-contact address { text-align: center; }
+   .newsletter-form { flex-direction: column; align-items: stretch; }
+  .newsletter-form input[type="email"] { min-width: auto; text-align: center; }
+   .newsletter-form .button-primary { width: 100%; }
+   .page-title { font-size: 2.25rem; } /* Adjust title size on smaller screens */
 }
 
-@media (max-width: 768px) { /* md breakpoint */
-    .login-button {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.875rem; /* text-sm */
-    }
-    /* Stack footer columns */
-     .footer-column {
-        /* Tailwind grid handles stacking, but you could add margin if needed */
-        /* margin-bottom: 2rem; */
-     }
-     .footer-column:last-child {
-        /* margin-bottom: 0; */
-     }
-}
